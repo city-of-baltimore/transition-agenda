@@ -1,0 +1,32 @@
+{
+    "id": "FC8C80F3",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1607733533360.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "expression": "pg3",
+        "caption": "pg3",
+        "totalObservations": "10",
+        "displayedObservations": "10",
+        "variables": "3",
+        "cacheKey": "1D2DFC14",
+        "object": "pg3",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=pg3&cache_key=1D2DFC14&max_cols=50",
+        "preview": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8030874102432819570,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1607733533360,
+    "read_only": false,
+    "read_only_alternatives": []
+}
