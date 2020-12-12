@@ -25,18 +25,31 @@ ui <- pageWithSidebar(
   
   
   #sidebar panel for inputs
-  sidebarPanel("Program Areas"),
+  sidebarPanel(
+    
+    #input: selector for Mayor Scott's agenda areas
+    selectInput("variable","Program Area",
+                pg3[2]
+    )
+  ),
   
+  sidebarPanel(
+    
+    #input: selector for Mayor Scott's agenda areas
+    selectInput("variable","Program Area",
+                pg3[3]
+    )
+  )
   
-  #main panel for outputs
-  mainPanel()
-)
+
+  )
 
 server <- function(input, output){
   
   
 }
 
+# run to see the page
 shinyApp(ui,server)
 
 
