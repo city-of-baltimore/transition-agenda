@@ -26,4 +26,4 @@ server <- function(input, output){
 
 shinyApp(ui,server)
 
-runApp("~/shinyapp")
+
