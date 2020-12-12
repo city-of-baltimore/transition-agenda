@@ -1,0 +1,32 @@
+{
+    "id": "813DB176",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1607732855603.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "expression": "pg4",
+        "caption": "pg4",
+        "totalObservations": 1,
+        "displayedObservations": 1,
+        "variables": 5,
+        "cacheKey": "59B54FB1",
+        "object": "pg4",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=pg4&cache_key=59B54FB1&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1607732059,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1607732855603,
+    "read_only": false,
+    "read_only_alternatives": []
+}
