@@ -1,0 +1,32 @@
+{
+    "id": "5B6D0243",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1607733531772.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "expression": "pg2",
+        "caption": "pg2",
+        "totalObservations": 124,
+        "displayedObservations": 124,
+        "variables": 6,
+        "cacheKey": "5AEED851",
+        "object": "pg2",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=pg2&cache_key=5AEED851&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 3548067076488918113,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1607733531772,
+    "read_only": false,
+    "read_only_alternatives": []
+}
