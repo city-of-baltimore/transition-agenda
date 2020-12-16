@@ -21,9 +21,9 @@ pg4 <- read_sheet("https://docs.google.com/spreadsheets/d/1lkTa3zDSJ-aO0c0XxfocQ
 
 #Create table for manipulation later
 table1 <- pg1 %>%
-  select(c(2,4,5,6,10,11,13))
+  select(c(2,4,5,6,10,11,13,14))
 
-#add text for Brandon Scott's welcome
+#add text for Brandon Scotts welcome
 text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")
 
 #produce basic shell for the site
@@ -72,7 +72,7 @@ server <- function(input, output){
   #Load the progress tracker output
   output$plot1 <- renderPlot({
     table1 %>%
-      ggplot(aes(fill = Progress, x = "", y = "")) +
+      ggplot(aes(fill = Progress, x = "", y = Count)) +
       geom_bar(position = "fill", 
                stat = "identity",
                width = .5) +
@@ -94,3 +94,18 @@ server <- function(input, output){
 shinyApp(ui,server)
 
 
+
+table1 %>%
+  ggplot(aes(fill = Progress, x = "", y = Count)) +
+  geom_bar(position = "fill", 
+           stat = "identity",
+           width = .5) +
+  coord_flip() +
+  theme(legend.position = "bottom",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.ticks.y=element_blank(),
+        panel.background = element_blank()
+  ) +
+  scale_fill_manual(values=c("forest green", "red"))
