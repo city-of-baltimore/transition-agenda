@@ -1,17 +1,21 @@
-#install relevant packages
-install.packages("shiny")
-install.packages("tidyverse")
-install.packages("googlesheets4")
-install.packages("formattable")
-install.packages("ggplot2")
+#install and load relevant packages
+pacman::p_load(ggplot2, gfonts, googlesheets4, 
+               formattable, shiny, tidyverse)
 
-#load packages
-library(shiny)
-library(tidyverse)
-library(googlesheets4)
-library(formattable)
-library(ggplot2)
+#Set up font
+get_all_fonts()
+setup_font(id = "roboto", output_dir = "www")
+use_font("roboto", "www/css/roboto.css")
 
+#Set up colors
+iteam_red <- "#f15a29"
+iteam_red_light5 <- "#f8ad94"
+iteam_red_light9 <- "#feefea"
+iteam_yellow <- "#ffc429"
+iteam_green <- "#2bb673"
+iteam_purple <- "#893395"
+bc_gold <- "#fdb927"
+bchd_blue <- "#199eb4"
 
 #set up google sheets access
 pg1 <- read_sheet("https://docs.google.com/spreadsheets/d/1lkTa3zDSJ-aO0c0XxfocQP0cGPRQr68YYYwYPPBp3qo/edit?usp=sharing", sheet = 1)
@@ -29,18 +33,17 @@ text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and
 #produce basic shell for the site
 ui <- fluidPage(
   
+  #style
+  tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
+  tags$style("body {font-family: 'Roboto', sans-serif;}"),
   
   #app title
-  headerPanel("Brandon Scott's 100 Days of Action"),
-  
+  headerPanel(strong("Mayor Brandon Scott's 100 Days of Action")),
   
   #Welcome comment from Mayor Scott
-  sidebarPanel(text1)
-  ,
-  
+  sidebarPanel(text1),
   
   sidebarPanel(
-    
     #input: selector for Mayor Scott's agenda areas
     selectInput("variable","Program Area",
                 pg1[2]
@@ -72,11 +75,10 @@ server <- function(input, output){
   #Load the progress tracker output
   output$plot1 <- renderPlot({
     table1 %>%
-      ggplot(aes(fill = Progress, x = "", y = Count)) +
-      geom_bar(position = "fill", 
+      ggplot(aes(fill = Progress, x = Count, y = "")) +
+      geom_bar(position = position_fill(reverse = TRUE), 
                stat = "identity",
                width = .5) +
-      coord_flip() +
       theme(legend.position = "bottom",
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
@@ -84,7 +86,7 @@ server <- function(input, output){
             axis.ticks.y=element_blank(),
             panel.background = element_blank()
       ) +
-      scale_fill_manual(values=c("forest green", "red"))
+      scale_fill_manual(values=c(iteam_green, iteam_red_light9))
     
   }, height = 300)
   
@@ -108,4 +110,4 @@ table1 %>%
         axis.ticks.y=element_blank(),
         panel.background = element_blank()
   ) +
-  scale_fill_manual(values=c("forest green", "red"))
+  scale_fill_manual(values=c(iteam_green, iteam_red))
