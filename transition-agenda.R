@@ -84,11 +84,12 @@ server <- function(input, output){
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
             axis.ticks.y=element_blank(),
+            axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
       scale_fill_manual(values=c(iteam_green, iteam_red_light9))
     
-  }, height = 300)
+  }, height = 100)
   
 }
 
@@ -108,6 +109,7 @@ table1 %>%
         axis.title.y = element_blank(),
         axis.ticks.x=element_blank(),
         axis.ticks.y=element_blank(),
+        axis.text.x = element_blank(),
         panel.background = element_blank()
   ) +
   scale_fill_manual(values=c(iteam_green, iteam_red))
