@@ -52,12 +52,16 @@ ui <- fluidPage(
   
   #sidebar panel for inputs
   sidebarPanel(
-    
-    plotOutput("plot1",
-               hover = "plot_hover"),
-    width = 5,
-    height = 2
-  ),
+      tabsetPanel(
+        tabPanel("Trackers",
+        fluidRow(
+        column(8,plotOutput("plot1",
+                   hover = "plot_hover")),
+        column(8,plotOutput("plot2",
+                   hover = "plot_hover")))
+      ))
+        
+      ),
   
   #Table of actions
   fluidRow(
@@ -90,12 +94,31 @@ server <- function(input, output){
       scale_fill_manual(values=c(iteam_green, iteam_red_light9))
     
   }, height = 100)
+    
+  output$plot2 <- renderPlot({
+    table1 %>%
+      ggplot(aes(fill = Progress, x = Count, y = "")) +
+      geom_bar(position = position_fill(reverse = TRUE), 
+               stat = "identity",
+               width = .5) +
+      theme(legend.position = "bottom",
+            axis.title.x = element_blank(),
+            axis.title.y = element_blank(),
+            axis.ticks.x=element_blank(),
+            axis.ticks.y=element_blank(),
+            axis.text.x = element_blank(),
+            panel.background = element_blank()
+      ) +
+      scale_fill_manual(values=c(iteam_green, iteam_red_light9))
+    
+  }, height = 100)
+  
+  output$dis <- renderDataTable({})
   
 }
 
 # run to see the page
 shinyApp(ui,server)
-
 
 
 table1 %>%
