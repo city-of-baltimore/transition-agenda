@@ -1,6 +1,7 @@
 #install and load relevant packages
 pacman::p_load(ggplot2, gfonts, googlesheets4, 
-               formattable, shiny, tidyverse)
+               formattable, shiny, tidyverse,
+               lubridate)
 
 #Set up font
 get_all_fonts()
@@ -27,6 +28,14 @@ pg4 <- read_sheet("https://docs.google.com/spreadsheets/d/1lkTa3zDSJ-aO0c0XxfocQ
 table1 <- pg1 %>%
   select(c(2,4,5,6,10,11,13,14))
 
+#Creating a function for the days remaining graphic
+past <- function(date){
+  
+  ifelse(date > today(),
+         "Days Remaining","Past")
+  
+}
+
 #add text for Brandon Scotts welcome
 text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")
 
@@ -52,14 +61,14 @@ ui <- fluidPage(
   
   #sidebar panel for inputs
   sidebarPanel(
-      tabsetPanel(
-        tabPanel("Trackers",
+
         fluidRow(
-        column(8,plotOutput("plot1",
-                   hover = "plot_hover")),
-        column(8,plotOutput("plot2",
-                   hover = "plot_hover")))
-      ))
+        column(12, plotOutput("plot1",
+                   hover = "plot_hover"
+                   )),
+        column(12,plotOutput("plot2",
+                   hover = "plot_hover"
+                   )))
         
       ),
   
@@ -96,11 +105,15 @@ server <- function(input, output){
   }, height = 100)
     
   output$plot2 <- renderPlot({
-    table1 %>%
-      ggplot(aes(fill = Progress, x = Count, y = "")) +
-      geom_bar(position = position_fill(reverse = TRUE), 
+    pg2 %>%
+      select(c(1:3)) %>%
+      mutate(Days = sapply(pg2$Date,past),
+             Total = 1) %>%
+      ggplot(aes(fill = Days, x = "", y = Total)) +
+      geom_bar(position = "fill", 
                stat = "identity",
                width = .5) +
+      coord_flip() +
       theme(legend.position = "bottom",
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
@@ -109,7 +122,7 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
-      scale_fill_manual(values=c(iteam_green, iteam_red_light9))
+      scale_fill_manual(values=c(iteam_red_light9, iteam_green))
     
   }, height = 100)
   
@@ -121,6 +134,7 @@ server <- function(input, output){
 shinyApp(ui,server)
 
 
+#action tracker to test layout outside of Shiny app
 table1 %>%
   ggplot(aes(fill = Progress, x = "", y = Count)) +
   geom_bar(position = "fill", 
@@ -136,3 +150,28 @@ table1 %>%
         panel.background = element_blank()
   ) +
   scale_fill_manual(values=c(iteam_green, iteam_red))
+
+
+
+
+pg2 %>%
+  select(c(1:3)) %>%
+  mutate(Days = sapply(pg2$Date,past),
+         Total = 1) %>%
+  ggplot(aes(fill = Days, x = "", y = Total)) +
+  geom_bar(position = "fill", 
+           stat = "identity",
+           width = .5) +
+  coord_flip() +
+  theme(legend.position = "bottom",
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.ticks.y=element_blank(),
+        axis.text.x = element_blank(),
+        panel.background = element_blank()
+  ) +
+  scale_fill_manual(values=c(iteam_red_light9, iteam_green))
+
+  
+  
