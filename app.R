@@ -97,7 +97,6 @@ ui <- fluidPage(
     ),
     
     hr(style="margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid black;"),
-
     
     # Welcome comment from Mayor Scott
     div(
