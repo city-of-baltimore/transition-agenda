@@ -85,7 +85,7 @@ server <- function(input, output){
   
   #Load the progress tracker output
   output$plot1 <- renderPlot({
-    table1 %>%
+    tbPriorities %>%
       ggplot(aes(fill = Progress, x = Count, y = "")) +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
@@ -127,43 +127,6 @@ server <- function(input, output){
   output$dis <- renderDataTable({})
   
 }
-
-#action tracker to test layout outside of Shiny app
-table1 %>%
-  ggplot(aes(fill = Progress, x = "", y = Count)) +
-  geom_bar(position = "fill", 
-           stat = "identity",
-           width = .5) +
-  coord_flip() +
-  theme(legend.position = "bottom",
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.ticks.x=element_blank(),
-        axis.ticks.y=element_blank(),
-        axis.text.x = element_blank(),
-        panel.background = element_blank()
-  ) +
-  scale_fill_manual(values=c(iteam_green, iteam_red))
-
-
-pg2 %>%
-  select(c(1:3)) %>%
-  mutate(Days = sapply(pg2$Date,past),
-         Total = 1) %>%
-  ggplot(aes(fill = Days, x = "", y = Total)) +
-  geom_bar(position = "fill", 
-           stat = "identity",
-           width = .5) +
-  coord_flip() +
-  theme(legend.position = "bottom",
-        axis.title.x = element_blank(),
-        axis.title.y = element_blank(),
-        axis.ticks.x=element_blank(),
-        axis.ticks.y=element_blank(),
-        axis.text.x = element_blank(),
-        panel.background = element_blank()
-  ) +
-  scale_fill_manual(values=c(iteam_red_light9, iteam_green))
 
 
 # Run the app
