@@ -1,11 +1,9 @@
 #install and load relevant packages
 pacman::p_load(ggplot2, gfonts, googlesheets4, 
                formattable, shiny, tidyverse,
-               lubridate)
+               lubridate, readxl)
 
 #Set up font
-get_all_fonts()
-setup_font(id = "roboto", output_dir = "www")
 use_font("roboto", "www/css/roboto.css")
 
 #Set up colors
@@ -19,10 +17,10 @@ bc_gold <- "#fdb927"
 bchd_blue <- "#199eb4"
 
 #set up google sheets access
-pg1 <- read_sheet("https://docs.google.com/spreadsheets/d/1lkTa3zDSJ-aO0c0XxfocQP0cGPRQr68YYYwYPPBp3qo/edit?usp=sharing", sheet = 1)
-pg2 <- read_sheet("https://docs.google.com/spreadsheets/d/1lkTa3zDSJ-aO0c0XxfocQP0cGPRQr68YYYwYPPBp3qo/edit?usp=sharing", sheet = 2)
-pg3 <- read_sheet("https://docs.google.com/spreadsheets/d/1lkTa3zDSJ-aO0c0XxfocQP0cGPRQr68YYYwYPPBp3qo/edit?usp=sharing", sheet = 3)
-pg4 <- read_sheet("https://docs.google.com/spreadsheets/d/1lkTa3zDSJ-aO0c0XxfocQP0cGPRQr68YYYwYPPBp3qo/edit?usp=sharing", sheet = 4)
+pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 1)
+pg2 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 2)
+pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 3)
+pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 4)
 
 #Create table for manipulation later
 table1 <- pg1 %>%
@@ -52,18 +50,21 @@ ui <- fluidPage(
     h1(strong("Mayor Brandon Scott's 100 Days of Action")),
     
     # Welcome comment from Mayor Scott
-    p(text1),
+    div(
+      column(4,style='padding:0px;',p(text1)),
+      # Overview progress and day trackers
+      column(8,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="100px")),
+      div(class="small-tracker", plotOutput("plot2", height="100px")))
+    ),
     
-    # Overview progress and day trackers
-    div(class="small-tracker", plotOutput("plot1", height="100px")),
-    div(class="small-tracker", plotOutput("plot2", height="100px")),
-
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
       tabPanel("Priorities & Progress", dataTableOutput('table')),
       tabPanel("Weekly Updates", "This tab is still under development."),
       tabPanel("Resources & Feedback", "This tab is still under development.")
-    )
+    ),
+    
+    HTML("<p>Send us your feedback on this page through <a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</p>")
   )
 )
 
@@ -117,10 +118,6 @@ server <- function(input, output){
   
 }
 
-# run to see the page
-shinyApp(ui,server)
-
-
 #action tracker to test layout outside of Shiny app
 table1 %>%
   ggplot(aes(fill = Progress, x = "", y = Count)) +
@@ -137,8 +134,6 @@ table1 %>%
         panel.background = element_blank()
   ) +
   scale_fill_manual(values=c(iteam_green, iteam_red))
-
-
 
 
 pg2 %>%
@@ -160,5 +155,6 @@ pg2 %>%
   ) +
   scale_fill_manual(values=c(iteam_red_light9, iteam_green))
 
-  
-  
+
+# Run the app
+shinyApp(ui = ui, server = server)
