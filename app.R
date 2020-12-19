@@ -48,18 +48,18 @@ ui <- fluidPage(
 
   verticalLayout(
     
-    div(
-      column(2,
+    div(style="padding-top:10px;",
+      column(2, style='padding:0px;',
              img(src = "photos/mayor_brandon_scott.png",
                  height = 90,
                  width = 90),
              ),
       
-      column(8,
+      column(8, style='padding:0px;',
             # App title
             h1(strong("Mayor Brandon Scott's 100 Days of Action"))),
       
-      column(2,
+      column(2, style='padding:0px;', align="right",
              img(src = "photos/CITY-LOGO.png",
                  height = 90,
                  width = 90))),
