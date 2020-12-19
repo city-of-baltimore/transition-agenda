@@ -19,24 +19,23 @@ bc_gold <- "#fdb927"
 bchd_blue <- "#199eb4"
 
 #Create icons for priority areas
-justice <- icon("balance-scale")
-healt <- icon("ambulance")
-transpo <- icon("bus")
-building <- icon("building")
-budget <- icon("chart-bar")
-city <- icon("city")
-cogs <- icon("cogs")
-dumpster_fire <- icon("dumpster-fire")
-institution <- icon("landmark")
-green <- icon("leaf")
+health <- icon("ambulance")
+business <- icon("store-alt")
 finance <- icon("money-check-alt")
-shopping <- icon("store-alt")
-tools <- icon("tools")
+education <- icon("chalkboard-teacher")
+neighborhood <- icon("building")
+transportation <- icon("bus")
+human_services <- icon("hospital-user")
+governance <- icon("landmark")
+sustainability <- icon("leaf")
+arts <- icon("palette")
 
 #Create icons for the app layout
 see_more <- icon("chevron-down")
 contact_us <- icon("envelope")
 download <- icon("file-download")
+cogs <- icon("cogs")
+tools <- icon("tools")
 
 #set up google sheets access
 pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 1)
