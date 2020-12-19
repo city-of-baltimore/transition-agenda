@@ -23,8 +23,10 @@ pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 3)
 pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 4)
 
 #Create table for manipulation later
-table1 <- pg1 %>%
+tbPriorities <- pg1 %>%
   select(c(2,4,5,6,10,11,13,14))
+
+tbUpdates <- pg4
 
 #Creating a function for the days remaining graphic
 past <- function(date){
@@ -59,12 +61,13 @@ ui <- fluidPage(
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
-      tabPanel(h3("Priorities & Progress"), dataTableOutput('table')),
-      tabPanel(h3("Weekly Updates"), "This tab is still under development."),
+      tabPanel(h3("Priorities & Progress"), dataTableOutput('tbPriorities')),
+      tabPanel(h3("Weekly Updates"), dataTableOutput('tbUpdates')),
       tabPanel(h3("Resources & Feedback"), "This tab is still under development.")
     ),
     
-    HTML("<h3>Send us your feedback on this page through <a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h3>")
+    HTML("<h3>Send us your feedback on this page through ",
+         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h3>")
   )
 )
 
@@ -73,8 +76,11 @@ ui <- fluidPage(
 server <- function(input, output){
   
   #Load the table output 
-  output$table <- renderDataTable(
-    table1 %>% select(Committee, Action), 
+  output$tbPriorities <- renderDataTable(
+    tbPriorities %>% select(Committee, Action), 
+    options=list(pageLength=10))
+  
+  output$tbUpdates <- renderDataTable(tbUpdates, 
     options=list(pageLength=10))
   
   #Load the progress tracker output
