@@ -42,7 +42,7 @@ ui <- fluidPage(
   
   #style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
-  tags$style("body {font-family: 'Roboto', sans-serif;}, .small-tracker { height: 100px}"),
+  tags$style("* {font-family: 'Roboto', sans-serif;}"),
 
   verticalLayout(
     
@@ -59,19 +59,23 @@ ui <- fluidPage(
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
-      tabPanel("Priorities & Progress", dataTableOutput('table')),
-      tabPanel("Weekly Updates", "This tab is still under development."),
-      tabPanel("Resources & Feedback", "This tab is still under development.")
+      tabPanel(h3("Priorities & Progress"), dataTableOutput('table')),
+      tabPanel(h3("Weekly Updates"), "This tab is still under development."),
+      tabPanel(h3("Resources & Feedback"), "This tab is still under development.")
     ),
     
-    HTML("<p>Send us your feedback on this page through <a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</p>")
+    HTML("<h3>Send us your feedback on this page through <a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h3>")
   )
 )
+
+
 
 server <- function(input, output){
   
   #Load the table output 
-  output$table <- renderDataTable(table1)
+  output$table <- renderDataTable(
+    table1 %>% select(Committee, Action), 
+    options=list(pageLength=10))
   
   #Load the progress tracker output
   output$plot1 <- renderPlot({
