@@ -50,8 +50,8 @@ ui <- fluidPage(
     
     div(
       column(2,
-             img(src = "photos/brandon_scott.png",
-                 height = 135,
+             img(src = "photos/mayor_brandon_scott.png",
+                 height = 90,
                  width = 90),
              ),
       
@@ -61,8 +61,8 @@ ui <- fluidPage(
       
       column(2,
              img(src = "photos/CITY-LOGO.png",
-                 height = 80,
-                 width = 80))),
+                 height = 90,
+                 width = 90))),
     
     # Welcome comment from Mayor Scott
     div(
