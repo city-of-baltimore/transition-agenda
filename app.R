@@ -80,15 +80,13 @@ ui <- fluidPage(
                  height = headerImgSize, width = headerImgSize),
       
       h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
-         style="color:black;max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-8px;"),
+         style="color:black;max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-16px;"),
       
       img(src = "photos/CITY-LOGO.png",
           height = headerImgSize, width = headerImgSize),
     ),
     
-    hr(style="padding:0px;border-top: 1px solid black;"),
-    # div(
-    # tags$style(HTML("hr {border-top: 1px solid #000000;}"))),
+    hr(style="margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid black;"),
     
     # Welcome comment from Mayor Scott
     div(
