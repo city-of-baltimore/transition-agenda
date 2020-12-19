@@ -48,16 +48,17 @@ ui <- fluidPage(
 
   verticalLayout(
     
-    div(style="display:flex;padding-top:10px;",
+    div(style="display:flex;flex-direction:row;justify-content:space-between;padding-top:10px;",
       img(src = "photos/mayor_brandon_scott.png",
                  height = 90,
                  width = 90),
       
-      h1(strong("Mayor Brandon Scott's 100 Days of Action")),
+      h1(strong("Mayor Brandon Scott's 100 Days of Action"), style="max-width:420px;text-align:center;"),
       
       img(src = "photos/CITY-LOGO.png",
                  height = 90,
-                 width = 90)),
+                 width = 90),
+      style="align:right;"),
     
     # Welcome comment from Mayor Scott
     div(
