@@ -1,7 +1,7 @@
 #install and load relevant packages
 pacman::p_load(ggplot2, gfonts, googlesheets4, 
                formattable, shiny, tidyverse,
-               lubridate, readxl)
+               lubridate, readxl, DT)
 
 #Set up font
 use_font("roboto", "www/css/roboto.css")
@@ -76,7 +76,7 @@ ui <- fluidPage(
     tabsetPanel(type="tabs",
       tabPanel(h3("Priorities & Progress"), dataTableOutput('tbPriorities')),
       tabPanel(h3("Weekly Updates"), dataTableOutput('tbUpdates')),
-      tabPanel(h3("Resources & Feedback"), "This tab is still under development.")
+      tabPanel(h3("Resources & Feedback"), DT::dataTableOutput("mytable"))
     ),
     
     HTML("<h3>Send us your feedback on this page through ",
@@ -87,6 +87,34 @@ ui <- fluidPage(
 
 
 server <- function(input, output){
+  
+  output$mytable = DT::renderDataTable({
+    DT::datatable(
+      cbind(' ' = '&oplus;', mtcars), escape = -2,
+      options = list(
+        columnDefs = list(
+          list(visible = FALSE, targets = c(0, 2, 3)),
+          list(orderable = FALSE, className = 'details-control', targets = 1)
+        )
+      ),
+      callback = JS("
+        table.column(1).nodes().to$().css({cursor: 'pointer'});
+        var format = function(d) {
+          return '<div style=\"background-color:#eee; padding: .5em;\"> Model: ' +
+                  d[0] + ', mpg: ' + d[2] + ', cyl: ' + d[3] + '</div>';
+        };
+        table.on('click', 'td.details-control', function() {
+          var td = $(this), row = table.row(td.closest('tr'));
+          if (row.child.isShown()) {
+            row.child.hide();
+            td.html('&oplus;');
+          } else {
+            row.child(format(row.data())).show();
+            td.html('&CircleMinus;');
+          }
+        });"
+      ))
+  })
   
   #Load the table output 
   output$tbPriorities <- renderDataTable(
