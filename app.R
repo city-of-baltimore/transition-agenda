@@ -75,7 +75,7 @@ ui <- fluidPage(
 
   verticalLayout(
     
-    div(style="display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
+    div(style="padding-top:8px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
       img(src = "photos/mayor_brandon_scott.png",
                  height = headerImgSize, width = headerImgSize),
       
