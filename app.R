@@ -3,7 +3,7 @@ pacman::p_load(ggplot2, gfonts, googlesheets4,
                formattable, shiny, tidyverse,
                lubridate, readxl, DT)
 
-#setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
+setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
 
 #Set up font
 use_font("roboto", "www/css/roboto.css")
@@ -17,6 +17,25 @@ iteam_green <- "#2bb673"
 iteam_purple <- "#893395"
 bc_gold <- "#fdb927"
 bchd_blue <- "#199eb4"
+
+#Create icons for priority areas
+health <- icon("ambulance")
+business <- icon("store-alt")
+finance <- icon("money-check-alt")
+education <- icon("chalkboard-teacher")
+neighborhood <- icon("building")
+transportation <- icon("bus")
+human_services <- icon("hospital-user")
+governance <- icon("landmark")
+sustainability <- icon("leaf")
+arts <- icon("palette")
+
+#Create icons for the app layout
+see_more <- icon("chevron-down")
+contact_us <- icon("envelope")
+download <- icon("file-download")
+cogs <- icon("cogs")
+tools <- icon("tools")
 
 #set up google sheets access
 pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 1)
