@@ -3,7 +3,7 @@ pacman::p_load(ggplot2, gfonts, googlesheets4,
                formattable, shiny, tidyverse,
                lubridate, readxl, DT)
 
-setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
+# setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
 
 #Set up font
 use_font("roboto", "www/css/roboto.css")
@@ -80,11 +80,15 @@ ui <- fluidPage(
                  height = headerImgSize, width = headerImgSize),
       
       h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
-         style="max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-8px;"),
+         style="color:black;max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-8px;"),
       
       img(src = "photos/CITY-LOGO.png",
           height = headerImgSize, width = headerImgSize),
     ),
+    
+    hr(style="padding:0px;border-top: 1px solid black;"),
+    # div(
+    # tags$style(HTML("hr {border-top: 1px solid #000000;}"))),
     
     # Welcome comment from Mayor Scott
     div(
