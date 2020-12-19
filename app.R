@@ -49,6 +49,11 @@ tbPriorities <- pg1 %>%
 
 tbUpdates <- pg4
 
+ggpalatte <- cbind(
+  c(iteam_red_light5,iteam_red_light9,iteam_green),
+    c("Not Yet Started","In Progress","Complete")
+)
+
 #Creating a function for the days remaining graphic
 past <- function(date){
   
@@ -83,13 +88,17 @@ ui <- fluidPage(
           height = headerImgSize, width = headerImgSize),
     ),
     
+    div(HTML('<hr style="color: bc_gold;">')),
+    
     # Welcome comment from Mayor Scott
     div(
-      column(4,style='padding:0px;',p(text1)),
+      column(5,style='padding:0px;',p(text1)),
       # Overview progress and day trackers
-      column(6, offset = 2,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="100px")),
+      column(5, offset = 2,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="100px")),
       div(class="small-tracker", plotOutput("plot2", height="100px")))
     ),
+    
+    div(HTML('<hr style="color: bc_gold;">')),
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
@@ -158,7 +167,7 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
-      scale_fill_manual(values=c(iteam_green, iteam_red_light9))
+      scale_fill_manual(values=ggpalatte)
     
   }, height = "auto")
     
@@ -191,3 +200,4 @@ server <- function(input, output){
 
 # Run the app
 shinyApp(ui = ui, server = server)
+
