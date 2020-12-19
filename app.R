@@ -53,7 +53,8 @@ ui <- fluidPage(
                  height = 90,
                  width = 90),
       
-      h1(strong("Mayor Brandon Scott's 100 Days of Action"), style="max-width:420px;text-align:center;"),
+      h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
+         style="max-width:420px;text-align:center;padding:10px;"),
       
       img(src = "photos/CITY-LOGO.png",
                  height = 90,
