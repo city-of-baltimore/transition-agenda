@@ -44,41 +44,28 @@ ui <- fluidPage(
   
   #style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
-  tags$style("body {font-family: 'Roboto', sans-serif;}"),
-  
-  #app title
-  headerPanel(strong("Mayor Brandon Scott's 100 Days of Action")),
-  
-  #Welcome comment from Mayor Scott
-  sidebarPanel(text1),
-  
-  sidebarPanel(
-    #input: selector for Mayor Scott's agenda areas
-    selectInput("variable","Program Area",
-                pg1[2]
+  tags$style("body {font-family: 'Roboto', sans-serif;}, .small-tracker { height: 100px}"),
+
+  verticalLayout(
+    
+    # App title
+    h1(strong("Mayor Brandon Scott's 100 Days of Action")),
+    
+    # Welcome comment from Mayor Scott
+    p(text1),
+    
+    # Overview progress and day trackers
+    div(class="small-tracker", plotOutput("plot1", height="100px")),
+    div(class="small-tracker", plotOutput("plot2", height="100px")),
+
+    # Tab setup for tracker "pages"
+    tabsetPanel(type="tabs",
+      tabPanel("Priorities & Progress", dataTableOutput('table')),
+      tabPanel("Weekly Updates", "This tab is still under development."),
+      tabPanel("Resources & Feedback", "This tab is still under development.")
     )
-  ),
-  
-  #sidebar panel for inputs
-  sidebarPanel(
-
-        fluidRow(
-        column(12, plotOutput("plot1",
-                   hover = "plot_hover"
-                   )),
-        column(12,plotOutput("plot2",
-                   hover = "plot_hover"
-                   )))
-        
-      ),
-  
-  #Table of actions
-  fluidRow(
-    column(12,
-           dataTableOutput('table'))
   )
-
-  )
+)
 
 server <- function(input, output){
   
@@ -89,7 +76,7 @@ server <- function(input, output){
   output$plot1 <- renderPlot({
     table1 %>%
       ggplot(aes(fill = Progress, x = Count, y = "")) +
-      geom_bar(position = position_fill(reverse = TRUE), 
+      geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = .5) +
       theme(legend.position = "bottom",
@@ -102,7 +89,7 @@ server <- function(input, output){
       ) +
       scale_fill_manual(values=c(iteam_green, iteam_red_light9))
     
-  }, height = 100)
+  }, height = "auto")
     
   output$plot2 <- renderPlot({
     pg2 %>%
@@ -124,7 +111,7 @@ server <- function(input, output){
       ) +
       scale_fill_manual(values=c(iteam_red_light9, iteam_green))
     
-  }, height = 100)
+  }, height = "auto")
   
   output$dis <- renderDataTable({})
   
