@@ -110,9 +110,9 @@ ui <- fluidPage(
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
-      tabPanel(h3("Priorities & Progress"), dataTableOutput('tbPriorities')),
-      tabPanel(h3("Weekly Updates"), dataTableOutput('tbUpdates')),
-      tabPanel(h3("Resources & Feedback"), DT::dataTableOutput("mytable"))
+      tabPanel(h3(style="color:black;","Priorities & Progress"), dataTableOutput('tbPriorities')),
+      tabPanel(h3(style="color:black;","Weekly Updates"), dataTableOutput('tbUpdates')),
+      tabPanel(h3(style="color:black;","Resources & Feedback"), "This tab is still under development.")
     ),
     
     HTML("<h3>Send us your feedback on this page through ",
@@ -124,7 +124,7 @@ ui <- fluidPage(
 
 server <- function(input, output){
   
-  output$mytable = DT::renderDataTable({
+  output$tbPriorities = DT::renderDataTable({
     DT::datatable(
       cbind(tbCommittees, "Progress" = "N/A", 'Expand' = '+'),
       options = list(
@@ -150,12 +150,7 @@ server <- function(input, output){
           }
         });"
       ))
-  })
-  
-  #Load the table output 
-  output$tbPriorities <- renderDataTable(
-    tbPriorities %>% select(Committee, Action), 
-    options=list(pageLength=10))
+  }, options=list(pageLength=10))
   
   output$tbUpdates <- renderDataTable(tbUpdates, 
     options=list(pageLength=10))
