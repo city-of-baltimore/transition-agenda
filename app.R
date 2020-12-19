@@ -3,6 +3,8 @@ pacman::p_load(ggplot2, gfonts, googlesheets4,
                formattable, shiny, tidyverse,
                lubridate, readxl, DT)
 
+#setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
+
 #Set up font
 use_font("roboto", "www/css/roboto.css")
 
