@@ -110,9 +110,9 @@ ui <- fluidPage(
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
-      tabPanel(h3(style="color:black;","Priorities & Progress"), dataTableOutput('tbPriorities')),
-      tabPanel(h3(style="color:black;","Weekly Updates"), dataTableOutput('tbUpdates')),
-      tabPanel(h3(style="color:black;","Resources & Feedback"), "This tab is still under development.")
+      tabPanel(h4(style="color:black;","Priorities & Progress"), dataTableOutput('tbPriorities')),
+      tabPanel(h4(style="color:black;","Weekly Updates"), dataTableOutput('tbUpdates')),
+      tabPanel(h4(style="color:black;","Resources & Feedback"), "This tab is still under development.")
     ),
     
     HTML("<h3>Send us your feedback on this page through ",
@@ -192,7 +192,7 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
-      scale_fill_manual(values=c(iteam_red_light9, iteam_green))
+      scale_fill_manual(values=ggpalatte2)
     
   }, height = "auto")
   
