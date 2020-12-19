@@ -96,11 +96,8 @@ ui <- fluidPage(
           height = headerImgSize, width = headerImgSize),
     ),
     
-<<<<<<< HEAD
-    div(HTML('<hr style="color: bc_gold;">')),
-=======
     hr(style="margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid black;"),
->>>>>>> 67224cdb6be93a4298e2e9e1f521ef0e2f2c72ab
+
     
     # Welcome comment from Mayor Scott
     div(
