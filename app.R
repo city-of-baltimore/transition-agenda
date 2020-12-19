@@ -39,6 +39,9 @@ past <- function(date){
 #add text for Brandon Scotts welcome
 text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")
 
+#size for header images
+headerImgSize <- 90
+
 #produce basic shell for the site
 ui <- fluidPage(
   
@@ -48,18 +51,16 @@ ui <- fluidPage(
 
   verticalLayout(
     
-    div(style="display:flex;flex-direction:row;justify-content:space-between;padding-top:10px;",
+    div(style="display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
       img(src = "photos/mayor_brandon_scott.png",
-                 height = 90,
-                 width = 90),
+                 height = headerImgSize, width = headerImgSize),
       
       h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
-         style="max-width:420px;text-align:center;padding:10px;"),
+         style="max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-8px;"),
       
       img(src = "photos/CITY-LOGO.png",
-                 height = 90,
-                 width = 90),
-      style="align:right;"),
+          height = headerImgSize, width = headerImgSize),
+    ),
     
     # Welcome comment from Mayor Scott
     div(
