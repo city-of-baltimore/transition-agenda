@@ -4,6 +4,7 @@ pacman::p_load(ggplot2, gfonts, googlesheets4,
                lubridate, readxl, DT)
 
 setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
+# setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
 
 #Set up font
 use_font("roboto", "www/css/roboto.css")
@@ -43,6 +44,9 @@ pg2 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 2)
 pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 3)
 pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 4)
 
+tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
+  rename("Priority Area" = Name)
+
 #Create table for manipulation later
 tbPriorities <- pg1 %>%
   select(c(2,4,5,6,10,11,13,14))
@@ -77,18 +81,22 @@ ui <- fluidPage(
 
   verticalLayout(
     
-    div(style="display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
+    div(style="padding-top:8px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
       img(src = "photos/mayor_brandon_scott.png",
                  height = headerImgSize, width = headerImgSize),
       
       h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
-         style="max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-8px;"),
+         style="color:black;max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-16px;"),
       
       img(src = "photos/CITY-LOGO.png",
           height = headerImgSize, width = headerImgSize),
     ),
     
+<<<<<<< HEAD
     div(HTML('<hr style="color: bc_gold;">')),
+=======
+    hr(style="margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid black;"),
+>>>>>>> 67224cdb6be93a4298e2e9e1f521ef0e2f2c72ab
     
     # Welcome comment from Mayor Scott
     div(
@@ -118,27 +126,27 @@ server <- function(input, output){
   
   output$mytable = DT::renderDataTable({
     DT::datatable(
-      cbind(' ' = '&oplus;', mtcars), escape = -2,
+      cbind(tbCommittees, "Progress" = "N/A", 'Expand' = '+'),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 2, 3)),
-          list(orderable = FALSE, className = 'details-control', targets = 1)
+          list(visible = FALSE, targets = c(0, 1, 3, 4, 5)),
+          list(orderable = FALSE, className = 'details-control', targets = 7)
         )
       ),
       callback = JS("
-        table.column(1).nodes().to$().css({cursor: 'pointer'});
+        table.column(3).nodes().to$().css({cursor: 'pointer'});
         var format = function(d) {
-          return '<div style=\"background-color:#eee; padding: .5em;\"> Model: ' +
+          return '<div style=\"padding: .5em;\"> Model: ' +
                   d[0] + ', mpg: ' + d[2] + ', cyl: ' + d[3] + '</div>';
         };
         table.on('click', 'td.details-control', function() {
           var td = $(this), row = table.row(td.closest('tr'));
           if (row.child.isShown()) {
             row.child.hide();
-            td.html('&oplus;');
+            td.html('+');
           } else {
             row.child(format(row.data())).show();
-            td.html('&CircleMinus;');
+            td.html('−');
           }
         });"
       ))
