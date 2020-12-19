@@ -52,9 +52,14 @@ tbPriorities <- pg1 %>%
 
 tbUpdates <- pg4
 
-ggpalatte <- cbind(
+ggpalatte1 <- cbind(
   c(iteam_red_light5,iteam_red_light9,iteam_green),
     c("Not Yet Started","In Progress","Complete")
+)
+
+ggpalatte2 <- cbind(
+  c(iteam_red_light9,iteam_green),
+  c("Days Remaining","Past")
 )
 
 #Creating a function for the days remaining graphic
@@ -174,7 +179,7 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
-      scale_fill_manual(values=ggpalatte)
+      scale_fill_manual(values=ggpalatte1)
     
   }, height = "auto")
     
