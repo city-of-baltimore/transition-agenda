@@ -48,14 +48,27 @@ ui <- fluidPage(
 
   verticalLayout(
     
-    # App title
-    h1(strong("Mayor Brandon Scott's 100 Days of Action")),
+    div(
+      column(2,
+             img(src = "photos/brandon_scott.png",
+                 height = 135,
+                 width = 90),
+             ),
+      
+      column(8,
+            # App title
+            h1(strong("Mayor Brandon Scott's 100 Days of Action"))),
+      
+      column(2,
+             img(src = "photos/CITY-LOGO.png",
+                 height = 80,
+                 width = 80))),
     
     # Welcome comment from Mayor Scott
     div(
       column(4,style='padding:0px;',p(text1)),
       # Overview progress and day trackers
-      column(8,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="100px")),
+      column(6, offset = 2,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="100px")),
       div(class="small-tracker", plotOutput("plot2", height="100px")))
     ),
     
