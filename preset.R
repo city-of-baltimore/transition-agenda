@@ -80,8 +80,6 @@
     }
     
    #add text for Brandon Scotts welcome
-   text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")
-    
    text1 <- div(HTML("<p>Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters.</p> <p>His vision for the city and for his administration. Explain the short term actions and long term vision.</p>"))
    text2 <- div(hr(),HTML("<p>This table displays Mayor Scott's early achievements organized by priority area. Click the plus sign next to each priority area to see more details on the key goals and progress toward actions associated with each one. For an overview of the transition committees oriented around each of the Mayor's priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this webpage</a>.</p>"),hr())
