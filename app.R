@@ -1,6 +1,7 @@
 library(shiny)
 
 source('preset.R',local = T)
+source('survey.R',local = T)
 source('ui.R',local = T)
 source('server.R',local = T)
 
