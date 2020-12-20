@@ -1,10 +1,16 @@
-#install and load relevant packages
-pacman::p_load(ggplot2, gfonts, googlesheets4, 
-               formattable, shiny, tidyverse,
-               lubridate, readxl, DT, shinyjs)
+#produce content and functions for ui and server
 
-
-# setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
+  #---------------------------------------
+  
+  # Load packages
+    
+    #install and load relevant packages
+    pacman::p_load(ggplot2, gfonts, googlesheets4, 
+                   formattable, shiny, tidyverse,
+                   lubridate, readxl, DT, shinyjs)
+    
+    
+    # setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
 
   #----------------------------------------
 
