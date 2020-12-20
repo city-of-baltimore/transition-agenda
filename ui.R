@@ -28,8 +28,7 @@
           height = headerImgSize, width = headerImgSize),
     ),
 
-    div(HTML('<hr style="color: bc_gold;">')),
-    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  black;")),
     
   #--------------------------------------
   
@@ -43,8 +42,7 @@
       div(class="small-tracker", plotOutput("plotProgress", height="60px")))
     ),
     
-    div(HTML('<hr style="color: bc_gold;">')),
-    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  black;")),
     
   #--------------------------------------
   

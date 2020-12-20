@@ -54,8 +54,8 @@
     )
     
     ggpalette2 <- cbind(
-      c(iteam_green,iteam_red_light5,"whiteSmoke"),
-      c("Past","Current","Days Remaining")
+      c(iteam_green,bc_gold,"whiteSmoke"),
+      c("Past","Current","Remaining")
     )
 
    #------------------------------------
