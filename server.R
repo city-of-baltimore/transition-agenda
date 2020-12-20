@@ -38,14 +38,15 @@ server <- function(input, output){
       ggtitle("Progress") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
-               width = .5) +
+               width = 1) +
+      coord_flip() +
       theme(legend.position = "top",
             legend.justification = "right",
             plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
             legend.margin=margin(c(0,0,-4,0)),
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
-            panel.margin=margin(c(0,0,0,0)),
+            panel.spacing = margin(c(0,0,0,0)),
             panel.border = element_rect(colour = "black", fill=NA, size=0.5),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
@@ -56,8 +57,8 @@ server <- function(input, output){
       ) +
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
-      scale_fill_manual(values=ggpalette1, drop = FALSE, name="Status")
-  }, height = "auto")
+      scale_fill_manual(values=ggpalette1, drop = FALSE, name="Progress")
+    }, height = "auto")
   
   output$plotTimeline <- renderPlot({
     tbDays %>%
@@ -74,7 +75,7 @@ server <- function(input, output){
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
             panel.border = element_rect(colour = "black", fill=NA, size=0.5),
-            panel.margin=margin(c(0,0,0,0)),
+            panel.spacing = margin(c(0,0,0,0)),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
@@ -84,7 +85,7 @@ server <- function(input, output){
       ) +
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
-      scale_fill_manual(values=c(iteam_green,bc_gold,"whiteSmoke"), drop=FALSE)
+      scale_fill_manual(values=ggpalette2, drop=FALSE, name = "Status")
   }, height = "auto")
   
   output$dis <- renderDataTable({})
@@ -131,3 +132,5 @@ server <- function(input, output){
   })
   
 }
+
+
