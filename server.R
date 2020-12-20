@@ -37,9 +37,10 @@ server <- function(input, output){
       ggplot(aes(fill = Progress, x = Count, y = "")) +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
-               width = .5) +
+               width = 1) +
       theme(legend.position = "top",
             legend.justification = "right",
+            panel.border = element_rect(colour = "black", fill=NA, size=1),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
@@ -47,6 +48,8 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
+      scale_x_continuous(expand = c(0, 0)) +
+      scale_y_discrete(expand = c(0, 0)) +
       scale_fill_manual(values=ggpalatte1)
     
   }, height = "auto")
@@ -56,13 +59,14 @@ server <- function(input, output){
       select(c(1:3)) %>%
       mutate(Days = sapply(pg2$Date,past),
              Total = 1) %>%
-      ggplot(aes(fill = Days, x = "", y = Total)) +
-      geom_bar(position = "fill", 
+      ggplot(aes(fill = Days, x = Total, y = "")) +
+      geom_bar(position = "fill",
                stat = "identity",
-               width = .5) +
+               width = 1) +
       coord_flip() +
       theme(legend.position = "top",
             legend.justification = "right",
+            panel.border = element_rect(colour = "black", fill=NA, size=1),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
@@ -70,6 +74,8 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
+      scale_x_discrete(expand = c(0, 0)) +
+      scale_y_discrete(expand = c(0, 0)) +
       scale_fill_manual(values=ggpalatte2)
     
   }, height = "auto")

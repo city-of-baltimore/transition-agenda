@@ -24,8 +24,8 @@ ui <- fluidPage(
     div(
       column(5,style='padding:0px;',p(text1)),
       # Overview progress and day trackers
-      column(5, offset = 2,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="100px")),
-      div(class="small-tracker", plotOutput("plot2", height="100px")))
+      column(5, offset = 2,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="88px")),
+      div(class="small-tracker", plotOutput("plot2", height="88px")))
     ),
     
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
