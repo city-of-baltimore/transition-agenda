@@ -1,4 +1,4 @@
-server <- function(input, output){
+server <- function(input, output,session){
   
   output$tbPriorities = DT::renderDataTable({
     DT::datatable(
@@ -91,8 +91,8 @@ server <- function(input, output){
   output$dis <- renderDataTable({})
   
   #observe if mandatory fields in the survey have a value
+  # Enable the Submit button when all mandatory fields are filled out
   observe({
-    # check if all mandatory fields have a value
     mandatoryFilled <-
       vapply(fieldsMandatory,
              function(x) {
@@ -101,34 +101,46 @@ server <- function(input, output){
              logical(1))
     mandatoryFilled <- all(mandatoryFilled)
     
-    # enable/disable the submit button
     shinyjs::toggleState(id = "submit", condition = mandatoryFilled)
   })
   
-  #capture form data in a responses field
+  # Gather all the form inputs (and add timestamp)
   formData <- reactive({
     data <- sapply(fieldsAll, function(x) input[[x]])
     data <- c(data, timestamp = epochTime())
     data <- t(data)
     data
+  })    
+  
+  # When the Submit button is clicked, submit the response
+  observeEvent(input$submit, {
+    
+    # User-experience stuff
+    shinyjs::disable("submit")
+    shinyjs::show("submit_msg")
+    shinyjs::hide("error")
+    
+    # Save the data (show an error message in case of error)
+    tryCatch({
+      saveData(formData())
+      shinyjs::reset("form")
+      shinyjs::hide("form")
+      shinyjs::show("thankyou_msg")
+    },
+    error = function(err) {
+      shinyjs::html("error_msg", err$message)
+      shinyjs::show(id = "error", anim = TRUE, animType = "fade")
+    },
+    finally = {
+      shinyjs::enable("submit")
+      shinyjs::hide("submit_msg")
+    })
   })
   
-  #and save the responses to csv files
-  saveData <- function(data) {
-    fileName <- sprintf("%s_%s.csv",
-                        humanTime(),
-                        digest::digest(data))
-    
-    write.csv(x = data, file = file.path(responsesDir, fileName),
-              row.names = FALSE, quote = TRUE)
-  }
-
-  # action to take when submit button is pressed
-  observeEvent(input$submit, {
-    saveData(formData())
-    shinyjs::reset("form")
-    shinyjs::hide("form")
-    shinyjs::show("thankyou_msg")
+  # submit another response
+  observeEvent(input$submit_another, {
+    shinyjs::show("form")
+    shinyjs::hide("thankyou_msg")
   })
   
 }
