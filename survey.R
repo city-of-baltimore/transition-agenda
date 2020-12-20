@@ -6,17 +6,17 @@
   
     survey <- div(
       id = "form",
-      textInput("firstname", "First Name", ""),
-      textInput("lastname", "Last Name", ""),
-      textInput("email", "Email Address"),
-      textInput("home", "Home Address (optional)"),
-      textInput("city", "City (optional)"),
-      textInput("zipcode", "Zip Code (optional)"),
-      textInput("message", "Type your message here!"),
-      checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", FALSE),
-      selectInput("type", "Is your comment for the administration or for this page's web developers?",
-                  c("",  "Administration", "Developers")),
-      actionButton("submit", "Submit", class = "btn-primary"),
+      fluidRow(column(4,textInput("firstname", "First Name", "",width = '100%')),
+          column(4,textInput("lastname", "Last Name", "",width = '100%'))),
+      fluidRow(column(4,textInput("email", "Email Address",width = '100%')),
+          column(4,textInput("home", "Home Address (optional)",width = '100%'))),
+      fluidRow(column(4,textInput("city", "City (optional)",width = '100%')),
+          column(4,textInput("zipcode", "Zip Code (optional)",width = '100%'))),
+      fluidRow(column(12,textInput("message", "Type your message here!",width = '100%'))),
+      fluidRow(column(4,selectInput("type", "Is your comment for the administration or for this page's developers?",
+                  c("",  "Administration", "Developers"),width = '100%')),
+               column(4,checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", T)),),
+      fluidRow(actionButton("submit", "Submit", class = "btn-primary"))
     )
     
     #set mandatory fields
