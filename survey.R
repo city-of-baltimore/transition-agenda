@@ -1,7 +1,7 @@
 #produce survey for page four of site
 
   #------------------------------
-  
+
   # Create Basic Survey Form & Hidden Pages
   
     survey <- div(
