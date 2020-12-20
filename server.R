@@ -40,6 +40,8 @@ server <- function(input, output){
                width = 1) +
       theme(legend.position = "top",
             legend.justification = "right",
+            legend.title=element_text(size=12), 
+            legend.text=element_text(size=12),
             panel.border = element_rect(colour = "black", fill=NA, size=1),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
@@ -48,7 +50,7 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
-      scale_x_continuous(expand = c(0, 0)) +
+      scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
       scale_fill_manual(values=ggpalatte1)
     
@@ -66,6 +68,8 @@ server <- function(input, output){
       coord_flip() +
       theme(legend.position = "top",
             legend.justification = "right",
+            legend.title=element_text(size=12), 
+            legend.text=element_text(size=12),
             panel.border = element_rect(colour = "black", fill=NA, size=1),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
