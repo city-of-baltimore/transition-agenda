@@ -53,6 +53,10 @@
       tabPanel(h4(style="color:black;","Weekly Updates"), dataTableOutput('tbUpdates')),
       tabPanel(h4(style="color:black;","About this Initiative"), "In Development"),
       tabPanel(h4(style="color:black;","Resources & Feedback"), survey,hidden1,hidden2)
+      tabPanel(h4(style="color:black;","Priorities & Progress"), text2, dataTableOutput('tbPriorities')),
+      tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
+      tabPanel(h4(style="color:black;","About this Initiative"), hr(),"In Development",hr()),
+      tabPanel(h4(style="color:black;","Resources & Feedback"), text4,links,survey,hidden1,hidden2)
       ),
   
   #--------------------------------------
