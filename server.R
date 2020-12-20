@@ -1,5 +1,9 @@
 server <- function(input, output,session){
   
+  #------------------------------------
+  
+  # Progress table outputs
+  
   output$tbPriorities = DT::renderDataTable({
     DT::datatable(
       cbind(tbCommittees, "Progress" = "N/A", 'Expand' = '+'),
@@ -28,8 +32,16 @@ server <- function(input, output,session){
       ))
   }, options=list(pageLength=10))
   
+  #-------------------------------------
+  
+  # Updates table outputs
+  
   output$tbUpdates <- renderDataTable(tbUpdates, 
                                       options=list(pageLength=10))
+  
+  #-----------------------------------
+  
+  #Tracker Outputs
   
   #Load the progress tracker output
   output$plotProgress <- renderPlot({
@@ -60,6 +72,7 @@ server <- function(input, output,session){
       scale_fill_manual(values=ggpalette1, drop = FALSE, name="Progress")
     }, height = "auto")
   
+  #load the timeline tracker output
   output$plotTimeline <- renderPlot({
     tbDays %>%
       ggplot(aes(fill = Status, x = Total, y = "")) +
@@ -88,9 +101,11 @@ server <- function(input, output,session){
       scale_fill_manual(values=ggpalette2, drop=FALSE, name = "Status")
   }, height = "auto")
   
-  output$dis <- renderDataTable({})
   
-  #observe if mandatory fields in the survey have a value
+  #----------------------------
+  
+  #Survey outputs
+  
   # Enable the Submit button when all mandatory fields are filled out
   observe({
     mandatoryFilled <-
