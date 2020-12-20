@@ -46,6 +46,8 @@ pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 4)
 tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
   rename("Priority Area" = Name)
 
+tbDays <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Days")
+
 #Create table for manipulation later
 tbPriorities <- pg1 %>%
   select(c(2,4,5,6,10,11,13,14))
@@ -58,16 +60,15 @@ ggpalette1 <- cbind(
 )
 
 ggpalatte2 <- cbind(
-  c("whiteSmoke",iteam_green),
-  c("Days Remaining","Past")
+  c("whiteSmoke", bc_gold, iteam_green),
+  c("Past", "Current", "Remaining")
 )
 
 #Creating a function for the days remaining graphic
 past <- function(date){
-  
   ifelse(date > today(),
-         "Days Remaining","Past")
-  
+         "Remaining",
+         ifelse(date == today(),"Current", "Past"))
 }
 
 #add text for Brandon Scotts welcome

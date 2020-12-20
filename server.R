@@ -61,13 +61,13 @@ server <- function(input, output){
   }, height = "auto")
   
   output$plotTimeline <- renderPlot({
-    pg2 %>%
+    tbDays %>%
       select(c(1:3)) %>%
-      mutate(Days = sapply(pg2$Date,past),
+      mutate(Days = factor(sapply(pg2$Date,past), levels=c("Past", "Current","Remaining")),
              Total = 1) %>%
       ggplot(aes(fill = Days, x = Total, y = "")) +
       ggtitle("Timeline") +
-      geom_bar(position = "fill",
+      geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = 1) +
       coord_flip() +
@@ -88,7 +88,7 @@ server <- function(input, output){
       ) +
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
-      scale_fill_manual(values=ggpalatte2)
+      scale_fill_manual(values=c(iteam_green,bc_gold,"whiteSmoke"), drop=FALSE)
     
   }, height = "auto")
   
