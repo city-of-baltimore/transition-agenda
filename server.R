@@ -33,12 +33,23 @@ server <- function(input, output){
   
   #Load the progress tracker output
   output$plot1 <- renderPlot({
+  output$plotProgress <- renderPlot({
     tbPriorities %>%
       ggplot(aes(fill = Progress, x = Count, y = "")) +
+      ggtitle("Progress") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = .5) +
       theme(legend.position = "bottom",
+               width = 1) +
+      theme(legend.position = "top",
+            legend.justification = "right",
+            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
+            legend.margin=margin(c(0,0,-4,0)),
+            legend.title=element_text(size=12), 
+            legend.text=element_text(size=12),
+            panel.margin=margin(c(0,0,0,0)),
+            panel.border = element_rect(colour = "black", fill=NA, size=0.5),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
@@ -47,20 +58,36 @@ server <- function(input, output){
             panel.background = element_blank()
       ) +
       scale_fill_manual(values=ggpalatte1)
+      scale_x_discrete(expand = c(0, 0)) +
+      scale_y_discrete(expand = c(0, 0)) +
+      scale_fill_manual(values=ggpalette1, drop = FALSE, name="Status")
     
   }, height = "auto")
   
   output$plot2 <- renderPlot({
+  output$plotTimeline <- renderPlot({
     pg2 %>%
       select(c(1:3)) %>%
       mutate(Days = sapply(pg2$Date,past),
              Total = 1) %>%
       ggplot(aes(fill = Days, x = "", y = Total)) +
       geom_bar(position = "fill", 
+      ggplot(aes(fill = Days, x = Total, y = "")) +
+      ggtitle("Timeline") +
+      geom_bar(position = "fill",
                stat = "identity",
                width = .5) +
+               width = 1) +
       coord_flip() +
       theme(legend.position = "bottom",
+      theme(legend.position = "top",
+            legend.justification = "right",
+            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
+            legend.margin=margin(c(0,0,-4,0)),
+            legend.title=element_text(size=12), 
+            legend.text=element_text(size=12),
+            panel.border = element_rect(colour = "black", fill=NA, size=0.5),
+            panel.margin=margin(c(0,0,0,0)),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
@@ -68,12 +95,15 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
+      scale_x_discrete(expand = c(0, 0)) +
+      scale_y_discrete(expand = c(0, 0)) +
       scale_fill_manual(values=ggpalatte2)
     
   }, height = "auto")
   
   output$dis <- renderDataTable({})
   
+<<<<<<< HEAD
   #observe if mandatory fields in the survey have a value
   observe({
     # check if all mandatory fields have a value
@@ -115,4 +145,7 @@ server <- function(input, output){
     shinyjs::show("thankyou_msg")
   })
   
+}}
+=======
 }
+>>>>>>> 745ddb06e333be835ec7c87e8b615855315e9f2a
