@@ -1,11 +1,20 @@
 #produce basic shell for the site
-ui <- fluidPage(
-  shinyjs::useShinyjs(),
-  
-  #style
-  tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
-  tags$style("* {font-family: 'Roboto', sans-serif;}"),
 
+  #-------------------------------
+  
+  # Basic Layout
+      
+    ui <- fluidPage(
+      shinyjs::useShinyjs(),
+      
+      #style
+      tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
+      tags$style("* {font-family: 'Roboto', sans-serif;}"),
+
+  #-------------------------------
+  
+  # Header for page
+      
   verticalLayout(
     
     div(style="padding-top:8px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
@@ -22,6 +31,10 @@ ui <- fluidPage(
     div(HTML('<hr style="color: bc_gold;">')),
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
+  #--------------------------------------
+  
+  # Second level content
+    
     # Welcome comment from Mayor Scott
     div(
       column(6,style='padding:0px;',p(text1)),
@@ -33,6 +46,9 @@ ui <- fluidPage(
     div(HTML('<hr style="color: bc_gold;">')),
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
+  #--------------------------------------
+  
+  # Third Level Content
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
       tabPanel(h4(style="color:black;","Priorities & Progress"), dataTableOutput('tbPriorities')),
@@ -40,7 +56,11 @@ ui <- fluidPage(
       tabPanel(h4(style="color:black;","About this Initiative"), "In Development"),
       tabPanel(h4(style="color:black;","Resources & Feedback"), survey,hidden1,hidden2)
       ),
-    
+  
+  #--------------------------------------
+  
+  # Page Bottom
+  
     HTML("<h4>Send us your feedback on this page through ",
          "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>")
   )
