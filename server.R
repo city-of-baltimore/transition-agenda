@@ -1,5 +1,13 @@
 #produce content displayed through ui
 
+  #---------------------------------------
+  
+  # Load packages
+  library(tidyverse)
+  library(DT)
+  library(shinyjs)
+
+
   #-----------------------------------
   
   # Basic Structure
