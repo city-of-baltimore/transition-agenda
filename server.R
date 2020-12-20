@@ -74,4 +74,45 @@ server <- function(input, output){
   
   output$dis <- renderDataTable({})
   
+  #observe if mandatory fields in the survey have a value
+  observe({
+    # check if all mandatory fields have a value
+    mandatoryFilled <-
+      vapply(fieldsMandatory,
+             function(x) {
+               !is.null(input[[x]]) && input[[x]] != ""
+             },
+             logical(1))
+    mandatoryFilled <- all(mandatoryFilled)
+    
+    # enable/disable the submit button
+    shinyjs::toggleState(id = "submit", condition = mandatoryFilled)
+  })
+  
+  #capture form data in a responses field
+  formData <- reactive({
+    data <- sapply(fieldsAll, function(x) input[[x]])
+    data <- c(data, timestamp = epochTime())
+    data <- t(data)
+    data
+  })
+  
+  #and save the responses to csv files
+  saveData <- function(data) {
+    fileName <- sprintf("%s_%s.csv",
+                        humanTime(),
+                        digest::digest(data))
+    
+    write.csv(x = data, file = file.path(responsesDir, fileName),
+              row.names = FALSE, quote = TRUE)
+  }
+
+  # action to take when submit button is pressed
+  observeEvent(input$submit, {
+    saveData(formData())
+    shinyjs::reset("form")
+    shinyjs::hide("form")
+    shinyjs::show("thankyou_msg")
+  })
+  
 }
