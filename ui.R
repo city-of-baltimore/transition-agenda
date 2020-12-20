@@ -17,8 +17,8 @@ ui <- fluidPage(
       img(src = "photos/CITY-LOGO.png",
           height = headerImgSize, width = headerImgSize),
     ),
-    
-    hr(style="margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid gray;"),
+
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
     # Welcome comment from Mayor Scott
     div(
@@ -28,7 +28,6 @@ ui <- fluidPage(
       div(class="small-tracker", plotOutput("plotProgress", height="60px")))
     ),
     
-    div(HTML('<hr style="color: bc_gold;">')),
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
     # Tab setup for tracker "pages"
