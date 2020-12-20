@@ -2,7 +2,7 @@
 
   #---------------------------------------
   
-  # Load packages
+  # Load packages (only matters for publishing on shiny.io)
   library(tidyverse)
   library(DT)
   library(shinyjs)
