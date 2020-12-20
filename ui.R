@@ -37,8 +37,9 @@ ui <- fluidPage(
     tabsetPanel(type="tabs",
       tabPanel(h4(style="color:black;","Priorities & Progress"), dataTableOutput('tbPriorities')),
       tabPanel(h4(style="color:black;","Weekly Updates"), dataTableOutput('tbUpdates')),
-      tabPanel(h4(style="color:black;","Resources & Feedback"), survey,hidden1,hidden2
-      )),
+      tabPanel(h4(style="color:black;","About this Initiative"), "In Development"),
+      tabPanel(h4(style="color:black;","Resources & Feedback"), survey,hidden1,hidden2)
+      ),
     
     HTML("<h4>Send us your feedback on this page through ",
          "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>")
