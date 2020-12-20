@@ -23,12 +23,16 @@ ui <- fluidPage(
     # Welcome comment from Mayor Scott
     div(
       column(5,style='padding:0px;',p(text1)),
+      column(6,style='padding:0px;',p(text1)),
       # Overview progress and day trackers
       column(5, offset = 2,style='padding:0px;',div(class="small-tracker", plotOutput("plot1", height="100px")),
       div(class="small-tracker", plotOutput("plot2", height="100px")))
+      column(6,style='padding:0px;',div(class="small-tracker", plotOutput("plotTimeline", height="60px")),
+      div(class="small-tracker", plotOutput("plotProgress", height="60px")))
     ),
     
     div(HTML('<hr style="color: bc_gold;">')),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
@@ -39,6 +43,8 @@ ui <- fluidPage(
     
     HTML("<h3>Send us your feedback on this page through ",
          "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h3>")
+    HTML("<h4>Send us your feedback on this page through ",
+         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>")
   )
 )
 
