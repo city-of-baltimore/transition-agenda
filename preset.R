@@ -72,8 +72,8 @@ ggpalette1 <- cbind(
 )
 
 ggpalette2 <- cbind(
-  c("whiteSmoke",iteam_green),
-  c("Days Remaining","Past")
+  c(iteam_red_light5,"whiteSmoke",iteam_green),
+  c("Current","Days Remaining","Past")
 )
 
 #add text for Brandon Scotts welcome
