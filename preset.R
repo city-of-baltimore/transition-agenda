@@ -58,7 +58,7 @@ ggpalette1 <- cbind(
   c("Not Yet Started","In Progress","Complete")
 )
 
-ggpalatte2 <- cbind(
+ggpalette2 <- cbind(
   c("whiteSmoke",iteam_green),
   c("Days Remaining","Past")
 )
