@@ -3,15 +3,11 @@
   #---------------------------------------
   
   # Load packages
+  library(tidyverse)
+  library(DT)
+  library(shinyjs)
     
-    #install and load relevant packages
-    pacman::p_load(ggplot2, gfonts, googlesheets4, 
-                   formattable, shiny, tidyverse,
-                   lubridate, readxl, DT, shinyjs)
-    
-    
-    # setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
-
+  
   #----------------------------------------
 
   # Fonts, Colors, and Icons 
