@@ -8,13 +8,13 @@ ui <- fluidPage(
   verticalLayout(
     
     div(style="padding-top:8px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
-      img(src = "transition-agenda/www/photos/mayor_brandon_scott.png",
+      img(src = "photos/mayor_brandon_scott.png",
                  height = headerImgSize, width = headerImgSize),
       
       h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
          style="color:black;max-width:420px;text-align:center;padding:10px;line-height:1;margin-bottom:-16px;"),
       
-      img(src = "www/photos/CITY-LOGO.png",
+      img(src = "photos/CITY-LOGO.png",
           height = headerImgSize, width = headerImgSize),
     ),
     
