@@ -1,5 +1,12 @@
 #produce basic shell for the site
 
+  #---------------------------------------
+  
+  # Load packages
+  library(tidyverse)
+  library(DT)
+  library(shinyjs)
+
   #-------------------------------
   
   # Basic Layout
