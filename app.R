@@ -1,3 +1,5 @@
+#shiny.io seemed to have a problem with the pacman load, so i switched to library()
+
 library(pacman)
 library(ggplot2)
 library(googlesheets4)
