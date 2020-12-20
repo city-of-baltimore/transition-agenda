@@ -92,7 +92,9 @@
              Total = 1)
     
     tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
-      rename("Priority Area" = Name)
+      rename("Priority Area" = Name) 
+    tbCommittees$Actions <- list(c(c("Action1", "Action2", "Action3"),
+                            c("Completed", "Not yet started", "In Progress")))
     
     #Create table for manipulation later
     tbPriorities <- pg1 %>%
