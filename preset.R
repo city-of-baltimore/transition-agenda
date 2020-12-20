@@ -58,17 +58,26 @@
       c("Past","Current","Remaining")
     )
 
-   #------------------------------------
+    #------------------------------------
     
-   # Create Functions & Definitions
+    # Create Functions & Definitions
     
-   #Creating a function for the days remaining graphic
-   past <- function(date){
+    #Creating a function for the days remaining graphic
+    past <- function(date){
      ifelse(date > today(),
             "Remaining",
             ifelse(date == today(),
                    "Current","Past"))
-   }
+    }
+    
+    # Function for determining status symbol
+    symbol <- function(status) {
+    return(ifelse(tolower(status) == "in progress", 
+           "@",
+           ifelse(tolower(status) == "Complete",
+                  "C",
+                  "-")))
+    }
     
    #add text for Brandon Scotts welcome
    text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")
@@ -93,8 +102,7 @@
     
     tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
       rename("Priority Area" = Name) 
-    tbCommittees$Actions <- list(c(c("Action1", "Action2", "Action3"),
-                            c("Completed", "Not yet started", "In Progress")))
+    tbCommittees$Actions <- list(c("Example Action Title", symbol("In Progress"), "Department of Public Works"))
     
     #Create table for manipulation later
     tbPriorities <- pg1 %>%
