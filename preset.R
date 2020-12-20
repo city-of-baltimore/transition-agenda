@@ -53,12 +53,12 @@ tbPriorities <- pg1 %>%
 tbUpdates <- pg4
 
 ggpalatte1 <- cbind(
-  c(iteam_red_light5,iteam_red_light9,iteam_green),
+  c(iteam_red_light5,"whiteSmoke",iteam_green),
   c("Not Yet Started","In Progress","Complete")
 )
 
 ggpalatte2 <- cbind(
-  c(iteam_red_light9,iteam_green),
+  c("whiteSmoke",iteam_green),
   c("Days Remaining","Past")
 )
 

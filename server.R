@@ -42,7 +42,7 @@ server <- function(input, output){
             legend.justification = "right",
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
-            panel.border = element_rect(colour = "black", fill=NA, size=1),
+            panel.border = element_rect(colour = "grey", fill=NA, size=1),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
@@ -52,7 +52,7 @@ server <- function(input, output){
       ) +
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
-      scale_fill_manual(values=ggpalatte1)
+      scale_fill_manual(values=ggpalatte1, drop = FALSE)
     
   }, height = "auto")
   
@@ -70,7 +70,7 @@ server <- function(input, output){
             legend.justification = "right",
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
-            panel.border = element_rect(colour = "black", fill=NA, size=1),
+            panel.border = element_rect(colour = "grey", fill=NA, size=1),
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
