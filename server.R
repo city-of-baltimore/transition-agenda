@@ -32,14 +32,16 @@ server <- function(input, output){
                                       options=list(pageLength=10))
   
   #Load the progress tracker output
-  output$plot1 <- renderPlot({
+  output$plotProgress <- renderPlot({
     tbPriorities %>%
       ggplot(aes(fill = Progress, x = Count, y = "")) +
+      ggtitle("Progress") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = 1) +
       theme(legend.position = "top",
             legend.justification = "right",
+            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
             legend.margin=margin(c(0,0,-4,0)),
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
@@ -58,18 +60,20 @@ server <- function(input, output){
     
   }, height = "auto")
   
-  output$plot2 <- renderPlot({
+  output$plotTimeline <- renderPlot({
     pg2 %>%
       select(c(1:3)) %>%
       mutate(Days = sapply(pg2$Date,past),
              Total = 1) %>%
       ggplot(aes(fill = Days, x = Total, y = "")) +
+      ggtitle("Timeline") +
       geom_bar(position = "fill",
                stat = "identity",
                width = 1) +
       coord_flip() +
       theme(legend.position = "top",
             legend.justification = "right",
+            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
             legend.margin=margin(c(0,0,-4,0)),
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
