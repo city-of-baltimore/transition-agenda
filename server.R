@@ -1,4 +1,10 @@
-server <- function(input, output,session){
+#produce content displayed through ui
+
+  #-----------------------------------
+  
+  # Basic Structure
+
+    server <- function(input, output,session){
   
   #------------------------------------
   
