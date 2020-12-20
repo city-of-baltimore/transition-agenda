@@ -15,15 +15,20 @@
       cbind(tbCommittees, "Progress" = "N/A", 'Expand' = '+'),
       options = list(
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 1, 3, 4, 5)),
-          list(orderable = FALSE, className = 'details-control', targets = 7)
+          list(visible = FALSE, targets = c(0, 1, 3, 4, 5, 6)),
+          list(orderable = FALSE, className = 'details-control', targets = 8)
         )
       ),
       callback = JS("
         table.column(3).nodes().to$().css({cursor: 'pointer'});
         var format = function(d) {
-          return '<div style=\"padding: .5em;\"> Model: ' +
-                  d[0] + ', mpg: ' + d[2] + ', cyl: ' + d[3] + '</div>';
+          var result = '<table style=\"padding: .5em;width:100%;\">';
+          result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th><tr>';
+          for (var i in d[6]){
+            result += '<td>' + d[6][i] + '</td>'
+          }
+          result += '</table>';
+          return result;
         };
         table.on('click', 'td.details-control', function() {
           var td = $(this), row = table.row(td.closest('tr'));
