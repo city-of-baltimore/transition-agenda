@@ -38,11 +38,24 @@ download <- icon("file-download")
 cogs <- icon("cogs")
 tools <- icon("tools")
 
+#Creating a function for the days remaining graphic
+past <- function(date){
+  ifelse(date > today(),
+         "Remaining",
+         ifelse(date == today(),
+                "Current","Past"))
+}
+
 #set up google sheets access
 pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 1)
 pg2 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 2)
 pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 3)
 pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 4)
+
+tbDays <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Days") %>% 
+  mutate(Status = factor(sapply(tbDays$Date,past), 
+                         levels=c("Past", "Current","Remaining")),
+         Total = 1)
 
 tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
   rename("Priority Area" = Name)
@@ -62,14 +75,6 @@ ggpalette2 <- cbind(
   c("whiteSmoke",iteam_green),
   c("Days Remaining","Past")
 )
-
-#Creating a function for the days remaining graphic
-past <- function(date){
-  
-  ifelse(date > today(),
-         "Days Remaining","Past")
-  
-}
 
 #add text for Brandon Scotts welcome
 text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")

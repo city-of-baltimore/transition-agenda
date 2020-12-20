@@ -57,19 +57,12 @@ server <- function(input, output){
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
       scale_fill_manual(values=ggpalette1, drop = FALSE, name="Status")
-    
   }, height = "auto")
   
   output$plotTimeline <- renderPlot({
-    pg2 %>%
     tbDays %>%
-      select(c(1:3)) %>%
-      mutate(Days = sapply(pg2$Date,past),
-      mutate(Days = factor(sapply(pg2$Date,past), levels=c("Past", "Current","Remaining")),
-             Total = 1) %>%
-      ggplot(aes(fill = Days, x = Total, y = "")) +
+      ggplot(aes(fill = Status, x = Total, y = "")) +
       ggtitle("Timeline") +
-      geom_bar(position = "fill",
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = 1) +
@@ -91,12 +84,7 @@ server <- function(input, output){
       ) +
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
-<<<<<<< HEAD
-      scale_fill_manual(values=ggpalette2)
-=======
       scale_fill_manual(values=c(iteam_green,bc_gold,"whiteSmoke"), drop=FALSE)
->>>>>>> 20972bf08c7db9dd0912057c946c8d2f716f663d
-    
   }, height = "auto")
   
   output$dis <- renderDataTable({})
