@@ -38,6 +38,8 @@ server <- function(input, output){
       ggtitle("Progress") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
+               width = .5) +
+      theme(legend.position = "bottom",
                width = 1) +
       theme(legend.position = "top",
             legend.justification = "right",
@@ -54,6 +56,7 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
+      scale_fill_manual(values=ggpalatte1)
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
       scale_fill_manual(values=ggpalette1, drop = FALSE, name="Status")
@@ -65,10 +68,13 @@ server <- function(input, output){
       select(c(1:3)) %>%
       mutate(Days = factor(sapply(pg2$Date,past), levels=c("Past", "Current","Remaining")),
              Total = 1) %>%
+      ggplot(aes(fill = Days, x = "", y = Total)) +
+      geom_bar(position = "fill", 
       ggplot(aes(fill = Days, x = Total, y = "")) +
       ggtitle("Timeline") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
+               width = .5) +
                width = 1) +
       coord_flip() +
       theme(legend.position = "top",
@@ -93,5 +99,46 @@ server <- function(input, output){
   }, height = "auto")
   
   output$dis <- renderDataTable({})
+  
+  #observe if mandatory fields in the survey have a value
+  observe({
+    # check if all mandatory fields have a value
+    mandatoryFilled <-
+      vapply(fieldsMandatory,
+             function(x) {
+               !is.null(input[[x]]) && input[[x]] != ""
+             },
+             logical(1))
+    mandatoryFilled <- all(mandatoryFilled)
+    
+    # enable/disable the submit button
+    shinyjs::toggleState(id = "submit", condition = mandatoryFilled)
+  })
+  
+  #capture form data in a responses field
+  formData <- reactive({
+    data <- sapply(fieldsAll, function(x) input[[x]])
+    data <- c(data, timestamp = epochTime())
+    data <- t(data)
+    data
+  })
+  
+  #and save the responses to csv files
+  saveData <- function(data) {
+    fileName <- sprintf("%s_%s.csv",
+                        humanTime(),
+                        digest::digest(data))
+    
+    write.csv(x = data, file = file.path(responsesDir, fileName),
+              row.names = FALSE, quote = TRUE)
+  }
+
+  # action to take when submit button is pressed
+  observeEvent(input$submit, {
+    saveData(formData())
+    shinyjs::reset("form")
+    shinyjs::hide("form")
+    shinyjs::show("thankyou_msg")
+  })
   
 }

@@ -1,7 +1,8 @@
 #install and load relevant packages
 pacman::p_load(ggplot2, gfonts, googlesheets4, 
                formattable, shiny, tidyverse,
-               lubridate, readxl, DT)
+               lubridate, readxl, DT, shinyjs)
+
 
 # setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
 
@@ -76,3 +77,40 @@ text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and
 
 #size for header images
 headerImgSize <- 90
+
+#survey questions for form
+
+survey <-     div(
+  id = "form",
+  textInput("firstname", "First Name", ""),
+  textInput("lastname", "Last Name", ""),
+  textInput("email", "Email Address"),
+  textInput("home", "Home Address (optional)"),
+  textInput("city", "City (optional)"),
+  textInput("zipcode", "Zip Code (optional)"),
+  textInput("message", "Type your message here!"),
+  checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", FALSE),
+  selectInput("type", "Is your comment for the administration or for this page's web developers?",
+              c("",  "Administration", "Developers")),
+  actionButton("submit", "Submit", class = "btn-primary")
+)
+
+hidden <- shinyjs::hidden(
+  div(
+    id = "thankyou_msg",
+    h3("Thanks, your response was submitted successfully!")
+  ))
+
+#set mandatory fields
+fieldsMandatory <- c("firstname","lastname","email","message","updated","type")
+
+#save responses on submission
+fieldsAll <- c("firstname","lastname","email","home","city","zipcode","message","updated","type")
+responsesDir <- file.path("responses")
+epochTime <- function() {
+  as.integer(Sys.time())
+}
+
+#create a user friendly date for the file names
+humanTime <- function() format(Sys.time(), "%Y%m%d-%H%M%OS")
+
