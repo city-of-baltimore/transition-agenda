@@ -52,7 +52,7 @@ tbPriorities <- pg1 %>%
 
 tbUpdates <- pg4
 
-ggpalatte1 <- cbind(
+ggpalette1 <- cbind(
   c(iteam_red_light5,"whiteSmoke",iteam_green),
   c("Not Yet Started","In Progress","Complete")
 )
