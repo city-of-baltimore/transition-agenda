@@ -25,7 +25,7 @@
           var result = '<table style=\"padding: .5em;width:100%;\">';
           result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th><tr>';
           for (var i in d[6]){
-            result += '<td>' + d[6][i] + '</td>'
+            result += '<td>' + d[6][i] + '</td>';
           }
           result += '</table>';
           return result;

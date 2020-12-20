@@ -73,7 +73,7 @@
     # Function for determining status symbol
     symbol <- function(status) {
     return(ifelse(tolower(status) == "in progress", 
-           "@",
+           "spinner",
            ifelse(tolower(status) == "Complete",
                   "C",
                   "-")))

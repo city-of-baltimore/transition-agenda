@@ -58,7 +58,6 @@
   #--------------------------------------
   
   # Page Bottom
-  
     HTML("<h4>Send us your feedback on this page through ",
          "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>")
   )
