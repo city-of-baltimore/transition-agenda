@@ -32,7 +32,6 @@ server <- function(input, output){
                                       options=list(pageLength=10))
   
   #Load the progress tracker output
-  output$plot1 <- renderPlot({
   output$plotProgress <- renderPlot({
     tbPriorities %>%
       ggplot(aes(fill = Progress, x = Count, y = "")) +
@@ -64,7 +63,6 @@ server <- function(input, output){
     
   }, height = "auto")
   
-  output$plot2 <- renderPlot({
   output$plotTimeline <- renderPlot({
     pg2 %>%
       select(c(1:3)) %>%
@@ -79,7 +77,6 @@ server <- function(input, output){
                width = .5) +
                width = 1) +
       coord_flip() +
-      theme(legend.position = "bottom",
       theme(legend.position = "top",
             legend.justification = "right",
             plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
@@ -103,7 +100,6 @@ server <- function(input, output){
   
   output$dis <- renderDataTable({})
   
-<<<<<<< HEAD
   #observe if mandatory fields in the survey have a value
   observe({
     # check if all mandatory fields have a value
@@ -145,7 +141,4 @@ server <- function(input, output){
     shinyjs::show("thankyou_msg")
   })
   
-}}
-=======
 }
->>>>>>> 745ddb06e333be835ec7c87e8b615855315e9f2a
