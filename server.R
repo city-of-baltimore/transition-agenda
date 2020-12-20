@@ -39,8 +39,6 @@ server <- function(input, output){
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = .5) +
-      theme(legend.position = "bottom",
-               width = 1) +
       theme(legend.position = "top",
             legend.justification = "right",
             plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
@@ -56,7 +54,6 @@ server <- function(input, output){
             axis.text.x = element_blank(),
             panel.background = element_blank()
       ) +
-      scale_fill_manual(values=ggpalatte1)
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
       scale_fill_manual(values=ggpalette1, drop = FALSE, name="Status")
@@ -68,13 +65,10 @@ server <- function(input, output){
       select(c(1:3)) %>%
       mutate(Days = sapply(pg2$Date,past),
              Total = 1) %>%
-      ggplot(aes(fill = Days, x = "", y = Total)) +
-      geom_bar(position = "fill", 
       ggplot(aes(fill = Days, x = Total, y = "")) +
       ggtitle("Timeline") +
       geom_bar(position = "fill",
                stat = "identity",
-               width = .5) +
                width = 1) +
       coord_flip() +
       theme(legend.position = "top",
@@ -94,7 +88,7 @@ server <- function(input, output){
       ) +
       scale_x_discrete(expand = c(0, 0)) +
       scale_y_discrete(expand = c(0, 0)) +
-      scale_fill_manual(values=ggpalatte2)
+      scale_fill_manual(values=ggpalette2)
     
   }, height = "auto")
   
