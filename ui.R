@@ -1,5 +1,6 @@
 #produce basic shell for the site
 ui <- fluidPage(
+  shinyjs::useShinyjs(),
   
   #style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
@@ -18,6 +19,7 @@ ui <- fluidPage(
           height = headerImgSize, width = headerImgSize),
     ),
 
+    div(HTML('<hr style="color: bc_gold;">')),
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
     # Welcome comment from Mayor Scott
@@ -28,13 +30,14 @@ ui <- fluidPage(
       div(class="small-tracker", plotOutput("plotProgress", height="60px")))
     ),
     
+    div(HTML('<hr style="color: bc_gold;">')),
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
       tabPanel(h4(style="color:black;","Priorities & Progress"), dataTableOutput('tbPriorities')),
       tabPanel(h4(style="color:black;","Weekly Updates"), dataTableOutput('tbUpdates')),
-      tabPanel(h4(style="color:black;","Resources & Feedback"), survey,hidden
+      tabPanel(h4(style="color:black;","Resources & Feedback"), survey,hidden1,hidden2
       )),
     
     HTML("<h4>Send us your feedback on this page through ",
