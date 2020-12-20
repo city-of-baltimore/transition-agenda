@@ -58,9 +58,6 @@ ggpalette1 <- cbind(
   c("Not Yet Started","In Progress","Complete")
 )
 
-ggpalette2 <- cbind(
-  c("whiteSmoke",iteam_green),
-  c("Days Remaining","Past")
 ggpalatte2 <- cbind(
   c("whiteSmoke", bc_gold, iteam_green),
   c("Past", "Current", "Remaining")
@@ -70,8 +67,6 @@ ggpalatte2 <- cbind(
 past <- function(date){
   
   ifelse(date > today(),
-         "Days Remaining","Past")
-  
          "Remaining",
          ifelse(date == today(),"Current", "Past"))
 }
@@ -84,7 +79,6 @@ headerImgSize <- 90
 
 #survey questions for form
 
-survey <-     div(
 survey <- div(
   id = "form",
   textInput("firstname", "First Name", ""),
