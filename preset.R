@@ -80,7 +80,7 @@ headerImgSize <- 90
 
 #survey questions for form
 
-survey <-     div(
+survey <- div(
   id = "form",
   textInput("firstname", "First Name", ""),
   textInput("lastname", "Last Name", ""),
