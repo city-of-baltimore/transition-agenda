@@ -58,6 +58,24 @@
       c("Past","Current","Days Remaining")
     )
 
+   #------------------------------------
+    
+   # Create Functions & Definitions
+    
+   #Creating a function for the days remaining graphic
+   past <- function(date){
+     ifelse(date > today(),
+            "Remaining",
+            ifelse(date == today(),
+                   "Current","Past"))
+   }
+    
+   #add text for Brandon Scotts welcome
+   text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")
+    
+   #size for header images
+   headerImgSize <- 90
+    
   #-----------------------------
 
   #Load and format data
@@ -82,20 +100,4 @@
     
     tbUpdates <- pg4
 
-  #------------------------------------
-    
-  # Create Functions & Definitions
-    
-    #Creating a function for the days remaining graphic
-    past <- function(date){
-      ifelse(date > today(),
-             "Remaining",
-             ifelse(date == today(),
-                    "Current","Past"))
-    }
 
-    #add text for Brandon Scotts welcome
-    text1 <- print("Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters. His vision for the city and for his administration. Explain the short term actions and long term vision.")
-    
-    #size for header images
-    headerImgSize <- 90
