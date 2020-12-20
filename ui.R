@@ -28,7 +28,7 @@ ui <- fluidPage(
       div(class="small-tracker", plotOutput("plot2", height="100px")))
     ),
     
-    div(HTML('<hr style="color: bc_gold;">')),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  ",bc_gold,";")),
     
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
@@ -37,8 +37,8 @@ ui <- fluidPage(
       tabPanel(h4(style="color:black;","Resources & Feedback"), "This tab is still under development.")
     ),
     
-    HTML("<h3>Send us your feedback on this page through ",
-         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h3>")
+    HTML("<h4>Send us your feedback on this page through ",
+         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>")
   )
 )
 

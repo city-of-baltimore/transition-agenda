@@ -38,7 +38,8 @@ server <- function(input, output){
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = .5) +
-      theme(legend.position = "bottom",
+      theme(legend.position = "top",
+            legend.justification = "right",
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
@@ -60,7 +61,8 @@ server <- function(input, output){
                stat = "identity",
                width = .5) +
       coord_flip() +
-      theme(legend.position = "bottom",
+      theme(legend.position = "top",
+            legend.justification = "right",
             axis.title.x = element_blank(),
             axis.title.y = element_blank(),
             axis.ticks.x=element_blank(),
