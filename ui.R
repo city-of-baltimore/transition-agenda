@@ -43,9 +43,9 @@
     
     # Welcome comment from Mayor Scott
     div(
-      column(6,style='padding:0px;',p(text1)),
+      column(5,style='padding:0px;',p(text1)),
       # Overview progress and day trackers
-      column(6,style='padding:0px;',div(class="small-tracker", plotOutput("plotTimeline", height="60px")),
+      column(6,offset = 1,style='padding:0px;',div(class="small-tracker", plotOutput("plotTimeline", height="60px")),
       div(class="small-tracker", plotOutput("plotProgress", height="60px")))
     ),
     
@@ -65,8 +65,10 @@
   #--------------------------------------
   
   # Page Bottom
-    HTML("<h4>Send us your feedback on this page through ",
-         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>")
+  hr(),
+    HTML("<h5>Send us your feedback on this page through ",
+         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h5>"),
+  hr()
   )
 )
 
