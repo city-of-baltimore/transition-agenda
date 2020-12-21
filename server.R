@@ -30,7 +30,7 @@
         table.column(3).nodes().to$().css({cursor: 'pointer'});
         var format = function(d) {
           var result = '<table style=\"padding: .5em;width:100%;\">';
-          result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th><tr>';
+          result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
           for (var i in d[6]){
             result += '<td>' + d[6][i] + '</td>';
           }

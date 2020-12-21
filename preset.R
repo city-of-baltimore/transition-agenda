@@ -68,8 +68,8 @@
     # Function for determining status symbol
     symbol <- function(status) {
     return(ifelse(tolower(status) == "in progress", 
-           "spinner",
-           ifelse(tolower(status) == "Complete",
+           "A",
+           ifelse(tolower(status) == "complete",
                   "C",
                   "-")))
     }
@@ -125,7 +125,7 @@
     
     tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
       rename("Priority Area" = Name) 
-    tbCommittees$Actions <- list(c("Example Action Title", symbol("In Progress"), "Department of Public Works"))
+    tbCommittees$Actions <- list(c("Example Action Title", "&#x1F300 In Progress", "Department of Public Works"))
     
     #Create table for manipulation later
     tbPriorities <- pg1 %>%
