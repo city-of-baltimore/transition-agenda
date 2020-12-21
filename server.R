@@ -29,13 +29,21 @@
       callback = JS("
         table.column(3).nodes().to$().css({cursor: 'pointer'});
         var format = function(d) {
-          var result = '<table style=\"padding: .5em;width:100%;\">';
-          result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
-          for (var i in d[6]){
-            result += '<td>' + d[6][i] + '</td>';
+          if (d[6] == null) {
+            return '<p>There is no additional data to display here.</p>';
+          } else {
+            var result = '<table style=\"padding: .5em;width:100%;\">';
+            result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
+            for (var i in d[6]){
+              result += '<tr>';
+              for (var j in d[6][i]) {
+                result += '<td style=\"max-width:260px;\">' + d[6][i][j] + '</td>';
+              }
+              result += '</tr>';
+            }
+            result += '</table>';
+            return result;
           }
-          result += '</table>';
-          return result;
         };
         table.on('click', 'td.details-control', function() {
           var td = $(this), row = table.row(td.closest('tr'));

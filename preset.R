@@ -67,11 +67,12 @@
     
     # Function for determining status symbol
     symbol <- function(status) {
-    return(ifelse(tolower(status) == "in progress", 
-           "A",
+      unicodesymbol <- ifelse(tolower(status) == "in progress", 
+           "&#x1F300",
            ifelse(tolower(status) == "complete",
                   "C",
-                  "-")))
+                  "-"))
+      return(paste(unicodesymbol, status))
     }
     
    #add text for Brandon Scotts welcome
@@ -124,12 +125,22 @@
              Total = 1)
     
     tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
-      rename("Priority Area" = Name) 
+      rename("Priority Area" = Name)
     
     tbActions <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions")
     
-    tbCommittees$Actions <- list(c("Example Action Title", "&#x1F300 In Progress", "Department of Public Works"))
-    
+    tbActionsNested <- tbActions %>% 
+      mutate(ActionProgressParties = mapply(c, Action, 
+                                            symbol(Progress), 
+                                            "Parties Responsible", 
+                                            SIMPLIFY = F)) %>% 
+      select(c("Committee", "ActionProgressParties")) %>% 
+      group_by(Committee) %>%
+      summarise(ActionProgressParties = list(unique(ActionProgressParties)))
+      
+    tbCommittees <- tbCommittees %>% 
+      left_join(tbActionsNested, by = c("Priority Area" = "Committee"))
+
     #Create table for manipulation later
     tbPriorities <- pg1 %>%
       select(c(2,4,5,6,10,11,13,14))
