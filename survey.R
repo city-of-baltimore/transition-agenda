@@ -16,7 +16,7 @@
       fluidRow(column(4,selectInput("type", "Is your comment for the administration or for this page's developers?",
                   c("",  "Administration", "Developers"),width = '100%')),
                column(4,checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", T)),),
-      fluidRow(actionButton("submit", "Submit", class = "btn-primary"))
+      fluidRow(column(12,actionButton("submit", "Submit", class = "btn-primary")))
     )
     
     #set mandatory fields
