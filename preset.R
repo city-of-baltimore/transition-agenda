@@ -7,7 +7,6 @@
   library(DT)
   library(shinyjs)
     
-  
   #----------------------------------------
 
   # Fonts, Colors, and Icons 
@@ -76,7 +75,7 @@
     }
     
    #add text for Brandon Scotts welcome
-   text1 <- div(HTML("<p>Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters.</p> <p>His vision for the city and for his administration. Explain the short term actions and long term vision.</p>"))
+   text1 <- div(HTML("<h5>Welcome from Mayor Scott explaining the purpose of this tool and how to use it. Why it matters.</p> <p>His vision for the city and for his administration. Explain the short term actions and long term vision.</h5>"))
    text2 <- div(hr(),HTML("<p>This table displays Mayor Scott's early achievements organized by priority area. Click the plus sign next to each priority area to see more details on the key goals and progress toward actions associated with each one. For an overview of the transition committees oriented around each of the Mayor's priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this webpage</a>.</p>"),hr())
    text3 <- div(hr(),HTML("<p>This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action. You can sort and filter the list of updates by any column by clicking the filter icon on the top right of the column and then choosing options from the popup window.</p>"),hr())
