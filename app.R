@@ -11,6 +11,8 @@ library(DT)
 library(shinyjs)
 library(rsconnect)
 
+#setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
+
 source('preset.R',local = T)
 source('survey.R',local = T)
 source('server.R',local = T)
