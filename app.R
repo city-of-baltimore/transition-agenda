@@ -2,6 +2,7 @@
 
 library(pacman)
 library(ggplot2)
+library(gfonts)
 library(googlesheets4)
 library(formattable)
 library(shiny)
