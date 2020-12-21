@@ -14,12 +14,9 @@ library(shinyjs)
 library(rsconnect)
 
 #pacman::p_load(ggplot2, gfonts, googlesheets4, 
- #              formattable, shiny, tidyverse,
-  #             lubridate, readxl, DT, shinyjs,
-   #            rsconnect)
-
-
-#setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
+#               formattable, shiny, tidyverse,
+#               lubridate, readxl, DT, shinyjs,
+#               rsconnect)
 
 source('preset.R',local = T)
 source('survey.R',local = T)
