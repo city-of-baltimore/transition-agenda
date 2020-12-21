@@ -125,6 +125,9 @@
     
     tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
       rename("Priority Area" = Name) 
+    
+    tbActions <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions")
+    
     tbCommittees$Actions <- list(c("Example Action Title", "&#x1F300 In Progress", "Department of Public Works"))
     
     #Create table for manipulation later
