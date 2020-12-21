@@ -1,5 +1,3 @@
-#shiny.io seemed to have a problem with the pacman load, so i switched to library()
-
 library(pacman)
 library(ggplot2)
 library(gfonts)
@@ -12,11 +10,6 @@ library(readxl)
 library(DT)
 library(shinyjs)
 library(rsconnect)
-
-#pacman::p_load(ggplot2, gfonts, googlesheets4, 
-#               formattable, shiny, tidyverse,
-#               lubridate, readxl, DT, shinyjs,
-#               rsconnect)
 
 source('preset.R',local = T)
 source('survey.R',local = T)
