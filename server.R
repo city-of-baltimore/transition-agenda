@@ -21,10 +21,15 @@
     DT::datatable(
       cbind(tbCommittees, "Progress" = "N/A", 'Expand' = '+'),
       options = list(
+        pageLength = 10,
         columnDefs = list(
           list(visible = FALSE, targets = c(0, 1, 3, 4, 5, 6)),
           list(orderable = FALSE, className = 'details-control', targets = 8)
-        )
+        ),
+        initComplete = JS(
+          "function(settings, json) {",
+          "$(this.api().table().header()).css({'font-size': '18px'});",
+          "}")
       ),
       callback = JS("
         table.column(3).nodes().to$().css({cursor: 'pointer'});
@@ -55,8 +60,12 @@
             td.html('-');
           }
         });"
-      ))
-  }, options=list(pageLength=10))
+      )) %>% formatStyle(
+        names(tbCommittees),
+        target = 'row',
+        backgroundColor = 'white', fontSize = '16px')  %>%
+      formatStyle('Priority Area', fontWeight = 'bold')
+  })
   
   #-------------------------------------
   

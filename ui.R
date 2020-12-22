@@ -29,7 +29,7 @@
                  height = headerImgSize, width = headerImgSize),
       
       h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
-         style="color:black;max-width:820px;text-align:center;padding:10px;line-height:1;margin-bottom:-16px;"),
+         style="font-size:42px;color:black;max-width:460px;text-align:center;padding:10px;line-height:1.05;margin-bottom:-18px;"),
       
       img(src = "photos/CITY-LOGO.png",
           height = headerImgSize, width = headerImgSize),
