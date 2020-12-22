@@ -125,9 +125,9 @@
                              levels=c("Past", "Current","Remaining")),
              Total = 1)
     
-    tbActions <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions")
+    tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions")
     
-    tbActionsNested <- tbActions %>% 
+    tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
                                             symbol(Progress), 
                                             "Parties Responsible", 
