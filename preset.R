@@ -67,12 +67,11 @@
     
     # Function for determining status symbol
     symbol <- function(status) {
-      unicodesymbol <- ifelse(tolower(status) == "in progress", 
+      return(ifelse(tolower(status) == "in progress", 
            "&#128260",
            ifelse(tolower(status) == "complete",
                   "&#9989",
-                  "&#11036"))
-      return(paste(unicodesymbol, status))
+                  "&#11036")))
     }
     
    #add text for Brandon Scotts welcome
@@ -129,8 +128,8 @@
     
     tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
-                                            symbol(Progress), 
-                                            "Parties Responsible", 
+                                            paste(symbol(Progress), Progress), 
+                                            `Parties Responsible`, 
                                             SIMPLIFY = F)) %>% 
       select(c("Committee", "ActionProgressParties")) %>% 
       group_by(Committee) %>%
