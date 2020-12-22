@@ -71,7 +71,7 @@
            "&#x1F300",
            ifelse(tolower(status) == "complete",
                   "C",
-                  "-"))
+                  "&#x2B1C"))
       return(paste(unicodesymbol, status))
     }
     
@@ -124,9 +124,6 @@
                              levels=c("Past", "Current","Remaining")),
              Total = 1)
     
-    tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
-      rename("Priority Area" = Name)
-    
     tbActions <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions")
     
     tbActionsNested <- tbActions %>% 
@@ -137,13 +134,10 @@
       select(c("Committee", "ActionProgressParties")) %>% 
       group_by(Committee) %>%
       summarise(ActionProgressParties = list(unique(ActionProgressParties)))
-      
-    tbCommittees <- tbCommittees %>% 
+    
+    tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
+      rename("Priority Area" = Name) %>% 
       left_join(tbActionsNested, by = c("Priority Area" = "Committee"))
-
-    #Create table for manipulation later
-    tbPriorities <- pg1 %>%
-      select(c(2,4,5,6,10,11,13,14))
     
     tbUpdates <- pg4
 
