@@ -68,10 +68,10 @@
     # Function for determining status symbol
     symbol <- function(status) {
       unicodesymbol <- ifelse(tolower(status) == "in progress", 
-           "&#x1F300",
+           "&#128260",
            ifelse(tolower(status) == "complete",
-                  "C",
-                  "&#x2B1C"))
+                  "&#9989",
+                  "&#11036"))
       return(paste(unicodesymbol, status))
     }
     
