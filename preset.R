@@ -19,6 +19,7 @@
     iteam_red_light5 <- "#f8ad94"
     iteam_red_light9 <- "#feefea"
     iteam_yellow <- "#ffc429"
+    iteam_yellow_light9 <- "#fff8e9"
     iteam_green <- "#2bb673"
     iteam_purple <- "#893395"
     bc_gold <- "#fdb927"
