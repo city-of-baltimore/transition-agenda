@@ -16,7 +16,21 @@
       
       #style
       tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
-      tags$style("* {font-family: 'Roboto', sans-serif;}"),
+      tags$style(paste0("* {font-family: 'Roboto', sans-serif; padding: 0px; margin: 0px;
+                    }
+                  h1 {font-size: 46px;}
+                  h5 {font-size: 16px; font-weight: 500; line-height: 1.35em; margin: 0px; margin-bottom: 0.5em;}
+                  p {font-size: 14px; line-height:1.3em;}
+                  .tab-header {margin-top:1em; margin-bottom: 1em;}
+                  table.dataTable tr.selected td, table.dataTable td.selected, table.dataTable tr.selected {background-color: white !important;}
+                  table thead.selected td {background-color: white !important;}
+                  table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {background-color: white !important;}
+                  ul.nav-tabs {border-bottom: 1px solid ",bc_gold,";}
+                  .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
+                    border: 1px solid ",bc_gold,";
+                    border-bottom: 1px solid white;
+                  }
+                 ")),
 
   #-------------------------------
   
@@ -29,13 +43,13 @@
                  height = headerImgSize, width = headerImgSize),
       
       h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
-         style="color:black;max-width:820px;text-align:center;padding:10px;line-height:1;margin-bottom:-16px;"),
+         style="font-size:42px;color:black;max-width:460px;text-align:center;padding:10px;line-height:1.05;margin-bottom:-18px;"),
       
       img(src = "photos/CITY-LOGO.png",
           height = headerImgSize, width = headerImgSize),
     ),
 
-    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  black;")),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
     
   #--------------------------------------
   
@@ -43,14 +57,14 @@
     
     # Welcome comment from Mayor Scott
     div(
-      column(5,style='padding:0px;',p(text1)),
+      column(6,style='padding:0px;',text1),
       # Overview progress and day trackers
-      column(6,offset = 1,style='padding:0px;',div(class="small-tracker", plotOutput("plotTimeline", height="60px")),
+      column(5,offset = 1,style='padding:0px;',div(class="small-tracker", plotOutput("plotTimeline", height="60px")),
       div(class="small-tracker", plotOutput("plotProgress", height="60px")))
     ),
     
-    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid  black;")),
-    
+  # hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
+  
   #--------------------------------------
   
   # Third Level Content
