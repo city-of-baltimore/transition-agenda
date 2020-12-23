@@ -191,7 +191,8 @@
     aboutus <- div(hr(),
                    fluidRow(
                   column(7,
-                         h2("In Development, Check Back Soon")),
+                         h2("In Development, Check Back Soon"),
+                         h4("Mayor Brandon Scott is building an administration grounded in transparency and high-performance in government. ")),
                   column(4,offset = 1, 
                          img(src = "photos/citistat.jpg",
                               height = 4096*.07, width = 3072*.07),
