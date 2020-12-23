@@ -188,4 +188,14 @@
     
     # Create "about this initiative" page
     
-    aboutus <- div(h4("Under Development, Check Back Soon"))
+    aboutus <- div(hr(),
+                   fluidRow(
+                  column(7,
+                         h2("In Development, Check Back Soon")),
+                  column(4,offset = 1, 
+                         img(src = "photos/citistat.jpg",
+                              height = 4096*.07, width = 3072*.07),
+                         h6("Mayor Brandon Scott leading his first CitiStat meeting as Mayor. December 22, 2020"))
+    ),
+    hr())
+    
