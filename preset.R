@@ -125,7 +125,19 @@
                              levels=c("Past", "Current","Remaining")),
              Total = 1)
     
-    tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions")
+    tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions") %>%
+      mutate(.,Icon = with(.,case_when(
+                           (Committee == "Public Health & Public Safety") ~ as.character(health),
+                           (Committee == "Business, Workforce & Neighborhood Development") ~ as.character(business),
+                           (Committee == "Fiscal Preparedness") ~ as.character(finance),
+                           (Committee == "Education & Youth Recreation") ~ as.character(education),
+                           (Committee == "Housing & Neighborhood Development") ~ as.character(neighborhood),
+                           (Committee == "Transportation & Infrastructure") ~ as.character(transportation),
+                           (Committee == "Human Services") ~ as.character(human_services),
+                           (Committee == "Governance Structure & Operations") ~ as.character(governance),
+                           (Committee == "Environment & Sustainability") ~ as.character(sustainability),
+                           T ~ as.character(arts)
+                                  )))
     
     tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
@@ -134,11 +146,25 @@
                                             SIMPLIFY = F)) %>% 
       select(c("Committee", "ActionProgressParties")) %>% 
       group_by(Committee) %>%
-      summarise(ActionProgressParties = list(unique(ActionProgressParties)))
+      summarise(ActionProgressParties = list(unique(ActionProgressParties))) 
     
     tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
       rename("Priority Area" = Name) %>% 
-      left_join(tbActionsNested, by = c("Priority Area" = "Committee"))
+      left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
+      select(-c(4,5)) %>%
+    mutate(.,Icon = with(.,case_when(
+      (`Priority Area` == "Public Health & Public Safety") ~ as.character(health),
+      (`Priority Area` == "Business, Workforce & Neighborhood Development") ~ as.character(business),
+      (`Priority Area` == "Fiscal Preparedness") ~ as.character(finance),
+      (`Priority Area` == "Education & Youth Recreation") ~ as.character(education),
+      (`Priority Area` == "Housing & Neighborhood Development") ~ as.character(neighborhood),
+      (`Priority Area` == "Transportation & Infrastructure") ~ as.character(transportation),
+      (`Priority Area` == "Human Services") ~ as.character(human_services),
+      (`Priority Area` == "Governance Structure & Operations") ~ as.character(governance),
+      (`Priority Area` == "Environment & Sustainability") ~ as.character(sustainability),
+      T ~ as.character(arts)
+    ))) %>%
+      select(1,5,2,3,4)
     
     tbUpdates <- pg4
 
