@@ -166,7 +166,20 @@
     ))) %>%
       select(1,5,2,3,4)
     
-    tbUpdates <- pg4
+    tbUpdates <- pg4 %>%
+      mutate(.,Icon = with(.,case_when(
+        (Action == "Public Health & Public Safety") ~ as.character(health),
+        (Action == "Business, Workforce & Neighborhood Development") ~ as.character(business),
+        (Action == "Fiscal Preparedness") ~ as.character(finance),
+        (Action == "Education & Youth Recreation") ~ as.character(education),
+        (Action == "Housing & Neighborhood Development") ~ as.character(neighborhood),
+        (Action == "Transportation & Infrastructure") ~ as.character(transportation),
+        (Action == "Human Services") ~ as.character(human_services),
+        (Action == "Governance Structure & Operations") ~ as.character(governance),
+        (Action == "Environment & Sustainability") ~ as.character(sustainability),
+        T ~ as.character(arts)
+      ))) %>%
+      select(1,6,2:5)
 
   #--------------------------------
     
