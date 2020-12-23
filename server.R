@@ -60,7 +60,7 @@
             td.html('-');
           }
         });"
-      )) %>% formatStyle(
+      ),escape = F) %>% formatStyle(
         names(tbCommittees),
         target = 'row',
         backgroundColor = 'white', fontSize = '16px')  %>%
@@ -72,7 +72,8 @@
   # Updates table outputs
   
   output$tbUpdates <- renderDataTable(tbUpdates, 
-                                      options=list(pageLength=10))
+                                      options=list(pageLength=10),
+                                      escape = F)
   
   #-----------------------------------
   
