@@ -23,8 +23,8 @@
       options = list(
         pageLength = 10,
         columnDefs = list(
-          list(visible = FALSE, targets = c(0, 1, 3, 4, 5, 6)),
-          list(orderable = FALSE, className = 'details-control', targets = 8)
+          list(visible = FALSE, targets = c(0, 1, 4, 5)),
+          list(orderable = FALSE, className = 'details-control', targets = 7)
         ),
         initComplete = JS(
           "function(settings, json) {",
@@ -34,15 +34,15 @@
       callback = JS("
         table.column(3).nodes().to$().css({cursor: 'pointer'});
         var format = function(d) {
-          if (d[6] == null) {
+          if (d[5] == null) {
             return '<p>There is no additional data to display here.</p>';
           } else {
             var result = '<table style=\"padding: .5em;width:100%;\">';
             result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
-            for (var i in d[6]){
+            for (var i in d[5]){
               result += '<tr>';
-              for (var j in d[6][i]) {
-                result += '<td style=\"max-width:260px;\">' + d[6][i][j] + '</td>';
+              for (var j in d[5][i]) {
+                result += '<td style=\"max-width:260px;\">' + d[5][i][j] + '</td>';
               }
               result += '</tr>';
             }
@@ -64,7 +64,7 @@
         names(tbCommittees),
         target = 'row',
         backgroundColor = 'white', fontSize = '16px')  %>%
-      formatStyle('Priority Area', fontWeight = 'bold')
+      formatStyle('Priority Area', fontWeight = 'bold') 
   })
   
   #-------------------------------------
