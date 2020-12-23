@@ -26,23 +26,25 @@
     bchd_blue <- "#199eb4"
     
     #Create icons for priority areas
-    health <- icon("ambulance")
-    business <- icon("store-alt")
-    finance <- icon("money-check-alt")
-    education <- icon("chalkboard-teacher")
-    neighborhood <- icon("building")
-    transportation <- icon("bus")
-    human_services <- icon("hospital-user")
-    governance <- icon("landmark")
-    sustainability <- icon("leaf")
-    arts <- icon("palette")
+    gicon <- function(x) as.character(icon(x))
+    health <- gicon("ambulance")
+    business <- gicon("store-alt")
+    finance <- gicon("money-check-alt")
+    education <- gicon("chalkboard-teacher")
+    neighborhood <- gicon("building")
+    transportation <- gicon("bus")
+    human_services <- gicon("hospital-user")
+    governance <- gicon("landmark")
+    sustainability <- gicon("leaf")
+    arts <- gicon("palette")
     
+
     #Create icons for the app layout
-    see_more <- icon("chevron-down")
-    contact_us <- icon("envelope")
-    download <- icon("file-download")
-    cogs <- icon("cogs")
-    tools <- icon("tools")
+    see_more <- gicon("chevron-down")
+    contact_us <- gicon("envelope")
+    download <- gicon("file-download")
+    cogs <- gicon("cogs")
+    tools <- gicon("tools")
     
     ggpalette1 <- cbind(
       c(iteam_red_light5,"whiteSmoke",iteam_green),
@@ -127,17 +129,18 @@
     
     tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions") %>%
       mutate(.,Icon = with(.,case_when(
-                           (Committee == "Public Health & Public Safety") ~ as.character(health),
-                           (Committee == "Business, Workforce & Neighborhood Development") ~ as.character(business),
-                           (Committee == "Fiscal Preparedness") ~ as.character(finance),
-                           (Committee == "Education & Youth Recreation") ~ as.character(education),
-                           (Committee == "Housing & Neighborhood Development") ~ as.character(neighborhood),
-                           (Committee == "Transportation & Infrastructure") ~ as.character(transportation),
-                           (Committee == "Human Services") ~ as.character(human_services),
-                           (Committee == "Governance Structure & Operations") ~ as.character(governance),
-                           (Committee == "Environment & Sustainability") ~ as.character(sustainability),
+                           (Committee == "Public Health & Public Safety") ~ health,
+                           (Committee == "Business, Workforce & Neighborhood Development") ~ business,
+                           (Committee == "Fiscal Preparedness") ~ finance,
+                           (Committee == "Education & Youth Recreation") ~ education,
+                           (Committee == "Housing & Neighborhood Development") ~ neighborhood,
+                           (Committee == "Transportation & Infrastructure") ~ transportation,
+                           (Committee == "Human Services") ~ human_services,
+                           (Committee == "Governance Structure & Operations") ~ governance,
+                           (Committee == "Environment & Sustainability") ~ sustainability,
                            T ~ as.character(arts)
                                   )))
+
     
     tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
@@ -152,34 +155,34 @@
       rename("Priority Area" = Name) %>% 
       left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
       select(-c(4,5)) %>%
-    mutate(.,Icon = with(.,case_when(
-      (`Priority Area` == "Public Health & Public Safety") ~ as.character(health),
-      (`Priority Area` == "Business, Workforce & Neighborhood Development") ~ as.character(business),
-      (`Priority Area` == "Fiscal Preparedness") ~ as.character(finance),
-      (`Priority Area` == "Education & Youth Recreation") ~ as.character(education),
-      (`Priority Area` == "Housing & Neighborhood Development") ~ as.character(neighborhood),
-      (`Priority Area` == "Transportation & Infrastructure") ~ as.character(transportation),
-      (`Priority Area` == "Human Services") ~ as.character(human_services),
-      (`Priority Area` == "Governance Structure & Operations") ~ as.character(governance),
-      (`Priority Area` == "Environment & Sustainability") ~ as.character(sustainability),
-      T ~ as.character(arts)
-    ))) %>%
+      mutate(.,Icon = with(.,case_when(
+        (`Priority Area` == "Public Health & Public Safety") ~ health,
+        (`Priority Area` == "Business, Workforce & Neighborhood Development") ~ business,
+        (`Priority Area` == "Fiscal Preparedness") ~ finance,
+        (`Priority Area` == "Education & Youth Recreation") ~ education,
+        (`Priority Area` == "Housing & Neighborhood Development") ~ neighborhood,
+        (`Priority Area` == "Transportation & Infrastructure") ~ transportation,
+        (`Priority Area` == "Human Services") ~ human_services,
+        (`Priority Area` == "Governance Structure & Operations") ~ governance,
+        (`Priority Area` == "Environment & Sustainability") ~ sustainability,
+        T ~ as.character(arts)
+      ))) %>%
       select(1,5,2,3,4)
     
     tbUpdates <- pg4 %>%
       mutate(.,Icon = with(.,case_when(
-        (Action == "Public Health & Public Safety") ~ as.character(health),
-        (Action == "Business, Workforce & Neighborhood Development") ~ as.character(business),
-        (Action == "Fiscal Preparedness") ~ as.character(finance),
-        (Action == "Education & Youth Recreation") ~ as.character(education),
-        (Action == "Housing & Neighborhood Development") ~ as.character(neighborhood),
-        (Action == "Transportation & Infrastructure") ~ as.character(transportation),
-        (Action == "Human Services") ~ as.character(human_services),
-        (Action == "Governance Structure & Operations") ~ as.character(governance),
-        (Action == "Environment & Sustainability") ~ as.character(sustainability),
+        (Action == "Public Health & Public Safety") ~ health,
+        (Action == "Business, Workforce & Neighborhood Development") ~ business,
+        (Action == "Fiscal Preparedness") ~ finance,
+        (Action == "Education & Youth Recreation") ~ education,
+        (Action == "Housing & Neighborhood Development") ~ neighborhood,
+        (Action == "Transportation & Infrastructure") ~ transportation,
+        (Action == "Human Services") ~ human_services,
+        (Action == "Governance Structure & Operations") ~ governance,
+        (Action == "Environment & Sustainability") ~ sustainability,
         T ~ as.character(arts)
       ))) %>%
-      select(1,6,2:5)
+      select(6,1:5)
 
   #--------------------------------
     
