@@ -82,7 +82,13 @@
   hr(),
     HTML("<h5>Send us your feedback on this page through ",
          "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h5>"),
-  hr()
+    h2(a(href='https://twitter.com/MayorBMScott',icon("twitter-square")), "  ",
+         a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
+         a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
+         a(href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
+         a(href='https://mayor.baltimorecity.gov/connect',icon("envelope")), "  ",
+         a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square"))),
+    hr()
   )
 )
 
