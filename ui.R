@@ -72,7 +72,7 @@
     tabsetPanel(type="tabs",
       tabPanel(h4(style="color:black;","Priorities & Progress"), text2, dataTableOutput('tbPriorities')),
       tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
-      tabPanel(h4(style="color:black;","About this Initiative"), hr(),aboutus,hr()),
+      tabPanel(h4(style="color:black;","About this Initiative"), aboutus),
       tabPanel(h4(style="color:black;","Resources & Feedback"), text4,links,survey,hidden1,hidden2)
       ),
   
