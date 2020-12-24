@@ -128,7 +128,7 @@
              Total = 1)
     
     tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions") %>%
-      mutate(.,Icon = with(.,case_when(
+      mutate(.," " = with(.,case_when(
                            (Committee == "Public Health & Public Safety") ~ health,
                            (Committee == "Business, Workforce & Neighborhood Development") ~ business,
                            (Committee == "Fiscal Preparedness") ~ finance,
@@ -155,7 +155,7 @@
       rename("Priority Area" = Name) %>% 
       left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
       select(-c(4,5)) %>%
-      mutate(.,Icon = with(.,case_when(
+      mutate(.," " = with(.,case_when(
         (`Priority Area` == "Public Health & Public Safety") ~ health,
         (`Priority Area` == "Business, Workforce & Neighborhood Development") ~ business,
         (`Priority Area` == "Fiscal Preparedness") ~ finance,
@@ -170,7 +170,7 @@
       select(1,5,2,3,4)
     
     tbUpdates <- pg4 %>%
-      mutate(.,Icon = with(.,case_when(
+      mutate(.," " = with(.,case_when(
         (Action == "Public Health & Public Safety") ~ health,
         (Action == "Business, Workforce & Neighborhood Development") ~ business,
         (Action == "Fiscal Preparedness") ~ finance,
