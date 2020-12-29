@@ -21,7 +21,7 @@
       DT::datatable(
       cbind(tbCommittees, 'Expand' = '+'),
       options = list(
-        dom = '<"top">ft',
+        dom = 'ft',
         pageLength = 10,
         order = list(list(3, 'asc')),
         columnDefs = list(
@@ -79,22 +79,6 @@
   
   #------------------------------------
   
-  # Download button for data on all priority areas
-  
-  output$downloadPriorities <- downloadHandler(
-    filename = function() {
-      paste(Sys.Date(), "-mayor-scott-transition-tracker-priorities.csv", sep="")
-    },
-    content = function(file) {
-      write.csv(tbCommittees %>% 
-          select(`Priority Area`, Priority),
-        file,
-        row.names=FALSE)
-    }
-  )
-  
-  #------------------------------------
-  
   # Download button for data on all actions
   
   output$downloadActions <- downloadHandler(
@@ -115,9 +99,17 @@
   
   # Updates table outputs
   
-  output$tbUpdates <- renderDataTable(tbUpdates, 
-                                      options=list(pageLength=10),
-                                      escape = F)
+  output$tbUpdates <- DT::renderDataTable({DT::datatable(tbUpdates, 
+                                      options=list(
+                                        pageLength=10,
+                                        columnDefs = list(
+                                          list(visible = FALSE, targets = c(0)),
+                                          list(orderable = FALSE, targets = c(0, 1, 2)),
+                                          list(className = 'dt-center', targets = c(2))
+                                        )),
+                                      escape = F) %>% 
+    formatStyle(names(tbUpdates), target = 'row',
+      backgroundColor = 'white', fontSize = '16px')})
   
   #-----------------------------------
   

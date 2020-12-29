@@ -40,6 +40,9 @@
                     border: 1px solid #ccc;
                     border-radius: 4px;
                   }
+                  .fab, .fa {
+                   color: black;
+                  }
                  ")),
 
   #-------------------------------
@@ -83,8 +86,7 @@
       tabPanel(h4(style="color:black;","Priorities & Progress"), 
                text2, 
                dataTableOutput('tbPriorities'), 
-               downloadButton(style="margin-top:20px;margin-right:10px;","downloadPriorities", "Download priority areas (csv)"),
-               downloadButton(style="margin-top:20px;","downloadActions", "Download all action data (csv)")),
+               downloadButton(style="margin-top:20px;","downloadActions", "Download this data (csv)")),
       tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
       tabPanel(h4(style="color:black;","About this Initiative"), aboutus),
       tabPanel(h4(style="color:black;","Resources & Feedback"), text4,links,survey,hidden1,hidden2)
@@ -94,15 +96,16 @@
   
   # Page Bottom
   hr(),
-    HTML("<h5>Send us your feedback on this page through ",
-         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h5>"),
-    h2(a(href='https://twitter.com/MayorBMScott',icon("twitter-square")), "  ",
+    div(style="display: flex; flex-direction:row;justify-content: space-between;",
+    HTML("<h3 style=\"align-self:flex-end;\">Send us your feedback on this page through ",
+         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h3>"),
+    h3(
+         a(href='https://twitter.com/MayorBMScott', icon("twitter-square")), "  ",
          a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
          a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
          a(href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
-         a(href='https://mayor.baltimorecity.gov/connect',icon("envelope")), "  ",
-         a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square"))),
-    hr()
+         a(href='https://mayor.baltimorecity.gov/connect',icon("envelope-square")), "  ",
+         a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square"))))
   )
 )
 

@@ -236,6 +236,5 @@
                          img(src = "photos/citistat.jpg",
                               height = 4096*.07, width = 3072*.07),
                          h6("Mayor Brandon Scott leading his first CitiStat meeting as Mayor. December 22, 2020"))
-    ),
-    hr())
-    
+    )
+)
