@@ -19,7 +19,7 @@
   
   output$tbPriorities = DT::renderDataTable({
       DT::datatable(
-      cbind(tbCommittees, "Progress" = "N/A", 'Expand' = '+'),
+      cbind(tbCommittees, 'Expand' = '+'),
       options = list(
         dom = '<"top">ft',
         pageLength = 10,
@@ -28,7 +28,7 @@
           list(width = '380px', targets = c(3)),
           list(width = '18px', targets = c(2, 7)),
           list(visible = FALSE, targets = c(0, 1, 4, 5)),
-          list(orderable = FALSE, targets = c(0, 1, 2, 7)),
+          list(orderable = FALSE, targets = c(0, 1, 2, 4, 5, 6, 7)),
           list(className = 'details-control', targets = c(7)), 
           list(className = 'dt-center', targets = c(2,7))
         ),
@@ -73,7 +73,8 @@
         names(tbCommittees),
         target = 'row',
         backgroundColor = 'white', fontSize = '16px')  %>%
-      formatStyle('Priority Area', fontWeight = 'bold') 
+      formatStyle('Priority Area', fontWeight = 'bold') %>% 
+      formatStyle('Progress', fontSize = '14px', fontWeight = 300)
   })
   
   #------------------------------------

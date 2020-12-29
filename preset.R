@@ -77,6 +77,44 @@
                   "&#11036")))
     }
     
+    # Function for creating progres bar for each priority area
+    
+    priorityAreaProgressBar <- function(data) {
+      customBar <- function(x) {
+          ifelse(x == "&#128260", 
+                 color <- iteam_red_light5,
+                 ifelse(x == "&#9989",
+                   color <- iteam_green,
+                   color <- "#DCDCDC"))
+        return(paste0("<div style=\"float:left;margin-left:1px;width:12px;height:16px;background-color:", color,"\"></div>"))
+      }
+      customCounts <- function(x) {
+        x <- unlist(x)
+        if (length(x) < 1) { 
+          return("There are no actions listed under this priority area.") 
+        } else { 
+          tempProgress <- 0;
+          tempNotStarted <- 0;
+          tempComplete <- 0;
+          for (i in length(x)) {
+            ifelse(x[i] == "&#128260",
+                   tempProgress <- tempProgress + 1,
+                   ifelse(x[i] == "&#9989",
+                          tempComplete <- tempComplete + 1,
+                          tempNotStarted <- tempNotStarted + 1))
+          }
+          
+          return(paste0(tempComplete, " action", (ifelse(tempComplete==1, "", "s")), " complete, ", 
+                        tempNotStarted, " action", (ifelse(tempNotStarted==1, "", "s")), " in progress (", 
+                        length(x), " total)"))
+        }
+      }
+      tempData <- sapply(sapply(lapply(data, "[[", 2), FUN=strsplit, " "), "[[", 1)
+      tempBar <- lapply(tempData, FUN=customBar)
+      tempCounts <- customCounts(tempData)
+      return(HTML(sort(unlist(tempBar), decreasing=TRUE), paste0("<br />", tempCounts)))
+    }
+    
    #add text for Brandon Scotts welcome
    text1 <- div(HTML("<h5>Hello Baltimore! My administration is committed to transparency as we work to provide the services Baltimore residents deserve. I came into this office with both a long-term vision for Baltimore and a clear strategy to make change. I tasked my transition team with building a framework of early-term priorities that will put us on a path to success. </h5> 
                      <h5>My administration is your administration. I asked my team to create this 100 Days of Action Tracker so you could hold me accountable to achieve the vision I was elected to deliver. Every week, we will share progress updates across these ten priority areas, so you know what's happening in City Hall. With your help, this is going to be the most open and accountable administration in Baltimore's history.</h5>"))
@@ -167,7 +205,8 @@
         (`Priority Area` == "Environment & Sustainability") ~ sustainability,
         T ~ as.character(arts)
       ))) %>%
-      select(1,5,2,3,4)
+      select(1,5,2,3,4) %>% 
+      mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar))
     
     tbUpdates <- pg4 %>%
       mutate(.," " = with(.,case_when(
