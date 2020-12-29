@@ -23,19 +23,20 @@
       options = list(
         dom = 'lftr',
         pageLength = 10,
-        colnames = '',
         order = list(list(3, 'asc')),
         columnDefs = list(
           list(visible = FALSE, targets = c(0, 1, 4, 5)),
-          list(orderable = FALSE, className = 'details-control', targets = 7)
+          list(orderable = FALSE, targets = c(0, 1, 2, 7)),
+          list(className = 'details-control', targets = c(7))
         ),
         initComplete = JS(
           "function(settings, json) {",
           "$(this.api().table().header()).css({'font-size': '18px'});",
           "}")
       ),
+      colnames = c("", "", "", "Priority Area", "", "", "Progress", ""),
       callback = JS("
-        table.column(3).nodes().to$().css({cursor: 'pointer'});
+        table.column(6).nodes().to$().css({cursor: 'pointer'});
         var format = function(d) {
           if (d[5] == null) {
             return '<p>There is no additional data to display here.</p>';
@@ -111,8 +112,8 @@
   # Updates table outputs
   
   output$tbUpdates <- renderDataTable(tbUpdates, 
-                                      options=list(pageLength=10)
-                                      ,escape = F)
+                                      options=list(pageLength=10),
+                                      escape = F)
   
   #-----------------------------------
   
