@@ -15,13 +15,16 @@
   
   #------------------------------------
   
-  # Progress table outputs
+  # Table with progress on all priority areas and actions
   
   output$tbPriorities = DT::renderDataTable({
       DT::datatable(
       cbind(tbCommittees, "Progress" = "N/A", 'Expand' = '+'),
       options = list(
+        dom = 'lftr',
         pageLength = 10,
+        colnames = '',
+        order = list(list(3, 'asc')),
         columnDefs = list(
           list(visible = FALSE, targets = c(0, 1, 4, 5)),
           list(orderable = FALSE, className = 'details-control', targets = 7)
@@ -68,6 +71,40 @@
         backgroundColor = 'white', fontSize = '16px')  %>%
       formatStyle('Priority Area', fontWeight = 'bold') 
   })
+  
+  #------------------------------------
+  
+  # Download button for data on all priority areas
+  
+  output$downloadPriorities <- downloadHandler(
+    filename = function() {
+      paste(Sys.Date(), "-mayor-scott-transition-tracker-priorities.csv", sep="")
+    },
+    content = function(file) {
+      write.csv(tbCommittees %>% 
+          select(`Priority Area`, Priority),
+        file,
+        row.names=FALSE)
+    }
+  )
+  
+  #------------------------------------
+  
+  # Download button for data on all actions
+  
+  output$downloadActions <- downloadHandler(
+    filename = function() {
+      paste(Sys.Date(), "-mayor-scott-transition-tracker-actions.csv", sep="")
+    },
+    content = function(file) {
+      write.csv(tbPriorities %>% 
+                  rename(Status = Progress,
+                         `Priority Area` = Committee) %>% 
+                  select(`Action #`, Action, Status, `Priority Area`,`Parties Responsible`), 
+                file,
+                row.names=FALSE)
+    }
+  )
   
   #-------------------------------------
   
