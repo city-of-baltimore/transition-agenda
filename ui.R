@@ -30,6 +30,16 @@
                     border: 1px solid ",bc_gold,";
                     border-bottom: 1px solid white;
                   }
+                  table.dataTable thead th {
+                    padding: 8px 10px !important;
+                  }
+                  #DataTables_Table_0_filter {
+                    float: right;
+                  }
+                  #DataTables_Table_0_filter input {
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                  }
                  ")),
 
   #-------------------------------
