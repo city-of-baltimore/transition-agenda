@@ -77,7 +77,7 @@
                   "&#11036")))
     }
     
-    # Function for creating progres bar for each priority area
+    # Function for creating progress bar for each priority area
     
     priorityAreaProgressBar <- function(data) {
       customBar <- function(x) {
@@ -238,3 +238,13 @@
                          h6("Mayor Brandon Scott leading his first CitiStat meeting as Mayor. December 22, 2020"))
     )
 )
+
+    
+  #---------------------------------
+    
+    # Create download system for responses
+    
+   downloader <- uiOutput("adminPanelContainer")
+  
+    adminUsers <- c("baltopi")
+    
