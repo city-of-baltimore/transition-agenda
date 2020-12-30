@@ -11,8 +11,4 @@
       data
     }
 
-  #---------------------------
-    
-  # Run function (this is just to show that it works, the final version should write to some location)
-  
-    loadData()
+
