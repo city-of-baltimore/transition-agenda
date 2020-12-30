@@ -89,7 +89,8 @@
                downloadButton(style="margin-top:20px;","downloadActions", "Download this data (csv)")),
       tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
       tabPanel(h4(style="color:black;","About this Initiative"), aboutus),
-      tabPanel(h4(style="color:black;","Resources & Feedback"), text4,links,survey,hidden1,hidden2,downloader)
+      tabPanel(h4(style="color:black;","Resources & Feedback"), text4,links,survey,hidden1,hidden2#,downloader
+               )
       ),
   
   #--------------------------------------
