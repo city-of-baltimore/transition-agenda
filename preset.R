@@ -240,11 +240,3 @@
 )
 
     
-  #---------------------------------
-    
-    # Create download system for responses
-    
-   downloader <- uiOutput("adminPanelContainer")
-  
-   adminUsers <- c("baltopi")
-    
