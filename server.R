@@ -229,7 +229,46 @@
     shinyjs::show("form")
     shinyjs::hide("thankyou_msg")
   })
+ 
+
+  # download survey responses (for admins only)
+
+  # render the admin panel
+  output$adminPanelContainer <- renderUI({
+    if (!isAdmin()) return()
+    
+    div(
+      id = "adminPanel",
+      h2("Previous responses (only visible to admins)"),
+      downloadButton("downloadBtn", "Download responses"), br(), br(),
+      DT::dataTableOutput("responsesTable")
+    )
+  })
   
+  # determine if current user is admin
+  isAdmin <- reactive({
+    is.null(session$user) || session$user %in% adminUsers
+  })    
+  
+  # Show the responses in the admin table
+  output$responsesTable <- DT::renderDataTable({
+    data <- loadData()
+    data$timestamp <- as.POSIXct(data$timestamp, origin="1970-01-01")
+    DT::datatable(
+      data,
+      rownames = FALSE,
+      options = list(searching = FALSE, lengthChange = FALSE)
+    )
+  })
+    
+  output$downloadBtn <- downloadHandler(
+    filename = function() { 
+      sprintf("transition_responses_%s.csv", humanTime())
+    },
+    content = function(file) {
+      write.csv(loadData(), file, row.names = FALSE)
+    }
+  ) 
 }
 
 
