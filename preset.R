@@ -246,5 +246,5 @@
     
    downloader <- uiOutput("adminPanelContainer")
   
-    adminUsers <- c("baltopi")
+   adminUsers <- c("baltopi")
     
