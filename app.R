@@ -15,7 +15,6 @@ library(htmltools)
 #setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
 
 source('preset.R',local = T)
-source('response.R',local = T)
 source('survey.R',local = T)
 source('server.R',local = T)
 source('ui.R',local = T)
