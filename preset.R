@@ -47,8 +47,8 @@
     tools <- gicon("tools")
     
     ggpalette1 <- cbind(
-      c(iteam_red_light5,"whiteSmoke",iteam_green),
-      c("Not Yet Started","In Progress","Complete")
+      c(iteam_green,iteam_red_light5,"whiteSmoke"),
+      c("Complete","Not Yet Started","In Progress")
     )
     
     ggpalette2 <- cbind(
@@ -70,9 +70,9 @@
     
     # Function for determining status symbol
     symbol <- function(status) {
-      return(ifelse(tolower(status) == "in progress", 
+      return(ifelse(tolower(status) == "In Progress", 
            "&#128260",
-           ifelse(tolower(status) == "complete",
+           ifelse(tolower(status) == "Complete",
                   "&#9989",
                   "&#11036")))
     }
