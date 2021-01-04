@@ -27,13 +27,13 @@
     
     #Create icons for priority areas
     gicon <- function(x) as.character(icon(x))
-    health <- gicon("ambulance")
+    safety <- gicon("ambulance")
     business <- gicon("store-alt")
     finance <- gicon("money-check-alt")
     education <- gicon("chalkboard-teacher")
     neighborhood <- gicon("building")
     transportation <- gicon("bus")
-    human_services <- gicon("hospital-user")
+    health <- gicon("hospital-user")
     governance <- gicon("landmark")
     sustainability <- gicon("leaf")
     arts <- gicon("palette")
@@ -167,16 +167,12 @@
     
     tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions") %>%
       mutate(.," " = with(.,case_when(
-                           (Committee == "Public Health & Public Safety") ~ health,
-                           (Committee == "Business, Workforce & Neighborhood Development") ~ business,
-                           (Committee == "Fiscal Preparedness") ~ finance,
-                           (Committee == "Education & Youth Recreation") ~ education,
-                           (Committee == "Housing & Neighborhood Development") ~ neighborhood,
-                           (Committee == "Transportation & Infrastructure") ~ transportation,
-                           (Committee == "Human Services") ~ human_services,
-                           (Committee == "Governance Structure & Operations") ~ governance,
-                           (Committee == "Environment & Sustainability") ~ sustainability,
-                           T ~ as.character(arts)
+                           (Committee == "Building Public Safety") ~ safety,
+                           (Committee == "Making Baltimore Equitable") ~ neighborhood,
+                           (Committee == "Prioritizing Our Youth") ~ education,
+                           (Committee == "Building Public Trust") ~ governance,
+                           (Committee == "COVID-19 Recovery") ~ health,
+                           T ~ as.character(finance)
                                   )))
 
     
@@ -194,32 +190,24 @@
       left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
       select(-c(4,5)) %>%
       mutate(.," " = with(.,case_when(
-        (`Priority Area` == "Public Health & Public Safety") ~ health,
-        (`Priority Area` == "Business, Workforce & Neighborhood Development") ~ business,
-        (`Priority Area` == "Fiscal Preparedness") ~ finance,
-        (`Priority Area` == "Education & Youth Recreation") ~ education,
-        (`Priority Area` == "Housing & Neighborhood Development") ~ neighborhood,
-        (`Priority Area` == "Transportation & Infrastructure") ~ transportation,
-        (`Priority Area` == "Human Services") ~ human_services,
-        (`Priority Area` == "Governance Structure & Operations") ~ governance,
-        (`Priority Area` == "Environment & Sustainability") ~ sustainability,
-        T ~ as.character(arts)
+        (`Priority Area` == "Building Public Safety") ~ safety,
+        (`Priority Area` == "Making Baltimore Equitable") ~ neighborhood,
+        (`Priority Area` == "Prioritizing Our Youth") ~ education,
+        (`Priority Area` == "Building Public Trust") ~ governance,
+        (`Priority Area` == "COVID-19 Recovery") ~ health,
+        T ~ as.character(finance)
       ))) %>%
       select(1,5,2,3,4) %>% 
       mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar))
     
     tbUpdates <- pg4 %>%
       mutate(.," " = with(.,case_when(
-        (Action == "Public Health & Public Safety") ~ health,
-        (Action == "Business, Workforce & Neighborhood Development") ~ business,
-        (Action == "Fiscal Preparedness") ~ finance,
-        (Action == "Education & Youth Recreation") ~ education,
-        (Action == "Housing & Neighborhood Development") ~ neighborhood,
-        (Action == "Transportation & Infrastructure") ~ transportation,
-        (Action == "Human Services") ~ human_services,
-        (Action == "Governance Structure & Operations") ~ governance,
-        (Action == "Environment & Sustainability") ~ sustainability,
-        T ~ as.character(arts)
+        (Action == "Building Public Safety") ~ safety,
+        (Action == "Making Baltimore Equitable") ~ neighborhood,
+        (Action == "Prioritizing Our Youth") ~ education,
+        (Action == "Building Public Trust") ~ governance,
+        (Action == "COVID-19 Recovery") ~ health,
+        T ~ as.character(finance)
       ))) %>%
       select(6,1:5)
 
