@@ -154,7 +154,7 @@
 
   #Load and format data
 
-    #set up google sheets access
+    #set up sheets
     pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 1)
     pg2 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 2)
     pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 3)
@@ -267,7 +267,7 @@
       column(4,offset = 1, 
              img(src = "photos/mayor_scott_2.png",
                  height = 675*3072*.07/575, width = 3072*.07),
-             h6("Mayor Brandon Scott leading his first CitiStat meeting as Mayor. December 22, 2020"))
+             h6("Mayor Brandon Scott with the Baltimore Harbor in the background."))
 ))
 
     
