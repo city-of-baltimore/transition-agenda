@@ -124,9 +124,9 @@
                stat = "identity",
                width = 1) +
       coord_flip() +
-      theme(legend.position = "top",
+      theme(legend.position = "bottom",
             legend.justification = "right",
-            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
+            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,8,0))),
             legend.margin=margin(c(0,0,-4,0)),
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
@@ -153,9 +153,9 @@
                stat = "identity",
                width = 1) +
       coord_flip() +
-      theme(legend.position = "top",
+      theme(legend.position = "bottom",
             legend.justification = "right",
-            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,-18,0))),
+            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,8,0))),
             legend.margin=margin(c(0,0,-4,0)),
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
