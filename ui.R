@@ -98,15 +98,16 @@
   # Page Bottom
   hr(),
     div(style="display: flex; flex-direction:row;justify-content: space-between;",
-    HTML("<h3 style=\"align-self:flex-end;\">Send us your feedback on this page through ",
-         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h3>"),
-    h3(
+    HTML("<h4 style=\"align-self:flex-end;\">Send us your feedback on this page through ",
+         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>"),
+    h4(
          a(href='https://twitter.com/MayorBMScott', icon("twitter-square")), "  ",
          a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
          a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
          a(href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
          a(href='https://mayor.baltimorecity.gov/connect',icon("envelope-square")), "  ",
-         a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square"))))
+         a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square")))),
+  hr()
   )
 )
 
