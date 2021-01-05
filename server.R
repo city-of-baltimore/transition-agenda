@@ -12,7 +12,7 @@
   # Basic Structure
 
     server <- function(input, output, session){
-  
+
   #------------------------------------
   
   # Table with progress on all priority areas and actions
