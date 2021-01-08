@@ -18,7 +18,7 @@
       tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
       tags$style(paste0("* {font-family: 'Roboto', sans-serif; padding: 0px; margin: 0px;
                     }
-                  h1 {font-size: 46px;}
+                  h1 {font-size: 42px;}
                   h5 {font-size: 16px; font-weight: 500; line-height: 1.35em; margin: 0px; margin-bottom: 0.5em;}
                   p {font-size: 14px; line-height:1.3em;}
                   .tab-header {margin-top:1em; margin-bottom: 1em;}
@@ -52,13 +52,15 @@
   verticalLayout(
     
     div(style="padding-top:8px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
-      img(src = "photos/mayor_brandon_scott.png",
-                 height = headerImgSize, width = headerImgSize),
+      # img(src = "photos/mayor_brandon_scott.png",
+      #            height = headerImgSize, width = headerImgSize),
+      # 
+      h1(strong("Mayor Brandon Scott's"), br(),
+         strong("100 Days of Action"), 
+         style="font-size:40px;color:black;padding:0px;padding-right:10px;padding-bottom:14px;line-height:1.1;margin-bottom:-18px;"),
       
-      h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
-         style="font-size:42px;color:black;max-width:460px;text-align:center;padding:10px;line-height:1.05;margin-bottom:-18px;"),
-      
-      img(src = "photos/CITY-LOGO.png",
+      img(src = "photos/mayor_scott_logo.png",
+          style="padding-bottom:-40px;margin-bottom:0px;",
           height = headerImgSize, width = headerImgSize),
     ),
 
