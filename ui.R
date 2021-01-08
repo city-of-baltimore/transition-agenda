@@ -72,7 +72,7 @@
     
     # Welcome comment from Mayor Scott
     div(style="display:flex;flex-direction:row;flex-wrap:wrap;",
-      div(style='padding:0px;max-width:600px;',text1),
+      div(style='padding:0px;max-width:680px;',text1),
       # Overview progress and day trackers
       div(style='padding:0px;width:400px;',
           div(class="small-tracker", plotOutput("plotTimeline", height="90px")),
