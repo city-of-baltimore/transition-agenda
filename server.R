@@ -22,6 +22,7 @@
       cbind(tbCommittees, 'Expand' = '+'),
       options = list(
         dom = 'ft',
+        searching = F,
         pageLength = 10,
         order = list(list(3, 'asc')),
         columnDefs = list(
