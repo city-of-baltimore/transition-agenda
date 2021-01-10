@@ -164,7 +164,7 @@
     pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 3)
     pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 4)
     
-    tbDays <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Days") %>% 
+    tbDays <- pg2 %>% 
       mutate(Status = factor(sapply(.$Date,past), 
                              levels=c("Past", "Current","Remaining")),
              Total = 1)
