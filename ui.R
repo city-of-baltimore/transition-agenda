@@ -83,13 +83,13 @@
   # Second level content
     
     # Welcome comment from Mayor Scott
-    div(style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;",
-      div(style='padding:0px;',text1),
-      # Overview progress and day trackers
-      div(style='padding:0px;max-width:680px;',
-          div(p(style="font-weight:600;", timelineText)),
-          div(style='margin-left:-4px;margin-right:-4px;', class="small-tracker", plotOutput("plotTimeline", height="72px")),
-          div(class="small-tracker", plotOutput("plotProgress", height="90px")))
+    div(style='padding:0px;',text1),
+    # Overview progress and day trackers
+    div(style='padding:0px;max-width:680px;',
+      div(p(style="max-width:680px;font-weight:600;", timelineText)),
+      div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", plotOutput("plotTimeline", width="100%", height="72px")),
+      div(p(style="max-width:680px;font-weight:600;", progressText)),
+      div(style='margin-left:-4px;margin-right:-4px;', class="small-tracker", plotOutput("plotProgress", width="100%", height="72px"))
     ),
     
   # hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),

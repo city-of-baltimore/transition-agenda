@@ -130,6 +130,8 @@
      ifelse(which(tbDays$Date == Sys.Date())<=100, which(tbDays$Date == Sys.Date()),
        paste0("It ended on ", gsub("/0", "/", strftime(tbDays$Date[100], "%m/%d/%y")))), ".")
    
+   progressText <- "Placeholder text for summarizing progress."
+   
    #Add texts and links for the resources page
    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>Mayor's Office Homepage</a></b>"," - Stay informed about Baltimore City services and connect with your city leaders.</p>")
    link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>"," - Request any city service over the phone, on the 311 app, or online.</p>")

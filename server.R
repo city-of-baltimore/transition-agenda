@@ -119,7 +119,6 @@
   output$plotProgress <- renderPlot({
     tbPriorities %>%
       ggplot(aes(fill = Progress, x = Count, y = "")) +
-      ggtitle("Progress") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = 1) +
