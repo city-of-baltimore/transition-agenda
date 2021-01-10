@@ -40,12 +40,11 @@
         dom = 'ft',
         searching = F,
         pageLength = 10,
-        order = list(list(3, 'asc')),
         columnDefs = list(
           list(width = '380px', targets = c(3)),
           list(width = '18px', targets = c(2, 7)),
           list(visible = FALSE, targets = c(0, 1, 4, 5)),
-          list(orderable = FALSE, targets = c(0, 1, 2, 4, 5, 6, 7)),
+          list(orderable = FALSE, targets = "_all"),
           list(className = 'details-control', targets = c(7)), 
           list(className = 'dt-center', targets = c(2,7))
         ),
