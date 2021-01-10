@@ -68,7 +68,7 @@
     
     div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
         
-      h1(strong("Mayor Scott's 100 Days of Action"), 
+      h1(strong(title), 
          style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"),
       
       img(src = "photos/CITY-LOGO.png",
