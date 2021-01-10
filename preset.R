@@ -127,6 +127,9 @@
    text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action. You can sort and filter the list of updates by any column by clicking the filter icon on the top right of the column and then choosing options from the popup window.</p>"))
    text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
 
+   # Text for timeline vis title. Note this text will treat the first day in the tbDays dataframe 
+   # as the first day of the 100 Days of Action. If the first day is changed, the source data 
+   # should be filtered to exclude days preceeding the first day.
    timelineText <- paste0("The 100 Days of Action began on ", 
      gsub("/0", "/", strftime(tbDays$Date[1], "%m/%d/%y")), ". Today is day ",
      ifelse(which(tbDays$Date == Sys.Date())<=100, which(tbDays$Date == Sys.Date()),
