@@ -150,7 +150,7 @@
    )
         
    #size for header images
-   headerImgSize <- 90
+   headerImgSize <- 40
     
   #-----------------------------
 

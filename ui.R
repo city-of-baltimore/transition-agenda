@@ -51,20 +51,17 @@
       
   verticalLayout(
     
-    div(style="padding-top:8px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
-      # img(src = "photos/mayor_brandon_scott.png",
-      #            height = headerImgSize, width = headerImgSize),
-      # 
-      h1(strong("Mayor Brandon Scott's"), br(),
-         strong("100 Days of Action"), 
-         style="font-size:40px;color:black;padding:0px;padding-right:10px;padding-bottom:14px;line-height:1.1;margin-bottom:-18px;"),
+    div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
+        
+      h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
+         style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"),
       
-      img(src = "photos/mayor_scott_logo.png",
-          style="padding-bottom:-40px;margin-bottom:0px;",
+      img(src = "photos/CITY-LOGO.png",
+          style="padding-bottom:-40px;margin-top:16px;margin-bottom:0px;",
           height = headerImgSize, width = headerImgSize),
     ),
 
-    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 2px solid", bc_gold, ";")),
     
   #--------------------------------------
   
