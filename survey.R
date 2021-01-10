@@ -3,24 +3,32 @@
   #------------------------------
 
   # Create Basic Survey Form & Hidden Pages
+  optional <- "Optional"
+  textplacehold <- "Thank you for sharing this message with us! We look forward to reading and responding."
   
     survey <- div(
       id = "form",
       fluidRow(column(4,textInput("firstname", "First Name", "",width = '100%')),
                column(4,textInput("lastname", "Last Name", "",width = '100%'))),
       fluidRow(column(4,textInput("email", "Email Address",width = '100%')),
-               column(4,textInput("home", "Home Address (optional)",width = '100%'))),
-      fluidRow(column(4,textInput("city", "City (optional)",width = '100%')),
-               column(4,textInput("zipcode", "Zip Code (optional)",width = '100%'))),
-      fluidRow(column(12,textInput("message", "Type your message here!",width = '100%'))),
-      fluidRow(column(4,selectInput("type", "Is your comment for the administration or for this page's developers?",
-                  c("",  "Administration", "Developers"),width = '100%')),
-               column(4,checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", T)),),
+               column(4,textInput("home", "Home Address",width = '100%',placeholder = optional))),
+      fluidRow(column(4,textInput("city", "City",width = '100%',placeholder = optional)),
+               column(4,textInput("zipcode", "Zip Code",width = '100%',placeholder = optional))),
+      fluidRow(column(8,textAreaInput("message", "Type your message here!",width = '200%',rows = 4,placeholder = textplacehold))),
+      fluidRow(column(4,selectInput("type", "Is your comment for Mayor Scott or for this page's developers?",
+                  c("",  "Mayor Scott", "Web Developers"),width = '100%'))#,
+               #column(4,checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", T))
+               ),
       fluidRow(column(12,actionButton("submit", "Submit", class = "btn-primary")))
     )
     
     #set mandatory fields
-    fieldsMandatory <- c("firstname","lastname","email","message","updated","type")
+    fieldsMandatory <- c("firstname",
+                         "lastname",
+                         "email",
+                         "message",
+                         #"updated",
+                         "type")
     
     hidden1 <- shinyjs::hidden(
       span(id = "submit_msg", "Submitting..."),
