@@ -35,8 +35,9 @@
     transportation <- gicon("bus")
     health <- gicon("hospital-user")
     governance <- gicon("landmark")
-    sustainability <- gicon("leaf")
-    arts <- gicon("palette")
+    equity1 <- gicon("hands-helping")
+    equity2 <- gicon("hand-holding-heart")
+    equity3 <- gicon("balance-scale")
     
 
     #Create icons for the app layout
@@ -170,7 +171,7 @@
     tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions") %>%
       mutate(.," " = with(.,case_when(
                            (Committee == "Building Public Safety") ~ safety,
-                           (Committee == "Making Baltimore Equitable") ~ neighborhood,
+                           (Committee == "Making Baltimore Equitable") ~ equity1,
                            (Committee == "Prioritizing Our Youth") ~ education,
                            (Committee == "Building Public Trust") ~ governance,
                            (Committee == "COVID-19 Recovery") ~ health,
@@ -193,7 +194,7 @@
       select(-c(4,5)) %>%
       mutate(.," " = with(.,case_when(
         (`Priority Area` == "Building Public Safety") ~ safety,
-        (`Priority Area` == "Making Baltimore Equitable") ~ neighborhood,
+        (`Priority Area` == "Making Baltimore Equitable") ~ equity1,
         (`Priority Area` == "Prioritizing Our Youth") ~ education,
         (`Priority Area` == "Building Public Trust") ~ governance,
         (`Priority Area` == "COVID-19 Recovery") ~ health,
@@ -205,7 +206,7 @@
     tbUpdates <- pg4 %>%
       mutate(.," " = with(.,case_when(
         (Action == "Building Public Safety") ~ safety,
-        (Action == "Making Baltimore Equitable") ~ neighborhood,
+        (Action == "Making Baltimore Equitable") ~ equity1,
         (Action == "Prioritizing Our Youth") ~ education,
         (Action == "Building Public Trust") ~ governance,
         (Action == "COVID-19 Recovery") ~ health,
