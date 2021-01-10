@@ -19,13 +19,21 @@
       tags$style(paste0("* {font-family: 'Roboto', sans-serif; padding: 0px; margin: 0px;
                     }
                   h1 {font-size: 42px;}
-                  p {font-size: 18px; line-height:1.3em;color:black;}
+                  p {
+                    font-size: 18px; 
+                    line-height:1.3em;
+                    color:black;
+                    max-width:680px;
+                  }
                   .tab-header {margin-top:1em; margin-bottom: 1em;}
                   table.dataTable tr.selected td, table.dataTable td.selected, table.dataTable tr.selected {background-color: white !important;}
                   table thead.selected td {background-color: white !important;}
                   table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {background-color: white !important;}
                   .tabbable {
-                    margin-top:24px;
+                    margin-top: 24px;
+                  }
+                  .tabbable h4 {
+                    font-size: 22px;
                   }
                   ul.nav-tabs {
                     border-bottom: 1px solid ",bc_gold,";
@@ -60,7 +68,7 @@
     
     div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
         
-      h1(strong("Mayor Brandon Scott's 100 Days of Action"), 
+      h1(strong("Mayor Scott's 100 Days of Action"), 
          style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"),
       
       img(src = "photos/CITY-LOGO.png",
@@ -68,15 +76,15 @@
           height = headerImgSize, width = headerImgSize),
     ),
 
-    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 2px solid", bc_gold, ";")),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 3px solid", bc_gold, ";")),
     
   #--------------------------------------
   
   # Second level content
     
     # Welcome comment from Mayor Scott
-    div(style="display:flex;flex-direction:row;flex-wrap:wrap;",
-      div(style='padding:0px;max-width:680px;',text1),
+    div(style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;",
+      div(style='padding:0px;',text1),
       # Overview progress and day trackers
       div(style='padding:0px;width:400px;',
           div(class="small-tracker", plotOutput("plotTimeline", height="90px")),
