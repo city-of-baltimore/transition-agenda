@@ -14,7 +14,22 @@
     server <- function(input, output, session){
 
   #------------------------------------
+      
+  # Dynamic titles for timeline and progress bars
+      
+    # Text for timeline vis title. Note this text will treat the first day in 
+    # the tbDays dataframe as the first day of the 100 Days of Action. If the 
+    # first day is changed, the source data should be filtered to exclude days 
+    # preceeding the first day.
+    timelineText <- paste0("The 100 Days of Action began on ", 
+                           gsub("/0", "/", strftime(tbDays$Date[1], "%m/%d/%y")), ". Today is day ",
+                           ifelse(which(tbDays$Date == Sys.Date())<=100, which(tbDays$Date == Sys.Date()),
+                                  paste0("It ended on ", gsub("/0", "/", strftime(tbDays$Date[100], "%m/%d/%y")))), ".")
+    
+    progressText <- "Placeholder text for summarizing progress."
   
+  #------------------------------------
+    
   # Table with progress on all priority areas and actions
   
   output$tbPriorities = DT::renderDataTable({
