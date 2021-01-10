@@ -117,6 +117,7 @@
     }
     
    #add text for Brandon Scotts welcome
+    title <- "Mayor Scott's 100 Days of Action"
    # text1 <- div(HTML("<h5>Hello Baltimore! My administration is committed to transparency as we work to provide the services Baltimore residents deserve. I came into this office with both a long-term vision for Baltimore and a clear strategy to make change. I tasked my transition team with building a framework of early-term priorities that will put us on a path to success. </h5> 
    #                   <h5>My administration is your administration. I asked my team to create this 100 Days of Action Tracker so you could hold me accountable to achieve the vision I was elected to deliver. Every week, we will share progress updates across these ten priority areas, so you know what's happening in City Hall. With your help, this is going to be the most open and accountable administration in Baltimore's history.</h5>"))
    text1 <- div(HTML("<p>Draft: As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott reviewed these plans and built a coordinated strategy for his first term, starting with this 100 Days of Action.
