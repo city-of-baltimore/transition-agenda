@@ -48,7 +48,7 @@
     tools <- gicon("tools")
     
     ggpalette1 <- cbind(
-      c(iteam_green,iteam_red_light5,"whiteSmoke"),
+      c(bchd_blue,bc_gold,"whiteSmoke"),
       c("Complete","Not Yet Started","In Progress")
     )
     
