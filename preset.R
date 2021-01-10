@@ -118,14 +118,14 @@
    #add text for Brandon Scotts welcome
    # text1 <- div(HTML("<h5>Hello Baltimore! My administration is committed to transparency as we work to provide the services Baltimore residents deserve. I came into this office with both a long-term vision for Baltimore and a clear strategy to make change. I tasked my transition team with building a framework of early-term priorities that will put us on a path to success. </h5> 
    #                   <h5>My administration is your administration. I asked my team to create this 100 Days of Action Tracker so you could hold me accountable to achieve the vision I was elected to deliver. Every week, we will share progress updates across these ten priority areas, so you know what's happening in City Hall. With your help, this is going to be the most open and accountable administration in Baltimore's history.</h5>"))
-   text1 <- div(HTML("<p>Draft: As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott reviewed these plans and built a coordinated strategy for his first term, starting with this Hundred Days of Action.
+   text1 <- div(HTML("<p>Draft: As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott reviewed these plans and built a coordinated strategy for his first term, starting with this 100 Days of Action.
     Follow updates across each of these actions and track their completion using this tracker.</p>"))
    text2 <- div(HTML("<p class=\"tab-header\">This table displays Mayor Scott's early achievements organized by priority area. Click the plus sign next to each priority area to see more details on the key goals and progress toward actions associated with each one. For an overview of the transition committees oriented around each of the Mayor's priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this webpage</a>.</p>"))
    text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action. You can sort and filter the list of updates by any column by clicking the filter icon on the top right of the column and then choosing options from the popup window.</p>"))
    text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
 
-   timelineText <- paste0("The 100 days of action began on ", 
+   timelineText <- paste0("The 100 Days of Action began on ", 
      gsub("/0", "/", strftime(tbDays$Date[1], "%m/%d/%y")), ". Today is day ",
      ifelse(which(tbDays$Date == Sys.Date())<=100, which(tbDays$Date == Sys.Date()),
        paste0("It ended on ", gsub("/0", "/", strftime(tbDays$Date[100], "%m/%d/%y")))), ".")
