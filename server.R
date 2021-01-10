@@ -27,7 +27,8 @@
         paste0("It ended on ", 
           gsub("/0", "/", strftime(tbDays$Date[100], "%m/%d/%y")))), ".")
     
-    progressText <- "Placeholder text for summarizing progress."
+    progressText <- paste0("There are ", actionsTotal, " actions planned in total. ",
+      actionsComplete, " are complete, and ", actionsInProgress, " are in progress.")
   
   #------------------------------------
     
@@ -35,13 +36,13 @@
   
   output$tbPriorities = DT::renderDataTable({
       DT::datatable(
-      cbind(tbCommittees, 'Expand' = '+'),
+      cbind(tbCommittees, 'Expand' = '▼'),
       options = list(
         dom = 'ft',
         searching = F,
         pageLength = 10,
         columnDefs = list(
-          list(width = '380px', targets = c(3)),
+          list(width = '320px', targets = c(3)),
           list(width = '18px', targets = c(2, 7)),
           list(visible = FALSE, targets = c(0, 1, 4, 5)),
           list(orderable = FALSE, targets = "_all"),
@@ -60,7 +61,7 @@
           if (d[5] == null) {
             return '<p>There is no additional data to display here.</p>';
           } else {
-            var result = '<table style=\"padding: .5em;width:100%;\">';
+            var result = '<table style=\"padding: .5em;margin-left:32px;width:calc(100% - 24px);\">';
             result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
             for (var i in d[5]){
               result += '<tr>';
@@ -77,10 +78,10 @@
           var td = $(this), row = table.row(td.closest('tr'));
           if (row.child.isShown()) {
             row.child.hide();
-            td.html('+');
+            td.html('▼');
           } else {
             row.child(format(row.data())).show();
-            td.html('-');
+            td.html('▲');
           }
         });"
       )
@@ -89,8 +90,9 @@
         names(tbCommittees),
         target = 'row',
         backgroundColor = 'white', fontSize = '16px')  %>%
-      formatStyle('Priority Area', fontWeight = 'bold') %>% 
-      formatStyle('Progress', fontSize = '14px', fontWeight = 300)
+      formatStyle('Priority Area', fontSize = '18px', fontWeight = 'bold') %>% 
+      formatStyle('Progress', fontSize = '18px', fontWeight = 300) %>% 
+      formatStyle('Expand', fontSize = '18px', color="grey", fontWeight = 300)
   })
   
   #------------------------------------

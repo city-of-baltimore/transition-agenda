@@ -189,6 +189,11 @@
       group_by(Committee) %>%
       summarise(ActionProgressParties = list(unique(ActionProgressParties))) 
     
+    actionsTotal <- nrow(tbPriorities)
+    actionsComplete <- sum(tolower(tbPriorities$Progress) == "complete")
+    actionsInProgress <- sum(tolower(tbPriorities$Progress) == "in progress")
+    actionsRemaining <- actionsTotal - actionsComplete - actionsInProgress
+    
     tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
       rename("Priority Area" = Name) %>% 
       left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
