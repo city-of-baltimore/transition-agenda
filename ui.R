@@ -86,8 +86,9 @@
     div(style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;",
       div(style='padding:0px;',text1),
       # Overview progress and day trackers
-      div(style='padding:0px;width:400px;',
-          div(class="small-tracker", plotOutput("plotTimeline", height="90px")),
+      div(style='padding:0px;max-width:680px;',
+          div(p(style="font-weight:600;", timelineText)),
+          div(style='margin-left:-4px;margin-right:-4px;', class="small-tracker", plotOutput("plotTimeline", height="72px")),
           div(class="small-tracker", plotOutput("plotProgress", height="90px")))
     ),
     

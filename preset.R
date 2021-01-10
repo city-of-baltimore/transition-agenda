@@ -125,6 +125,11 @@
    text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action. You can sort and filter the list of updates by any column by clicking the filter icon on the top right of the column and then choosing options from the popup window.</p>"))
    text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
 
+   timelineText <- paste0("The 100 days of action began on ", 
+     gsub("/0", "/", strftime(tbDays$Date[1], "%m/%d/%y")), ". Today is day ",
+     ifelse(which(tbDays$Date == Sys.Date())<=100, which(tbDays$Date == Sys.Date()),
+       paste0("It ended on ", gsub("/0", "/", strftime(tbDays$Date[100], "%m/%d/%y")))), ".")
+   
    #Add texts and links for the resources page
    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>Mayor's Office Homepage</a></b>"," - Stay informed about Baltimore City services and connect with your city leaders.</p>")
    link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>"," - Request any city service over the phone, on the 311 app, or online.</p>")
