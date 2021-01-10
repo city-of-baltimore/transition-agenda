@@ -119,14 +119,13 @@
   output$plotProgress <- renderPlot({
     tbPriorities %>%
       ggplot(aes(fill = Progress, x = Count, y = "")) +
-      ggtitle("Progress") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = 1) +
       coord_flip() +
       theme(legend.position = "bottom",
             legend.justification = "right",
-            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,8,0))),
+            plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
             legend.margin=margin(c(0,0,-4,0)),
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),
@@ -148,14 +147,13 @@
   output$plotTimeline <- renderPlot({
     tbDays %>%
       ggplot(aes(fill = Status, x = Total, y = "")) +
-      ggtitle("Timeline") +
       geom_bar(position = position_fill(reverse = TRUE),
                stat = "identity",
                width = 1) +
       coord_flip() +
       theme(legend.position = "bottom",
             legend.justification = "right",
-            plot.title = element_text(size=14, face="bold", margin=margin(c(0,0,8,0))),
+            plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
             legend.margin=margin(c(0,0,-4,0)),
             legend.title=element_text(size=12), 
             legend.text=element_text(size=12),

@@ -19,13 +19,28 @@
       tags$style(paste0("* {font-family: 'Roboto', sans-serif; padding: 0px; margin: 0px;
                     }
                   h1 {font-size: 42px;}
-                  h5 {font-size: 16px; font-weight: 500; line-height: 1.35em; margin: 0px; margin-bottom: 0.5em;}
-                  p {font-size: 14px; line-height:1.3em;}
+                  p {
+                    font-size: 18px; 
+                    line-height:1.3em;
+                    color:black;
+                    max-width:680px;
+                  }
                   .tab-header {margin-top:1em; margin-bottom: 1em;}
                   table.dataTable tr.selected td, table.dataTable td.selected, table.dataTable tr.selected {background-color: white !important;}
                   table thead.selected td {background-color: white !important;}
                   table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {background-color: white !important;}
-                  ul.nav-tabs {border-bottom: 1px solid ",bc_gold,";}
+                  .tabbable {
+                    margin-top: 24px;
+                  }
+                  .tabbable h4 {
+                    font-size: 22px;
+                  }
+                  ul.nav-tabs {
+                    border-bottom: 1px solid ",bc_gold,";
+                  }
+                  .nav-tabs li a {
+                    padding: 0px 12px 0px 12px;
+                  }
                   .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
                     border: 1px solid ",bc_gold,";
                     border-bottom: 1px solid white;
@@ -51,32 +66,30 @@
       
   verticalLayout(
     
-    div(style="padding-top:8px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
-      # img(src = "photos/mayor_brandon_scott.png",
-      #            height = headerImgSize, width = headerImgSize),
-      # 
-      h1(strong("Mayor Brandon Scott's"), br(),
-         strong("100 Days of Action"), 
-         style="font-size:40px;color:black;padding:0px;padding-right:10px;padding-bottom:14px;line-height:1.1;margin-bottom:-18px;"),
+    div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
+        
+      h1(strong("Mayor Scott's 100 Days of Action"), 
+         style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"),
       
-      img(src = "photos/mayor_scott_logo.png",
-          style="padding-bottom:-40px;margin-bottom:0px;",
+      img(src = "photos/CITY-LOGO.png",
+          style="padding-bottom:-40px;margin-top:16px;margin-bottom:0px;",
           height = headerImgSize, width = headerImgSize),
     ),
 
-    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
+    hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 3px solid", bc_gold, ";")),
     
   #--------------------------------------
   
   # Second level content
     
     # Welcome comment from Mayor Scott
-    div(style="display:flex;flex-direction:row;flex-wrap:wrap;",
-      div(style='padding:0px;max-width:680px;',text1),
-      # Overview progress and day trackers
-      div(style='padding:0px;width:400px;',
-          div(class="small-tracker", plotOutput("plotTimeline", height="90px")),
-          div(class="small-tracker", plotOutput("plotProgress", height="90px")))
+    div(style='padding:0px;',text1),
+    # Overview progress and day trackers
+    div(style='padding:0px;max-width:680px;',
+      div(p(style="max-width:680px;font-weight:600;", timelineText)),
+      div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", plotOutput("plotTimeline", width="100%", height="72px")),
+      div(p(style="max-width:680px;font-weight:600;", progressText)),
+      div(style='margin-left:-4px;margin-right:-4px;', class="small-tracker", plotOutput("plotProgress", width="100%", height="72px"))
     ),
     
   # hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
