@@ -103,7 +103,7 @@
     tabsetPanel(type="tabs",
       tabPanel(h4(style="color:black;","Priorities & Progress"), 
                text2, 
-               dataTableOutput('tbPriorities'), 
+               dataTableOutput("tbPriorities"), 
                downloadButton(style="margin-top:20px;","downloadActions", "Download this data (csv)")),
 #      tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
       tabPanel(h4(style="color:black;","About this Initiative"), aboutus),
