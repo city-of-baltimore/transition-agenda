@@ -90,7 +90,7 @@
                text2, 
                dataTableOutput('tbPriorities'), 
                downloadButton(style="margin-top:20px;","downloadActions", "Download this data (csv)")),
-      tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
+#      tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
       tabPanel(h4(style="color:black;","About this Initiative"), aboutus),
       tabPanel(h4(style="color:black;","Resources & Feedback"), text4,links,survey,hidden1,hidden2#,downloader
                )
@@ -99,18 +99,17 @@
   #--------------------------------------
   
   # Page Bottom
-  hr(),
+  h4(),
+  hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
     div(style="display: flex; flex-direction:row;justify-content: space-between;",
-    HTML("<h4 style=\"align-self:flex-end;\">Send us your feedback on this page through ",
-         "<a href='https://forms.gle/U3JmaEoS27CrtYWF9'>this form</a>.</h4>"),
-    h4(
+    h3(
          a(href='https://twitter.com/MayorBMScott', icon("twitter-square")), "  ",
          a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
          a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
          a(href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
          a(href='https://mayor.baltimorecity.gov/connect',icon("envelope-square")), "  ",
          a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square")))),
-  hr()
+  h2()
   )
 )
 
