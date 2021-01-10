@@ -19,13 +19,20 @@
       tags$style(paste0("* {font-family: 'Roboto', sans-serif; padding: 0px; margin: 0px;
                     }
                   h1 {font-size: 42px;}
-                  h5 {font-size: 16px; font-weight: 500; line-height: 1.35em; margin: 0px; margin-bottom: 0.5em;}
-                  p {font-size: 14px; line-height:1.3em;}
+                  p {font-size: 18px; line-height:1.3em;color:black;}
                   .tab-header {margin-top:1em; margin-bottom: 1em;}
                   table.dataTable tr.selected td, table.dataTable td.selected, table.dataTable tr.selected {background-color: white !important;}
                   table thead.selected td {background-color: white !important;}
                   table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {background-color: white !important;}
-                  ul.nav-tabs {border-bottom: 1px solid ",bc_gold,";}
+                  .tabbable {
+                    margin-top:24px;
+                  }
+                  ul.nav-tabs {
+                    border-bottom: 1px solid ",bc_gold,";
+                  }
+                  .nav-tabs li a {
+                    padding: 0px 12px 0px 12px;
+                  }
                   .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
                     border: 1px solid ",bc_gold,";
                     border-bottom: 1px solid white;
