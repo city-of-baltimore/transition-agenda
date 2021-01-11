@@ -239,58 +239,34 @@
     
     aboutus <- div(hr(),
                    fluidRow(
-                  column(7,
-                         h3("What we're sharing, and why."),
-                         p("Mayor Brandon Scott is building an administration committed to equity and excellence in government.", 
-                            "That starts with transparency, so every resident can see what's happening in their city and make their ",
-                            "voice heard."),
-                         p("A bold vision requires a coalition of experts. As part of his administrative transition process in late 2020, ",
-                         "Mayor Brandon Scott assembled a team of advocates, community leaders, and specialists, all with a passion for ",
-                         "Baltimore and desire to improve how City government functions. This team met across ten priority areas to develop ",
-                         "immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott reviewed these plans and built ",
-                         "a coordinated strategy for his first term, starting with this Hundred Days of Action."),
-                         p("Over the next hundred days, you can follow weekly updates across each of these actions, track their completion ",
-                           "across each priority area, and get involved in Mayor Scott's work to make Baltimore an even better city.")
-                         ),
-                  column(4,offset = 1, 
-                         img(src = "photos/citistat.jpg",
-                              height = 4096*.07, width = 3072*.07),
-                         h6("Mayor Brandon Scott leading his first CitiStat meeting as Mayor. December 22, 2020"))
-                  
-    ),
-    
-    hr(),
-    fluidRow(
-      column(7,
-             h3("About Mayor Brandon Scott"),
-             p("Brandon M. Scott is the 52nd Mayor of Baltimore, working to end gun violence, restore the public's trust in government ",
-               "and change Baltimore for the better."),
-             p("Scott was unanimously elected President of the Baltimore City Council by his colleagues in May 2019. As Council ",
-               "President, Scott developed and released the first-ever City Council President legislative agenda, focused on ",
-               "building safer, stronger communities, cleaning up city government, investing in Baltimore's young people, and ",
-               "centering equity. Previously, Scott served on the City Council representing Baltimore's 2nd District. He was ",
-               "first elected in 2011 at the age of 27 and is one of the youngest people ever elected to the Baltimore City Council."),
-             p("During his first term, Scott emerged as a leading voice in reducing violence in Baltimore and reinstated Council ",
-               "Oversight of the Baltimore Police Department by holding quarterly hearings. He believes that reducing violence will ",
-               "require a holistic, all-hands-on-deck approach, one that recognizes violence is fundamentally a public health issue. ",
-               "Scott led legislative initiatives that created extensive crime data sharing and online reporting of crimes by the ",
-               "Baltimore Police Department. In 2016, Scott introduced and passed legislation creating an open data policy in Baltimore."),
-             p("In early 2018, then-Councilman Scott introduced and passed monumental legislation on equity in Baltimore. His ",
-               "equity assessment program law will require all city agencies to operate through a lens of equity and require all ",
-               "operating budgets, capital budgets and proposed legislation to be weighed through an equity lens. That legislation ",
-               "is in the early stages of implementation."),
-             p("Mayor Scott is a rising star in politics. He was a member of the Young Elected Officials Network and served as ",
-               "the Secretary of Housing and Urban Development for YEO's America's Cabinet. He also served as the Chair of the ",
-               "National League of Cities' Large Cities Council."),
-             p("Mayor Scott is a community leader, public servant and lifelong resident of Baltimore City. A proud Baltimorean, ",
-               "Scott is a graduate of MERVO High School and St. Mary's College of Maryland. He lives in Baltimore's Frankford ",
-               "neighborhood in Northeast Baltimore.")
-      ),
-      column(4,offset = 1, 
-             img(src = "photos/mayor_scott_2.png",
-                 height = 675*3072*.07/575, width = 3072*.07),
-             h6("Mayor Brandon Scott with the Baltimore Harbor in the background."))
-))
+                  column(8,
+                         h3("Hello Baltimore!"),
+                         p("When I decided to run for Mayor, I knew that a normal administration wasn't enough to rise to the challenge. 
+                         We face too many crises--from the present pandemic and its inequities to epidemics and inequities that have been 
+                         around for generations. 
+                           I knew we needed to operate with greater transparency, accountability, and urgency than ever before."),
+                         p("I ran for Mayor promising to reform the structure and capabilities of Baltimore's government. So when I was elected, 
+                           I instructed my transition committees to think big and to think technical, to get into the weeds of how our 
+                           government could improve while staying laser-focused on what matters to Baltimore residents. Together, we built 
+                           a long-term vision for this administration, taking ideas from every part of this city and combining them with the 
+                           best practices other cities have used to grow equitably."),
+                         p("In my conversations with the transition team, I knew we needed to show progress, not just tell people when we were done. 
+                           We assembled a list of actions we could accomplish in 100 (very busy) days so residents could see Baltimore City 
+                           government's transformation immediately. This 100 Days of Action Tracker emerged from this sense of urgency and 
+                           from my belief that we're at our best when we're accountable to the people we serve."),
+                         p("Please use this tool to learn more, ask tough questions, and hold us to our promises. Every week, my team will 
+                           share updates making Baltimore a stronger, more equitable city, so be sure to keep checking back in on our progress. 
+                           Thank you for your engagement in our work!"),
+                         p("Yours,"),
+                         img(src = "photos/signature.PNG",
+                             height = 40,width = 125),
+                         p("Brandon M. Scott"),
+                         p("Mayor of Baltimore City")),
+                  column(4, 
+                         img(src = "photos/mayor_brandon_scott.png",
+                              height = 413, width = 275),
+                         h5("Inaugural Photo of Mayor Brandon M. Scott",width = 275))
+                  ))
 
     
 
