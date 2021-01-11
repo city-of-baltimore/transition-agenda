@@ -94,8 +94,6 @@
           plotOutput("plotProgress", width="100%", height="72px"))
     ),
     
-  # hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
-  
   #--------------------------------------
   
   # Third Level Content
