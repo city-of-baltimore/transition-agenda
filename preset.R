@@ -136,18 +136,21 @@
    link6 <- HTML("<p><b><a href='https://planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn about your Community Association</a></b>"," - Find out more about your Community Association and get involved!</p>")
    
    #set link format
-   linkrowlength <- 6
-   offsetlength <- 12-2*linkrowlength
+   linkrowlength <- 4
+   offsetlength <- 0
    
    #create structure for links
    links <- div(
      id = "links",
          fluidRow(column(linkrowlength,link1),
-                  column(linkrowlength,offset = offsetlength,link2)),
+                  column(linkrowlength,offset = offsetlength,link2),
+                  column(2)),
          fluidRow(column(linkrowlength,link3),
-                  column(linkrowlength,offset = offsetlength,link4)),
+                  column(linkrowlength,offset = offsetlength,link4),
+                  column(2)),
          fluidRow(column(linkrowlength,link5),
-                  column(linkrowlength,offset = offsetlength,link6)),
+                  column(linkrowlength,offset = offsetlength,link6),
+                  column(2)),
      hr()
    )
         
