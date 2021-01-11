@@ -164,7 +164,7 @@
                              levels=c("Past", "Current","Remaining")),
              Total = 1)
     
-    tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions") %>%
+    tbPriorities <- pg1 %>%
       mutate(.," " = with(.,case_when(
                            (Committee == "Building Public Safety") ~ safety,
                            (Committee == "Making Baltimore Equitable") ~ equity1,
@@ -172,7 +172,8 @@
                            (Committee == "Building Public Trust") ~ governance,
                            (Committee == "COVID-19 Recovery") ~ health,
                            T ~ as.character(finance)
-                                  )))
+                                  ))) %>%
+      arrange(.,.$Progress)
 
     
     tbActionsNested <- tbPriorities %>% 
