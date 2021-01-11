@@ -116,7 +116,7 @@
     Follow updates across each of these actions and track their completion using this tracker.</p>"))
    text2 <- div(HTML("<p class=\"tab-header\">You can follow Mayor Scott's early achievements here! To learn about Mayor Scott's transition committees and priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this webpage</a>.</p>"))
-   text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action. You can sort and filter the list of updates by any column by clicking the filter icon on the top right of the column and then choosing options from the popup window.</p>"))
+   text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action.</p>"))
    text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
    
    #Add texts and links for the resources page
@@ -206,15 +206,7 @@
       mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar))
     
     tbUpdates <- pg4 %>%
-      mutate(.," " = with(.,case_when(
-        (Action == "Building Public Safety") ~ safety,
-        (Action == "Making Baltimore Equitable") ~ equity1,
-        (Action == "Prioritizing Our Youth") ~ education,
-        (Action == "Building Public Trust") ~ governance,
-        (Action == "COVID-19 Recovery") ~ health,
-        T ~ as.character(finance)
-      ))) %>%
-      select(6,1:5)
+      mutate(`Date of Update` = ymd(`Date of Update`))
 
     #------------------------------------
     

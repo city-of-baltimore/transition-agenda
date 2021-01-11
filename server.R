@@ -103,9 +103,10 @@
   output$tbUpdates <- DT::renderDataTable({DT::datatable(tbUpdates, 
                                       options=list(
                                         pageLength=10,
+                                        searching = T,
                                         columnDefs = list(
                                           list(visible = FALSE, targets = c(0)),
-                                          list(orderable = FALSE, targets = c(0, 1, 2)),
+                                          list(orderable = FALSE, targets = c(0, 3)),
                                           list(className = 'dt-center', targets = c(2))
                                         )),
                                       escape = F) %>% 
