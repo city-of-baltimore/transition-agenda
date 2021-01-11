@@ -69,51 +69,43 @@
                    "Current","Past"))
     }
     
+    # Progress bar unit style
+    progressUnitStyle <- "float:left;margin-left:1px;width:14px;height:14px;padding-bottom:0px;margin-top:2px;"
+    
     # Function for determining status symbol
+    symbolColor <- function(status) {
+      return(ifelse(tolower(status) == "in progress", 
+        bc_gold,
+        ifelse(tolower(status) == "complete",
+          bchd_blue,
+          "#DCDCDC")))
+    }
+    
     symbol <- function(status) {
-      return(ifelse(tolower(status) == "In Progress", 
-           "&#128260",
-           ifelse(tolower(status) == "Complete",
-                  "&#9989",
-                  "&#11036")))
+      tempDiv <- paste0("<div style=\"margin-right:6px;", progressUnitStyle,"background-color:", symbolColor(status),"\"></div>")
+      return(paste(tempDiv, status))
     }
     
     # Function for creating progress bar for each priority area
-    
     priorityAreaProgressBar <- function(data) {
-      customBar <- function(x) {
-          ifelse(x == "&#128260", 
-                 color <- iteam_red_light5,
-                 ifelse(x == "&#9989",
-                   color <- iteam_green,
-                   color <- "#DCDCDC"))
-        return(paste0("<div style=\"float:left;margin-left:1px;width:12px;height:16px;background-color:", color,"\"></div>"))
-      }
-      customCounts <- function(x) {
-        x <- unlist(x)
-        if (length(x) < 1) { 
-          return("There are no actions listed under this priority area.") 
-        } else { 
-          tempProgress <- 0;
-          tempNotStarted <- 0;
-          tempComplete <- 0;
-          for (i in length(x)) {
-            ifelse(x[i] == "&#128260",
-                   tempProgress <- tempProgress + 1,
-                   ifelse(x[i] == "&#9989",
-                          tempComplete <- tempComplete + 1,
-                          tempNotStarted <- tempNotStarted + 1))
-          }
-          
-          return(paste0(tempComplete, " action", (ifelse(tempComplete==1, "", "s")), " complete, ", 
-                        tempNotStarted, " action", (ifelse(tempNotStarted==1, "", "s")), " in progress (", 
-                        length(x), " total)"))
-        }
-      }
-      tempData <- sapply(sapply(lapply(data, "[[", 2), FUN=strsplit, " "), "[[", 1)
-      tempBar <- lapply(tempData, FUN=customBar)
-      tempCounts <- customCounts(tempData)
-      return(HTML(sort(unlist(tempBar), decreasing=TRUE), paste0("<br />", tempCounts)))
+      # return(sapply(sapply(lapply(data, "[[", 2), FUN=strsplit, " "), "[[", 1))
+      return(paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, "</div>"), "[[", 1), "</div>")), collapse=''))
+      # customCounts <- function(x) {
+      #   x <- unlist(x)
+      #   if (length(x) < 1) { 
+      #     return("There are no actions listed under this priority area.") 
+      #   } else { 
+      #     returnString <- ""
+      #     for (i in length(x)) {
+      #       returnString <- paste0(returnString,gsub("(@).*","\\1",x[i]))
+      #     }
+      #     return(returnString)
+      #   }
+      # }
+      # data <- lapply(data, "[[", 2)
+      # tempCounts <- customCounts(data)
+      # return(HTML(sort(unlist(data), decreasing=TRUE), paste0("<br />", tempCounts)))
+      # return(returnString)
     }
     
    #add text for Brandon Scotts welcome
@@ -182,7 +174,7 @@
     
     tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
-                                            paste(symbol(Progress), Progress), 
+                                            symbol(Progress),
                                             `Parties Responsible`, 
                                             SIMPLIFY = F)) %>% 
       select(c("Committee", "ActionProgressParties")) %>% 
