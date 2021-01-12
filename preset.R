@@ -39,7 +39,6 @@
     equity2 <- gicon("hand-holding-heart")
     equity3 <- gicon("balance-scale")
     
-
     #Create icons for the app layout
     see_more <- gicon("chevron-down")
     contact_us <- gicon("envelope")
@@ -82,7 +81,7 @@
     }
     
     symbol <- function(status) {
-      tempDiv <- paste0("<div style=\"margin-right:6px;", progressUnitStyle,"background-color:", symbolColor(status),"\"></div>")
+      tempDiv <- paste0("<div style=\"", progressUnitStyle,"background-color:", symbolColor(status),"\"></div>")
       return(paste(tempDiv, status))
     }
     

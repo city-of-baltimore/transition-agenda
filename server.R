@@ -43,7 +43,7 @@
           if (d[5] == null) {
             return '<p>There is no additional data to display here.</p>';
           } else {
-            var result = '<table style=\"padding:0.5em;margin-left:32px;width:calc(100% - 24px);\">';
+            var result = '<table class=\"priorities-hierarchy-2\" style=\"padding:0.5em;margin-left:32px;width:calc(100% - 24px);\">';
             result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
             for (var i in d[5]){
               result += '<tr >';
