@@ -8,18 +8,18 @@
   
     survey <- div(
       id = "form",
-      fluidRow(column(4,textInput("firstname", HTML("<p>First Name</p>"), "",width = '100%')),
-               column(4,textInput("lastname", HTML("<p>Last Name</p>"), "",width = '100%'))),
-      fluidRow(column(4,textInput("email", HTML("<p>Email Address</p>"),width = '100%')),
-               column(4,textInput("home", HTML("<p>Home Address</p>"),width = '100%',placeholder = optional))),
-      fluidRow(column(4,textInput("city", HTML("<p>City</p>"),width = '100%',placeholder = optional)),
-               column(4,textInput("zipcode", HTML("<p>Zip Code</p>"),width = '100%',placeholder = optional))),
-      fluidRow(column(8,textAreaInput("message", HTML("<p>Type your message here!</p>"),width = '200%',rows = 4,placeholder = textplacehold))),
-      fluidRow(column(4,selectInput("type", HTML("<p>Is your comment for Mayor Scott or for this page's developers?</p>"),
+      fluidRow(column(4,textInput("firstname", "First Name", "",width = '100%')),
+               column(4,textInput("lastname", "Last Name", "",width = '100%'))),
+      fluidRow(column(4,textInput("email", "Email Address",width = '100%')),
+               column(4,textInput("home", "Home Address",width = '100%',placeholder = optional))),
+      fluidRow(column(4,textInput("city", "City",width = '100%',placeholder = optional)),
+               column(4,textInput("zipcode", "Zip Code",width = '100%',placeholder = optional))),
+      fluidRow(column(8,textAreaInput("message", "Type your message here!",width = '200%',rows = 4,placeholder = textplacehold))),
+      fluidRow(column(4,selectInput("type", "Is your comment for Mayor Scott or for this page's developers?",
                   c("",  "Mayor Scott", "Web Developers"),width = '100%'))#,
                #column(4,checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", T))
                ),
-      fluidRow(column(12,actionButton("submit", HTML("<b>Submit</b>"), class = "btn-primary")))
+      fluidRow(column(12,actionButton("submit", "Submit", class = "btn-primary")))
     )
     
     #set mandatory fields

@@ -4,14 +4,15 @@
   
   # Load packages (only matters for publishing on shiny.io)
   library(tidyverse)
-  library(shinyjs)
   library(DT)
+  library(shinyjs)
 
   #-----------------------------------
   
   # Basic Structure
 
     server <- function(input, output, session){
+
   #------------------------------------
     
   # Table with progress on all priority areas and actions
@@ -108,13 +109,9 @@
   output$tbUpdates <- DT::renderDataTable({DT::datatable(tbUpdates, 
                                       options=list(
                                         pageLength=10,
-                                        searching = T,
-                                        initComplete = JS("function(settings, json) 
-                                                          {$(this.api().table().container()).css({'font-size' : '18px'});",
-                                                          "}"),
                                         columnDefs = list(
                                           list(visible = FALSE, targets = c(0)),
-                                          list(orderable = FALSE, targets = c(0, 1, 3)),
+                                          list(orderable = FALSE, targets = c(0, 1, 2)),
                                           list(className = 'dt-center', targets = c(2))
                                         )),
                                       escape = F) %>% 
@@ -137,8 +134,8 @@
             legend.justification = "right",
             plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
             legend.margin=margin(c(0,0,-4,0)),
-            legend.title=element_text(size=16), 
-            legend.text=element_text(size=16),
+            legend.title=element_text(size=12), 
+            legend.text=element_text(size=12),
             panel.spacing = margin(c(0,0,0,0)),
             panel.border = element_rect(colour = "black", fill=NA, size=0.5),
             axis.title.x = element_blank(),
@@ -165,8 +162,8 @@
             legend.justification = "right",
             plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
             legend.margin=margin(c(0,0,-4,0)),
-            legend.title=element_text(size=16), 
-            legend.text=element_text(size=16),
+            legend.title=element_text(size=12), 
+            legend.text=element_text(size=12),
             panel.border = element_rect(colour = "black", fill=NA, size=0.5),
             panel.spacing = margin(c(0,0,0,0)),
             axis.title.x = element_blank(),
