@@ -229,8 +229,7 @@
     
     # Create "about this initiative" page
     
-    aboutus <- div(hr(),
-                   fluidRow(
+    aboutus <- div(fluidRow(
                   column(8,
                          h3("Hello Baltimore!"),
                          p("When I decided to run for Mayor, I knew that a normal administration wasn't enough to rise to the challenge. 
@@ -254,7 +253,7 @@
                              height = 40,width = 125),
                          p("Brandon M. Scott"),
                          p("Mayor of Baltimore City")),
-                  column(4, 
+                  column(4, hr(style="border-color: white;"),
                          img(src = "photos/mayor_brandon_scott.png",
                               height = 413, width = 275),
                          h5("Inaugural Photo of Mayor Brandon M. Scott",width = 275))
