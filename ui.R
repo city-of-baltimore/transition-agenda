@@ -11,7 +11,8 @@
   
   # Basic Layout
       
-    ui <- fluidPage(
+    ui <- function(req){
+      fluidPage(
       shinyjs::useShinyjs(),
       
       #style
@@ -102,10 +103,16 @@
       tabPanel(h4(style="color:black;","Priorities & Progress"), 
                text2, 
                dataTableOutput("tbPriorities"), 
-               downloadButton(style="margin-top:20px;","downloadActions", "Download this data (csv)")),
-#      tabPanel(h4(style="color:black;","Weekly Updates"), text3, dataTableOutput('tbUpdates')),
+               downloadButton(style="margin-top:40px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
+      tabPanel(h4(style="color:black;","Weekly Updates"), 
+               text3, 
+               div(column(8,dataTableOutput('tbUpdates')),
+                   column(3,offset = 1,img(src = "photos/citistat.jpg",
+                                height = 4096*.1, width = 3072*.1),
+                          h5("Mayor Scott at his first PoliceStat meeting as Mayor. 12/22/2020",width = 3072*.1)))),
       tabPanel(h4(style="color:black;","About this Initiative"), aboutus),
-      tabPanel(h4(style="color:black;","Resources & Feedback"), text4,links,survey,hidden1,hidden2#,downloader
+      tabPanel(h4(style="color:black;","Resources & Feedback"), 
+               text4,links,survey,hidden1,hidden2#,downloader
                )
       ),
   
@@ -126,3 +133,4 @@
   )
 )
 
+    }
