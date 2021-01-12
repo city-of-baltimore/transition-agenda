@@ -24,7 +24,7 @@
         searching = F,
         pageLength = 10,
         columnDefs = list(
-          list(width = '356px', targets = c(3)),
+          list(width = '320px', targets = c(3)),
           list(width = '18px', targets = c(2, 7)),
           list(visible = FALSE, targets = c(0, 1, 4, 5)),
           list(orderable = FALSE, targets = "_all"),
@@ -43,18 +43,12 @@
           if (d[5] == null) {
             return '<p>There is no additional data to display here.</p>';
           } else {
-            var result = '<table style=\"padding:0.5em;margin-left:32px;width:calc(100% - 24px);\">';
+            var result = '<table style=\"padding: .5em;margin-left:32px;width:calc(100% - 24px);\">';
             result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
             for (var i in d[5]){
-              result += '<tr >';
+              result += '<tr>';
               for (var j in d[5][i]) {
-                if (j == 0) {
-                  result += '<td style=\"width:354px;\">' + d[5][i][j] + '</td>';
-                } else if (j == 1) {
-                  result += '<td style=\"width:120px;\">' + d[5][i][j] + '</td>';
-                } else {
-                  result += '<td>' + d[5][i][j] + '</td>';
-                }
+                result += '<td style=\"max-width:260px;\">' + d[5][i][j] + '</td>';
               }
               result += '</tr>';
             }

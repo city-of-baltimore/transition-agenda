@@ -88,12 +88,24 @@
     
     # Function for creating progress bar for each priority area
     priorityAreaProgressBar <- function(data) {
-      tempData <- paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, 
-                "</div>"), 
-              "[[", 1), 
-          "</div>")), 
-        collapse='')
-      return(tempData)
+      # return(sapply(sapply(lapply(data, "[[", 2), FUN=strsplit, " "), "[[", 1))
+      return(paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, "</div>"), "[[", 1), "</div>")), collapse=''))
+      # customCounts <- function(x) {
+      #   x <- unlist(x)
+      #   if (length(x) < 1) { 
+      #     return("There are no actions listed under this priority area.") 
+      #   } else { 
+      #     returnString <- ""
+      #     for (i in length(x)) {
+      #       returnString <- paste0(returnString,gsub("(@).*","\\1",x[i]))
+      #     }
+      #     return(returnString)
+      #   }
+      # }
+      # data <- lapply(data, "[[", 2)
+      # tempCounts <- customCounts(data)
+      # return(HTML(sort(unlist(data), decreasing=TRUE), paste0("<br />", tempCounts)))
+      # return(returnString)
     }
     
    #add text for Brandon Scotts welcome
@@ -153,8 +165,6 @@
              Total = 1)
     
     tbPriorities <- read_excel("data/100 Day Tracker Data.xlsx", sheet="Actions") %>%
-      mutate(Progress = factor(Progress, levels=c("Complete", "In progress", "Not yet started"))) %>% 
-      arrange(Committee, Progress) %>% 
       mutate(.," " = with(.,case_when(
                            (Committee == "Building Public Safety") ~ safety,
                            (Committee == "Making Baltimore Equitable") ~ equity1,
@@ -164,6 +174,7 @@
                            T ~ as.character(finance)
                                   )))
 
+    
     tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
                                             symbol(Progress),
