@@ -69,9 +69,9 @@
     
     # Function for determining status symbol
     symbolColor <- function(status) {
-      return(ifelse(tolower(status) == "In Progress", 
+      return(ifelse(tolower(status) == "in progress", 
         bc_gold,
-        ifelse(tolower(status) == "Complete",
+        ifelse(tolower(status) == "complete",
           bchd_blue,
           "#DCDCDC")))
     }
@@ -91,7 +91,7 @@
       return(tempData)
     }
     
-   #add text for Brandon Scotts welcome
+   #add text for Brandon Scott's welcome
    title <- "Mayor Scott's 100 Days of Action"
    text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott reviewed these plans and built a coordinated strategy for his first term, starting with this 100 Days of Action.
     Follow updates across each of these actions and track their completion using this tracker.</p>"))
@@ -167,8 +167,8 @@
       summarise(ActionProgressParties = list(unique(ActionProgressParties))) 
     
     actionsTotal <- nrow(tbPriorities)
-    actionsComplete <- sum(tolower(tbPriorities$Progress) == "Complete")
-    actionsInProgress <- sum(tolower(tbPriorities$Progress) == "In Progress")
+    actionsComplete <- nrow(tbPriorities[ which(tbPriorities$Progress == "Complete"),])
+    actionsInProgress <- nrow(tbPriorities[ which(tbPriorities$Progress == "In Progress"),])
     actionsRemaining <- actionsTotal - actionsComplete - actionsInProgress
     
     tbCommittees <- pg3 %>% 
