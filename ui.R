@@ -125,7 +125,8 @@
   h4(),
   hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
     div(style="display: flex; flex-direction:row;justify-content: space-between;",
-    h2(
+        tags$i(h4("Designed by the ",a(href = 'https://www.baltopi.com/',"Mayor's Office of Performance & Innovation"))),
+        h2(
          a(href='https://twitter.com/MayorBMScott', icon("twitter-square")), "  ",
          a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
          a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
