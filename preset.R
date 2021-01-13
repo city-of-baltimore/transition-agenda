@@ -69,9 +69,9 @@
     
     # Function for determining status symbol
     symbolColor <- function(status) {
-      return(ifelse(tolower(status) == "in progress", 
+      return(ifelse(tolower(status) == "In Progress", 
         bc_gold,
-        ifelse(tolower(status) == "complete",
+        ifelse(tolower(status) == "Complete",
           bchd_blue,
           "#DCDCDC")))
     }
@@ -146,7 +146,7 @@
              Total = 1)
     
     tbPriorities <- pg1 %>%
-      mutate(Progress = factor(Progress, levels=c("Complete", "In progress", "Not yet started"))) %>% 
+      mutate(Progress = factor(Progress, levels=c("Complete", "In Progress", "Not Yet Started"))) %>% 
       arrange(Committee, Progress) %>%
       mutate(.," " = with(.,case_when(
                            (Committee == "Building Public Safety") ~ safety,
@@ -167,8 +167,8 @@
       summarise(ActionProgressParties = list(unique(ActionProgressParties))) 
     
     actionsTotal <- nrow(tbPriorities)
-    actionsComplete <- sum(tolower(tbPriorities$Progress) == "complete")
-    actionsInProgress <- sum(tolower(tbPriorities$Progress) == "in progress")
+    actionsComplete <- sum(tolower(tbPriorities$Progress) == "Complete")
+    actionsInProgress <- sum(tolower(tbPriorities$Progress) == "In Progress")
     actionsRemaining <- actionsTotal - actionsComplete - actionsInProgress
     
     tbCommittees <- pg3 %>% 
