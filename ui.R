@@ -59,6 +59,9 @@
                   .fab, .fa {
                    color: black;
                   }
+                   .priorities-hierarchy-2 div {
+                   margin-right: 6px;
+                  }
                  ")),
 
   #-------------------------------

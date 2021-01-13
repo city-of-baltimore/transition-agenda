@@ -37,7 +37,6 @@
     equity2 <- gicon("hand-holding-heart")
     equity3 <- gicon("balance-scale")
     
-
     #Create icons for the app layout
     see_more <- gicon("chevron-down")
     contact_us <- gicon("envelope")
@@ -78,36 +77,22 @@
     }
     
     symbol <- function(status) {
-      tempDiv <- paste0("<div style=\"margin-right:6px;", progressUnitStyle,"background-color:", symbolColor(status),"\"></div>")
+      tempDiv <- paste0("<div style=\"", progressUnitStyle,"background-color:", symbolColor(status),"\"></div>")
       return(paste(tempDiv, status))
     }
     
     # Function for creating progress bar for each priority area
     priorityAreaProgressBar <- function(data) {
-      # return(sapply(sapply(lapply(data, "[[", 2), FUN=strsplit, " "), "[[", 1))
-      return(paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, "</div>"), "[[", 1), "</div>")), collapse=''))
-      # customCounts <- function(x) {
-      #   x <- unlist(x)
-      #   if (length(x) < 1) { 
-      #     return("There are no actions listed under this priority area.") 
-      #   } else { 
-      #     returnString <- ""
-      #     for (i in length(x)) {
-      #       returnString <- paste0(returnString,gsub("(@).*","\\1",x[i]))
-      #     }
-      #     return(returnString)
-      #   }
-      # }
-      # data <- lapply(data, "[[", 2)
-      # tempCounts <- customCounts(data)
-      # return(HTML(sort(unlist(data), decreasing=TRUE), paste0("<br />", tempCounts)))
-      # return(returnString)
+      tempData <- paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, 
+                                                    "</div>"), 
+                                             "[[", 1), 
+                                      "</div>")), 
+                        collapse='')
+      return(tempData)
     }
     
    #add text for Brandon Scotts welcome
-    title <- "Mayor Scott's 100 Days of Action"
-   # text1 <- div(HTML("<h5>Hello Baltimore! My administration is committed to transparency as we work to provide the services Baltimore residents deserve. I came into this office with both a long-term vision for Baltimore and a clear strategy to make change. I tasked my transition team with building a framework of early-term priorities that will put us on a path to success. </h5> 
-   #                   <h5>My administration is your administration. I asked my team to create this 100 Days of Action Tracker so you could hold me accountable to achieve the vision I was elected to deliver. Every week, we will share progress updates across these ten priority areas, so you know what's happening in City Hall. With your help, this is going to be the most open and accountable administration in Baltimore's history.</h5>"))
+   title <- "Mayor Scott's 100 Days of Action"
    text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott reviewed these plans and built a coordinated strategy for his first term, starting with this 100 Days of Action.
     Follow updates across each of these actions and track their completion using this tracker.</p>"))
    text2 <- div(HTML("<p class=\"tab-header\">You can follow Mayor Scott's early achievements here! To learn about Mayor Scott's transition committees and priority areas, visit ",
@@ -161,6 +146,8 @@
              Total = 1)
     
     tbPriorities <- pg1 %>%
+      mutate(Progress = factor(Progress, levels=c("Complete", "In progress", "Not yet started"))) %>% 
+      arrange(Committee, Progress) %>%
       mutate(.," " = with(.,case_when(
                            (Committee == "Building Public Safety") ~ safety,
                            (Committee == "Making Baltimore Equitable") ~ equity1,
@@ -168,8 +155,7 @@
                            (Committee == "Building Public Trust") ~ governance,
                            (Committee == "COVID-19 Recovery") ~ health,
                            T ~ as.character(finance)
-                                  ))) %>%
-      arrange(.,.$Progress)
+                                  )))
 
     
     tbActionsNested <- tbPriorities %>% 
@@ -186,7 +172,7 @@
     actionsInProgress <- sum(tolower(tbPriorities$Progress) == "in progress")
     actionsRemaining <- actionsTotal - actionsComplete - actionsInProgress
     
-    tbCommittees <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees") %>% 
+    tbCommittees <- pg3 %>% 
       rename("Priority Area" = Name) %>% 
       left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
       select(-c(4,5)) %>%
