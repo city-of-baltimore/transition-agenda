@@ -93,7 +93,7 @@
     
    #add text for Brandon Scott's welcome
    title <- "Mayor Scott's 100 Days of Action"
-   text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott reviewed these plans and built a coordinated strategy for his first term, starting with this 100 Days of Action.
+   text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott built this into a coordinated first-term strategy, starting with this 100 Days of Action.
     Follow updates across each of these actions and track their completion using this tracker.</p>"))
    text2 <- div(HTML("<p class=\"tab-header\">You can follow Mayor Scott's early achievements here! To learn about Mayor Scott's transition committees and priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this webpage</a>.</p>"))
@@ -128,7 +128,7 @@
    )
         
    #size for header images
-   headerImgSize <- 40
+   headerImgSize <- 50
     
   #-----------------------------
 
@@ -211,7 +211,7 @@
     # Create "about this initiative" page
     
     aboutus <- div(fluidRow(
-                  column(8,
+                  column(6,
                          h3("Hello Baltimore!"),
                          p("When I decided to run for Mayor, I knew that a normal administration wasn't enough to rise to the challenge. 
                          We face too many crises--from the present pandemic and its inequities to epidemics and inequities that have been 
@@ -234,7 +234,7 @@
                              height = 40,width = 125),
                          p("Brandon M. Scott"),
                          p("Mayor of Baltimore City")),
-                  column(4, hr(style="border-color: white;"),
+                  column(6, hr(style="border-color: white;"),
                          img(src = "photos/mayor_brandon_scott.png",
                               height = 413, width = 275),
                          h5("Inaugural Photo of Mayor Brandon M. Scott",width = 275))
