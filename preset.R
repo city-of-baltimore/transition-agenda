@@ -156,7 +156,6 @@
                            (Committee == "COVID-19 Recovery") ~ health,
                            T ~ as.character(finance)
                                   )))
-
     
     tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
