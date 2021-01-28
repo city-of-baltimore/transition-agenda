@@ -24,8 +24,9 @@
         searching = F,
         pageLength = 10,
         columnDefs = list(
-          list(width = '356px', targets = c(3)),
+          list(width = '300px', targets = c(3)),
           list(width = '18px', targets = c(2, 7)),
+          list(width = '172px', targets = c(6)),
           list(visible = FALSE, targets = c(0, 1, 4, 5)),
           list(orderable = FALSE, targets = "_all"),
           list(className = 'details-control', targets = c(7)), 
@@ -43,7 +44,7 @@
           if (d[5] == null) {
             return '<p>There is no additional data to display here.</p>';
           } else {
-            var result = '<table class=\"priorities-hierarchy-2\" style=\"padding:0.5em;margin-left:32px;width:calc(100% - 24px);\">';
+            var result = '<table class=\"priorities-hierarchy-2\" style=\"font-size:16px;padding:0.5em;margin-left:32px;width:calc(100% - 24px);\">';
             result += '<tr><th>Action</th><th>Status</th><th>Parties Responsible</th></tr>';
             for (var i in d[5]){
               result += '<tr >';
@@ -77,7 +78,7 @@
       ) %>% formatStyle(
         names(tbCommittees),
         target = 'row',
-        backgroundColor = 'white', fontSize = '16px')  %>%
+        backgroundColor = 'white', fontSize = '18px')  %>%
       formatStyle('Priority Area', fontSize = '18px', fontWeight = 'bold') %>% 
       formatStyle('Progress', fontSize = '18px', fontWeight = 300) %>% 
       formatStyle('Expand', fontSize = '18px', color="grey", fontWeight = 300)
