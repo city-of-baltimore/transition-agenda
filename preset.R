@@ -109,6 +109,15 @@
    linkrowlength <- 4
    offsetlength <- 0
    
+   #create structure for translation buttons
+   
+   en <- actionButton("english",HTML("<b>En</b>"),class = "btn-primary")
+   sp <- actionButton("english",HTML("<b>Sp</b>"),class = "btn-primary")
+   fr <- actionButton("english",HTML("<b>Fr</b>"),class = "btn-primary")
+   ko <- actionButton("english",HTML("<b>Ko</b>"),class = "btn-primary")
+   ch <- actionButton("english",HTML("<b>Ch</b>"),class = "btn-primary")
+   lang <- div(en,sp,fr,ko,ch)
+   
    #create structure for links
    links <- div(
      id = "links",
