@@ -28,14 +28,11 @@
     #Create icons for priority areas
     gicon <- function(x) as.character(icon(x))
     safety <- gicon("ambulance")
-    business <- gicon("store-alt")
     finance <- gicon("money-check-alt")
     education <- gicon("chalkboard-teacher")
     health <- gicon("hospital-user")
     governance <- gicon("landmark")
     equity1 <- gicon("hands-helping")
-    equity2 <- gicon("hand-holding-heart")
-    equity3 <- gicon("balance-scale")
     
     #Create icons for the app layout
     see_more <- gicon("chevron-down")
