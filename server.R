@@ -13,7 +13,11 @@
 
     server <- function(input, output, session){
   #------------------------------------
-    
+      
+      observeEvent(input$selected_language, {
+        update_lang(session, input$selected_language)
+      })
+      
   # Table with progress on all priority areas and actions
   
   output$tbPriorities = DT::renderDataTable({

@@ -11,6 +11,7 @@ library(shinyjs)
 library(readxl)
 library(rsconnect)
 library(htmltools)
+library(shiny.i18n)
 
 #setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
 

@@ -105,30 +105,32 @@
    link5 <- HTML("<p><b><a href='https://msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore City State Delegation Homepage</a></b>"," - Connect with Baltimore's state legislators and follow  legislation.</p>")
    link6 <- HTML("<p><b><a href='https://planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn about your Community Association</a></b>"," - Find out more about your Community Association and get involved!</p>")
    
-   #set link format
-   linkrowlength <- 4
-   offsetlength <- 0
-   
    #create structure for translation buttons
    
-   en <- actionButton("english",HTML("<b>En</b>"),class = "btn-primary")
-   sp <- actionButton("english",HTML("<b>Sp</b>"),class = "btn-primary")
-   fr <- actionButton("english",HTML("<b>Fr</b>"),class = "btn-primary")
-   ko <- actionButton("english",HTML("<b>Ko</b>"),class = "btn-primary")
-   ch <- actionButton("english",HTML("<b>Ch</b>"),class = "btn-primary")
-   lang <- div(en,sp,fr,ko,ch)
+   i18n <- Translator$new(translation_csvs_path='data/translations/',
+                          translation_csv_config = NULL,
+                          separator_csv = ",",
+                          automatic = FALSE)
+   i18n$set_translation_language('en')
+   
+#   en <- actionButton("english",HTML("<b>En</b>"),class = "btn-primary")
+#   es <- actionButton("english",HTML("<b>Sp</b>"),class = "btn-primary")
+#   fr <- actionButton("english",HTML("<b>Fr</b>"),class = "btn-primary")
+#   ko <- actionButton("english",HTML("<b>Ko</b>"),class = "btn-primary")
+#   ch <- actionButton("english",HTML("<b>Ch</b>"),class = "btn-primary")
+#   lang <- div(en,es,fr,ko,ch)
    
    #create structure for links
    links <- div(
      id = "links",
-         fluidRow(column(linkrowlength,link1),
-                  column(linkrowlength,offset = offsetlength,link2),
+         fluidRow(column(4,link1),
+                  column(4,link2),
                   column(2)),
-         fluidRow(column(linkrowlength,link3),
-                  column(linkrowlength,offset = offsetlength,link4),
+         fluidRow(column(4,link3),
+                  column(4,link4),
                   column(2)),
-         fluidRow(column(linkrowlength,link5),
-                  column(linkrowlength,offset = offsetlength,link6),
+         fluidRow(column(4,link5),
+                  column(4,link6),
                   column(2)),
      hr()
    )
@@ -248,7 +250,3 @@
                               height = 413, width = 275),
                          h5("Inaugural Photo of Mayor Brandon M. Scott",width = 275))
                   ))
-
-    
-
-    

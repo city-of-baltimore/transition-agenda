@@ -6,6 +6,7 @@
   library(tidyverse)
   library(DT)
   library(shinyjs)
+  library(shiny.i18n)
 
   #-------------------------------
   
@@ -14,6 +15,15 @@
     ui <- function(req){
       fluidPage(
       shinyjs::useShinyjs(),
+   #   shiny.i18n::usei18n(i18n),
+    #  tags$div(
+    #    style='float: right;',
+    #    selectInput(
+    #      inputId='selected_language',
+    #      label=i18n$t('Change language'),
+    #      choices = i18n$get_languages(),
+    #      selected = i18n$get_key_translation()
+    #    )),
       
       #style
       tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
@@ -87,8 +97,9 @@
   # Second level content
     
     # Welcome comment from Mayor Scott
-    div(column(6,style='padding:0px;',text1),
-        column(6,lang, align = 'right')),
+    div(column(6,style='padding:0px;',text1)
+       # ,column(6,lang, align = 'right')
+       ),
     # Overview progress and day trackers
     div(style='padding:0px;max-width:680px;',
       div(p(style="max-width:680px;font-weight:600;", timelineText)),
@@ -104,7 +115,7 @@
   # Third Level Content
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
-      tabPanel(h4(style="color:black;","Priorities & Progress"), 
+      tabPanel(h4(style="color:black;",i18n$t("Priorities & Progress")), 
                text2, 
                dataTableOutput("tbPriorities"), 
                downloadButton(style="margin-top:40px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
@@ -114,8 +125,8 @@
 #                   column(3,offset = 1,img(src = "photos/citistat.jpg",
 #                                height = 4096*.1, width = 3072*.1),
 #                          h5("Mayor Scott at his first PoliceStat meeting as Mayor. 12/22/2020",width = 3072*.09)))),
-      tabPanel(h4(style="color:black;","About this Initiative"), aboutus),
-      tabPanel(h4(style="color:black;","Resources & Feedback"), 
+      tabPanel(h4(style="color:black;",i18n$t("About this Initiative")), aboutus),
+      tabPanel(h4(style="color:black;",i18n$t("Resources & Feedback")), 
                text4,links,survey,hidden1,hidden2#,downloader
                )
       ),
@@ -137,5 +148,4 @@
   h2()
   )
 )
-
     }
