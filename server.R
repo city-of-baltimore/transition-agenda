@@ -24,13 +24,13 @@
         searching = F,
         pageLength = 10,
         columnDefs = list(
-          list(width = '300px', targets = c(3)),
-          list(width = '18px', targets = c(2, 7)),
-          list(width = '172px', targets = c(6)),
-          list(visible = FALSE, targets = c(0, 1, 4, 5)),
+          list(width = '300px', targets = c(2)),
+          list(width = '18px', targets = c(2, 4)),
+          list(width = '172px', targets = c(4)),
+          list(visible = FALSE, targets = c(0, 2, 4, 5)),
           list(orderable = FALSE, targets = "_all"),
           list(className = 'details-control', targets = c(7)), 
-          list(className = 'dt-center', targets = c(2,7))
+          list(className = 'dt-center', targets = c(0,4))
         ),
         initComplete = JS(
           "function(settings, json) {",
@@ -75,7 +75,8 @@
         });"
       )
      ,escape = F
-      ) %>% formatStyle(
+      ) %>%
+      formatStyle(
         names(tbCommittees),
         target = 'row',
         backgroundColor = 'white', fontSize = '18px')  %>%
@@ -106,21 +107,21 @@
   
   # Updates table outputs
   
-  output$tbUpdates <- DT::renderDataTable({DT::datatable(tbUpdates, 
-                                      options=list(
-                                        pageLength=10,
-                                        searching = T,
-                                        initComplete = JS("function(settings, json) 
-                                                          {$(this.api().table().container()).css({'font-size' : '18px'});",
-                                                          "}"),
-                                        columnDefs = list(
-                                          list(visible = FALSE, targets = c(0)),
-                                          list(orderable = FALSE, targets = c(0, 1, 3)),
-                                          list(className = 'dt-center', targets = c(2))
-                                        )),
-                                      escape = F) %>% 
-    formatStyle(names(tbUpdates), target = 'row',
-      backgroundColor = 'white', fontSize = '16px')})
+  # output$tbUpdates <- DT::renderDataTable({DT::datatable(tbUpdates, 
+  #                                     options=list(
+  #                                       pageLength=10,
+  #                                       searching = T,
+  #                                       initComplete = JS("function(settings, json) 
+  #                                                         {$(this.api().table().container()).css({'font-size' : '18px'});",
+  #                                                         "}"),
+  #                                       columnDefs = list(
+  #                                         list(visible = FALSE, targets = c(0)),
+  #                                         list(orderable = FALSE, targets = c(0, 1, 3)),
+  #                                         list(className = 'dt-center', targets = c(2))
+  #                                       )),
+  #                                     escape = F) %>% 
+  #   formatStyle(names(tbUpdates), target = 'row',
+  #     backgroundColor = 'white', fontSize = '16px')})
   
   #-----------------------------------
   

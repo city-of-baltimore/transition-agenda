@@ -141,10 +141,10 @@
   #Load and format data
 
     #set up sheets
-    pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 1)
-    pg2 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 2)
-    pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 3)
-    pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = 4)
+    pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Actions")
+    pg2 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Days")
+    pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees")
+    pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Progress Updates")
     
     tbDays <- pg2 %>% 
       mutate(Status = factor(sapply(.$Date,past), 
@@ -154,7 +154,7 @@
     tbPriorities <- pg1 %>%
       mutate(Progress = factor(Progress, levels=c("Complete", "In Progress", "Not Yet Started"))) %>% 
       arrange(Committee, Progress) %>%
-      mutate(.," " = with(.,case_when(
+      mutate(.,"Icon" = with(.,case_when(
                            (Committee == "Building Public Safety") ~ safety,
                            (Committee == "Making Baltimore Equitable") ~ equity1,
                            (Committee == "Prioritizing Our Youth") ~ education,
@@ -172,6 +172,7 @@
       group_by(Committee) %>%
       summarise(ActionProgressParties = list(unique(ActionProgressParties))) 
     
+    
     actionsTotal <- nrow(tbPriorities)
     actionsComplete <- nrow(tbPriorities[ which(tbPriorities$Progress == "Complete"),])
     actionsInProgress <- nrow(tbPriorities[ which(tbPriorities$Progress == "In Progress"),])
@@ -180,17 +181,19 @@
     tbCommittees <- pg3 %>% 
       rename("Priority Area" = Name) %>% 
       left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
-      select(-c(4,5)) %>%
-      mutate(.," " = with(.,case_when(
+      mutate(.,"Icon" = with(.,case_when(
         (`Priority Area` == "Building Public Safety") ~ safety,
         (`Priority Area` == "Making Baltimore Equitable") ~ equity1,
         (`Priority Area` == "Prioritizing Our Youth") ~ education,
         (`Priority Area` == "Building Public Trust") ~ governance,
         (`Priority Area` == "COVID-19 Recovery") ~ health,
         T ~ as.character(finance)
-      ))) %>%
-      select(1,5,2,3,4) %>% 
+      ))) %>% 
       mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar))
+    
+    tbCommittees <- tbCommittees %>% 
+      select(-c(grep(pattern="_", x=colnames(tbCommittees)))) %>% 
+      select(Icon, everything())
     
     tbUpdates <- pg4 %>%
       mutate(`Date of Update` = ymd(`Date of Update`))
