@@ -19,7 +19,8 @@
                   c("",  "Mayor Scott", "Web Developers"),width = '100%'))#,
                #column(4,checkboxInput("updated", "Keep me updated about this administration's achievements serving Baltimore City", T))
                ),
-      fluidRow(column(12,actionButton("submit", HTML("<b>Submit</b>"), class = "btn-primary")))
+      fluidRow(column(8,actionButton("submit", HTML("<b>Submit</b>"), class = "btn-primary")),
+               column(4," "))
     )
     
     #set mandatory fields

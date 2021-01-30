@@ -153,7 +153,7 @@
     
     <div class="footer-bottom">
       <div class="footer-inner copyright">
-        <p>Copyright Â© 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
+        <p>Copyright © 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
       </div>
     </div>
   ')
