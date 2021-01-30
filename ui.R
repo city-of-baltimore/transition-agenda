@@ -38,7 +38,9 @@
       padding-left: 24px;
       padding-right:24px;
     }
-    h1 {font-size: 42px;}
+    h1 {
+      font-size: 42px;
+    }
     p {
       font-size: 18px; 
       line-height:1.3em;
@@ -88,13 +90,12 @@
   # Begin vertical R Shiny layout, add Baltimore City Header
    
   verticalLayout(
-     headerBaltimoreCity,
+    headerBaltimoreCity,
      
   #-------------------------------
   
-  # Div for 'tracker' content
-  
-  div(class="tracker-container",
+    # Div for 'tracker' content
+    div(class="tracker-container",
      
   #-------------------------------
      
@@ -112,7 +113,6 @@
   #-------------------------------
   
   # Second level content
-    
     # Welcome comment from Mayor Scott
     div(style='padding:0px;',text1),
     # Overview progress and day trackers
@@ -165,13 +165,11 @@
   #-------------------------------
 
   # Close div for 'tracker' content
-
   ),
 
   #-------------------------------
 
   # Add Baltimore City footer
-
   footerBaltimoreCity
     
   #-------------------------------
