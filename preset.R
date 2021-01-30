@@ -92,12 +92,18 @@
     text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
    
     # Add texts and links for the resources page
-    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>Mayor's Office Homepage</a></b>"," - Stay informed about Baltimore City services and connect with your city leaders.</p>")
-    link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>"," - Request any city service over the phone, on the 311 app, or online.</p>")
-    link3 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com/'>City Council Homepage</a></b>"," - Learn more about the City Council, connect with your representatives, and follow their calendar.</p>")
-    link4 <- HTML("<p><b><a href='https://mayor.baltimorecity.gov/help'>Connect with Constituent Services</a></b>"," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
-    link5 <- HTML("<p><b><a href='https://msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore City State Delegation Homepage</a></b>"," - Connect with Baltimore's state legislators and follow  legislation.</p>")
-    link6 <- HTML("<p><b><a href='https://planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn about your Community Association</a></b>"," - Find out more about your Community Association and get involved!</p>")
+    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>Mayor's Office Homepage</a></b>")
+                  #," - Stay informed about Baltimore City services and connect with your city leaders.</p>")
+    link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>")
+                  #," - Request any city service over the phone, on the 311 app, or online.</p>")
+    link3 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com/'>City Council Homepage</a></b>")
+                  #," - Learn more about the City Council, connect with your representatives, and follow their calendar.</p>")
+    link4 <- HTML("<p><b><a href='https://mayor.baltimorecity.gov/help'>Connect with Constituent Services</a></b>")
+                 # ," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
+    link5 <- HTML("<p><b><a href='https://msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore City State Delegation Homepage</a></b>")
+                  #," - Connect with Baltimore's state legislators and follow  legislation.</p>")
+    link6 <- HTML("<p><b><a href='https://planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn about your Community Association</a></b>")
+                 # ," - Find out more about your Community Association and get involved!</p>")
    
     #create structure for translation buttons
    
@@ -117,15 +123,18 @@
     #create structure for links
     links <- div(
       id = "links",
-        fluidRow(column(4,link1),
-                  column(4,link2),
-                  column(2)),
-        fluidRow(column(4,link3),
-                  column(4,link4),
-                  column(2)),
-        fluidRow(column(4,link5),
-                  column(4,link6),
-                  column(2)),
+        fluidRow(column(6,link1),
+                  column(6,link2),
+                 # column(2)
+                 ),
+        fluidRow(column(6,link3),
+                  column(6,link4),
+                 # column(2)
+                 ),
+        fluidRow(column(6,link5),
+                  column(6,link6),
+                 # column(2)
+                 ),
       hr()
     )
         
