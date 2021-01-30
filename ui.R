@@ -105,9 +105,10 @@
       h1(strong(title), 
         style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"),
          
-        img(src = "photos/CITY-LOGO.png",
-          style="padding-bottom:-40px;margin-top:16px;margin-bottom:0px;",
-          height = headerImgSize, width = headerImgSize),
+        # img(src = "photos/CITY-LOGO.png",
+        #   style="padding-bottom:-40px;margin-top:16px;margin-bottom:0px;",
+        #   height = headerImgSize, width = headerImgSize)
+      
     ),
      
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 3px solid", bc_gold, ";")),
@@ -172,6 +173,8 @@
   ),
 
   #-------------------------------
+
+  # Add Baltimore City footer
 
   footerBaltimoreCity
     
