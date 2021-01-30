@@ -117,15 +117,12 @@
     #create structure for links
     links <- div(
       id = "links",
-        fluidRow(column(4,link1),
-                  column(4,link2),
-                  column(2)),
-        fluidRow(column(4,link3),
-                  column(4,link4),
-                  column(2)),
-        fluidRow(column(4,link5),
-                  column(4,link6),
-                  column(2)),
+        fluidRow(column(6,link1),
+          column(6,link2)),
+        fluidRow(column(6,link3),
+          column(6,link4)),
+        fluidRow(column(6,link5),
+          column(6,link6)),
       hr()
     )
         
