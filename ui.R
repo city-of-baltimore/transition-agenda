@@ -35,8 +35,8 @@
       padding: 0px;
     }
     .tracker-container {
-     padding-left: 15px;
-     padding-right: 15px;
+      padding-left: 15px;
+      padding-right:15px;
     }
     h1 {font-size: 42px;}
     p {
