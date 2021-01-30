@@ -25,7 +25,7 @@
   #      selected = i18n$get_key_translation()
   #    )),
     
-  #style
+  # Style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
   tags$style(paste0("
     * {
@@ -134,7 +134,7 @@
       tabPanel(h4(style="color:black;",i18n$t("Priorities & Progress")), 
                text2, 
                dataTableOutput("tbPriorities"), 
-               downloadButton(style="margin-top:40px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
+               downloadButton(style="border:none;padding-left:0px;margin:auto;width:100%;margin-top:24px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
 #      tabPanel(h4(style="color:black;","Weekly Updates"), 
 #               text3, 
 #               div(column(8,dataTableOutput('tbUpdates')),
@@ -155,13 +155,13 @@
   hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
   div(style="display: flex; flex-direction:row;justify-content: space-between;",
     tags$i(h4("Designed by the ",a(href = 'https://www.baltopi.com/',"Mayor's Office of Performance & Innovation"))),
-    h2(
-     a(href='https://twitter.com/MayorBMScott', icon("twitter-square")), "  ",
-     a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
-     a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
-     a(href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
-     a(href='https://mayor.baltimorecity.gov/connect',icon("envelope-square")), "  ",
-     a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square")))),
+    h4(style="font-size:20px;",
+     a(style="padding-left:1px;", href='https://twitter.com/MayorBMScott', icon("twitter")), "  ",
+     a(style="padding-left:1px;", href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
+     a(style="padding-left:1px;", href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
+     a(style="padding-left:1px;", href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
+     a(style="padding-left:1px;", href='https://mayor.baltimorecity.gov/connect',icon("envelope-square")), "  ",
+     a(style="padding-left:1px;", href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square")))),
   h2()
 
   #-------------------------------
