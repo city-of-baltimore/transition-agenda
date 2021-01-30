@@ -81,10 +81,3 @@
     }
     
     
-    # Create download system for responses
-#    
-#    downloader <- div(uiOutput("adminPanelContainer"))
-#    
-#    adminUsers <- c("baltopi")
-    
-    
