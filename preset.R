@@ -217,27 +217,33 @@
     
     aboutus <- div(fluidRow(
                   column(6,
-                         h3("Hello Baltimore!"),
-                         p("When I decided to run for Mayor, I knew that a normal administration wasn't enough to rise to the challenge. 
-                         We face too many crises--from the present pandemic and its inequities to epidemics and inequities that have been 
-                         around for generations. 
-                           I knew we needed to operate with greater transparency, accountability, and urgency than ever before."),
-                         p("I ran for Mayor promising to reform the structure and capabilities of Baltimore's government. So when I was elected, 
-                           I instructed my transition committees to think big and to think technical, to get into the weeds of how our 
-                           government could improve while staying laser-focused on what matters to Baltimore residents. Together, we built 
-                           a long-term vision for this administration, taking ideas from every part of this city and combining them with the 
-                           best practices other cities have used to grow equitably."),
-                         p("In my conversations with the transition team, I knew we needed to show progress, not just tell people when we were done. 
-                           We assembled a list of actions we could accomplish in 100 (very busy) days so residents could see Baltimore City 
-                           government's transformation immediately. This 100 Days of Action Tracker emerged from this sense of urgency and 
-                           from my belief that we're at our best when we're accountable to the people we serve."),
-                         p("Please use this tool to learn more, ask tough questions, and hold us to our promises. Every week, my team will 
-                           share updates making Baltimore a stronger, more equitable city, so be sure to keep checking back in on our progress. 
-                           Thank you for your engagement in our work!"),
-                         p("Yours,"),
+                         h3("Baltimore,"),
+                         p("I ran for Mayor because Baltimore needs a new way forward. This election made it clear that 
+                           Baltimore residents do not want the status quo or a continuation of the failed policies of 
+                           the past. The work ahead will not be easy, particularly as we continue to navigate the 
+                           devastating public health and economic consequences of the COVID-19 pandemic, something that 
+                           layers on Baltimore's existing inequities and unrelenting violence epidemic."),
+                         p("To put our city on a new path, I know this administration will need to operate with greater 
+                           transparency, accountability and urgency than ever before."),
+                         p("I ran for Mayor promising to reform the structure and capabilities of Baltimore's government.
+                           So when I was elected, I instructed my transition committees to think big and to think 
+                           technical, to get into the weeds of how our government could improve while staying 
+                           laser-focused on what matters to Baltimore residents. Together, we built a long-term vision 
+                           for this administration, taking ideas from every part of this city and combining them with 
+                           the best practices other cities have used to grow equitably."),
+                         p("In my conversations with the transition team, I knew we needed to show progress, not just 
+                           tell people when we were done. We assembled a list of actions we could accomplish in 100 
+                           (very busy) days so residents could see Baltimore City government's transformation 
+                           immediately. This 100 Days of Action Tracker emerged from this sense of urgency and from 
+                           my belief that we're at our best when we're accountable to the people we serve."),
+                         p("Please use this tool to learn more, ask tough questions, and hold us to our promises. 
+                           Every week, my team will share updates making Baltimore a stronger, more equitable city, 
+                           so be sure to keep checking back in on our progress. Thank you for your engagement in our 
+                           work!"),
+                         p("In Service,"),
                          img(src = "photos/signature.PNG",
-                             height = 40,width = 125),
-                         p("Brandon M. Scott"),
+                             height = 176/6,width = 717/6),
+                         p("Brandon Scott"),
                          p("Mayor of Baltimore City")),
                   column(6, hr(style="border-color: white;"),
                          img(src = "photos/mayor_brandon_scott.png",
