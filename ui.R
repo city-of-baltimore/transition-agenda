@@ -34,6 +34,10 @@
     .col-sm-12 {
       padding: 0px;
     }
+    .tracker-container {
+     padding-left: 15px;
+     padding-right: 15px;
+    }
     h1 {font-size: 42px;}
     p {
       font-size: 18px; 
@@ -214,7 +218,11 @@
     '
      ),
      
-     
+  #-------------------------------
+  
+  # Div for 'tracker' content
+  
+  div(class="tracker-container",
      
   #-------------------------------
      
@@ -232,7 +240,7 @@
      
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 3px solid", bc_gold, ";")),
   
-  #--------------------------------------
+  #-------------------------------
   
   # Second level content
     
@@ -276,16 +284,22 @@
   # Page Bottom
   h4(),
   hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 1px solid", bc_gold, ";")),
-    div(style="display: flex; flex-direction:row;justify-content: space-between;",
-        tags$i(h4("Designed by the ",a(href = 'https://www.baltopi.com/',"Mayor's Office of Performance & Innovation"))),
-        h2(
-         a(href='https://twitter.com/MayorBMScott', icon("twitter-square")), "  ",
-         a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
-         a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
-         a(href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
-         a(href='https://mayor.baltimorecity.gov/connect',icon("envelope-square")), "  ",
-         a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square")))),
+  div(style="display: flex; flex-direction:row;justify-content: space-between;",
+    tags$i(h4("Designed by the ",a(href = 'https://www.baltopi.com/',"Mayor's Office of Performance & Innovation"))),
+    h2(
+     a(href='https://twitter.com/MayorBMScott', icon("twitter-square")), "  ",
+     a(href='https://www.facebook.com/MayorBMScott',icon("facebook-square")), "  ",
+     a(href='https://www.instagram.com/MayorBMScott/',icon("instagram-square")), "  ",
+     a(href='https://www.youtube.com/channel/UCasQyO1K4yMq3Hi_0RQ0jfA',icon("youtube-square")), "  ",
+     a(href='https://mayor.baltimorecity.gov/connect',icon("envelope-square")), "  ",
+     a(href='https://mayor.baltimorecity.gov/subscribe/MDBALT_25',icon("rss-square")))),
   h2()
+
+  #-------------------------------
+
+  # Close div for 'tracker' content
+
   )
-)
-    }
+    
+  #-------------------------------
+  ) ) }
