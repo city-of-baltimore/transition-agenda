@@ -53,12 +53,9 @@
     
     # Create Functions & Definitions
     
-    #Creating a function for the days remaining graphic
-    past <- function(date){
-     ifelse(date > today(),
-            "Remaining",
-            ifelse(date == today(),
-                   "Current","Past"))
+    # Creating a function for the days remaining graphic
+    past <- function(date) {
+     ifelse(date > today(), "Remaining", ifelse(date == today(), "Current","Past"))
     }
     
     # Progress bar unit style
@@ -73,6 +70,7 @@
           "#DCDCDC")))
     }
     
+    # Function for returning an HTML div with a color-coded square for status plus status text
     symbol <- function(status) {
       tempDiv <- paste0("<div style=\"", progressUnitStyle,"background-color:", symbolColor(status),"\"></div>")
       return(paste(tempDiv, status))
@@ -80,15 +78,11 @@
     
     # Function for creating progress bar for each priority area
     priorityAreaProgressBar <- function(data) {
-      tempData <- paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, 
-                                                    "</div>"), 
-                                             "[[", 1), 
-                                      "</div>")), 
-                        collapse='')
+      tempData <- paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, "</div>"), "[[", 1), "</div>")), collapse='')
       return(tempData)
     }
     
-   #add text for Brandon Scott's welcome
+   # Add text for Brandon Scott's welcome
    title <- "Mayor Scott's 100 Days of Action"
    text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott built this into a coordinated first-term strategy, starting with this 100 Days of Action.
     Follow updates across each of these actions and track their completion using this tracker.</p>"))
@@ -97,7 +91,7 @@
    text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action.</p>"))
    text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
    
-   #Add texts and links for the resources page
+   # Add texts and links for the resources page
    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>Mayor's Office Homepage</a></b>"," - Stay informed about Baltimore City services and connect with your city leaders.</p>")
    link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>"," - Request any city service over the phone, on the 311 app, or online.</p>")
    link3 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com/'>City Council Homepage</a></b>"," - Learn more about the City Council, connect with your representatives, and follow their calendar.</p>")
