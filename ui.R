@@ -35,8 +35,8 @@
       padding: 0px;
     }
     .tracker-container {
-      padding-left: 15px;
-      padding-right:15px;
+      padding-left: 24px;
+      padding-right:24px;
     }
     h1 {font-size: 42px;}
     p {
@@ -103,12 +103,8 @@
     div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
          
       h1(strong(title), 
-        style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"),
-         
-        # img(src = "photos/CITY-LOGO.png",
-        #   style="padding-bottom:-40px;margin-top:16px;margin-bottom:0px;",
-        #   height = headerImgSize, width = headerImgSize)
-      
+        style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"
+      )
     ),
      
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 3px solid", bc_gold, ";")),
