@@ -82,30 +82,30 @@
       return(tempData)
     }
     
-   # Add text for Brandon Scott's welcome
-   title <- "Mayor Scott's 100 Days of Action"
-   text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott built this into a coordinated first-term strategy, starting with this 100 Days of Action.
+    # Add text for Brandon Scott's welcome
+    title <- "Mayor Scott's 100 Days of Action"
+    text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott built this into a coordinated first-term strategy, starting with this 100 Days of Action.
     Follow updates across each of these actions and track their completion using this tracker.</p>"))
-   text2 <- div(HTML("<p class=\"tab-header\">You can follow Mayor Scott's early achievements here! To learn about Mayor Scott's transition committees and priority areas, visit ",
+    text2 <- div(HTML("<p class=\"tab-header\">You can follow Mayor Scott's early achievements here! To learn about Mayor Scott's transition committees and priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this webpage</a>.</p>"))
-   text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action.</p>"))
-   text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
+    text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly, for the actions selected for the 100 Days of Action.</p>"))
+    text4 <- div(HTML("<p class=\"tab-header\">We're excited to have your input and involvement as we work to make Baltimore healthier, safer, and more equitable. Below are a few links of how to get involved and a sign-up sheet to stay in the loop about Mayor Scott's work. We can't wait to get to know you!</p>"))
    
-   # Add texts and links for the resources page
-   link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>Mayor's Office Homepage</a></b>"," - Stay informed about Baltimore City services and connect with your city leaders.</p>")
-   link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>"," - Request any city service over the phone, on the 311 app, or online.</p>")
-   link3 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com/'>City Council Homepage</a></b>"," - Learn more about the City Council, connect with your representatives, and follow their calendar.</p>")
-   link4 <- HTML("<p><b><a href='https://mayor.baltimorecity.gov/help'>Connect with Constituent Services</a></b>"," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
-   link5 <- HTML("<p><b><a href='https://msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore City State Delegation Homepage</a></b>"," - Connect with Baltimore's state legislators and follow  legislation.</p>")
-   link6 <- HTML("<p><b><a href='https://planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn about your Community Association</a></b>"," - Find out more about your Community Association and get involved!</p>")
+    # Add texts and links for the resources page
+    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>Mayor's Office Homepage</a></b>"," - Stay informed about Baltimore City services and connect with your city leaders.</p>")
+    link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>"," - Request any city service over the phone, on the 311 app, or online.</p>")
+    link3 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com/'>City Council Homepage</a></b>"," - Learn more about the City Council, connect with your representatives, and follow their calendar.</p>")
+    link4 <- HTML("<p><b><a href='https://mayor.baltimorecity.gov/help'>Connect with Constituent Services</a></b>"," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
+    link5 <- HTML("<p><b><a href='https://msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore City State Delegation Homepage</a></b>"," - Connect with Baltimore's state legislators and follow  legislation.</p>")
+    link6 <- HTML("<p><b><a href='https://planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn about your Community Association</a></b>"," - Find out more about your Community Association and get involved!</p>")
    
-   #create structure for translation buttons
+    #create structure for translation buttons
    
-   i18n <- Translator$new(translation_csvs_path='data/translations/',
+    i18n <- Translator$new(translation_csvs_path='data/translations/',
                           translation_csv_config = NULL,
                           separator_csv = ",",
                           automatic = FALSE)
-   i18n$set_translation_language('en')
+    i18n$set_translation_language('en')
    
 #   en <- actionButton("english",HTML("<b>En</b>"),class = "btn-primary")
 #   es <- actionButton("english",HTML("<b>Sp</b>"),class = "btn-primary")
@@ -114,23 +114,23 @@
 #   ch <- actionButton("english",HTML("<b>Ch</b>"),class = "btn-primary")
 #   lang <- div(en,es,fr,ko,ch)
    
-   #create structure for links
-   links <- div(
-     id = "links",
-         fluidRow(column(4,link1),
+    #create structure for links
+    links <- div(
+      id = "links",
+        fluidRow(column(4,link1),
                   column(4,link2),
                   column(2)),
-         fluidRow(column(4,link3),
+        fluidRow(column(4,link3),
                   column(4,link4),
                   column(2)),
-         fluidRow(column(4,link5),
+        fluidRow(column(4,link5),
                   column(4,link6),
                   column(2)),
-     hr()
-   )
+      hr()
+    )
         
-   #size for header images
-   headerImgSize <- 50
+    #size for header images
+    headerImgSize <- 50
     
   #-----------------------------
 
