@@ -35,7 +35,7 @@
       padding: 0px;
     }
     .tracker-container {
-      max-width: 940px;
+      max-width: 800px;
       margin: auto;
       padding-left: 24px;
       padding-right:24px;
@@ -47,7 +47,6 @@
       font-size: 18px; 
       line-height:1.3em;
       color:black;
-      max-width:680px;
     }
     .tab-header {margin-top:1em; margin-bottom: 1em;}
     table.dataTable tr.selected td, table.dataTable td.selected, table.dataTable tr.selected {background-color: white !important;}

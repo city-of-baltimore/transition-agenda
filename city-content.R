@@ -24,9 +24,18 @@
     }
   
     ul.menu {
-      height: 57px;
+      max-width:800px;
+      margin:auto;
+      # height: 57px;
+      max-height: 180px;
       line-height: 57px;
       padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding-left: 24px;
+      padding-right: 24px;
     }
     
     ul.menu li {
@@ -40,7 +49,7 @@
       font-family: \'Open Sans\',sans-serif;
       font-size: 14px;
       font-weight: normal;
-      padding: 0 19px;
+      padding: 0px 8px;
       border-top: 3px solid transparent;
       background: transparent;
       height: 57px;
@@ -65,18 +74,14 @@
       background-color: rgb(36, 40, 44);
     }
     
-    # .footer-content {
-    #   max-width: 900px;
-    #   margin
-    # }
-    
     .footer-bottom {
       background-color: #1A1C20;
       font-size: 10px;
     }
     
     .footer-inner {
-      padding: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
     
     .footer .footer-inner p {
@@ -131,13 +136,13 @@
     <div class="top-nav-bar">
       <ul class="menu">
         <li class="home"><a href="http://www.baltimorecity.gov">Home</a></li>
-        <li class="first leaf menu-mlid-1228"><a href="https://cityservices.baltimorecity.gov/paysys/" title="Pay your water, license and other bills online or in person">Online Payments</a></li>
-        <li class="leaf menu-mlid-1229"><a href="http://www.baltimorecity.gov/answers" title="">How Do I?</a></li>
-        <li class="leaf menu-mlid-1230"><a href="http://www.baltimorecity.gov/311-services" title="">311 Services</a></li>
-        <li class="leaf menu-mlid-1231"><a href="http://www.baltimorecity.gov/government" title="">Government</a></li>
-        <li class="leaf menu-mlid-1232"><a href="http://www.baltimorecity.gov/events" title="">Events</a></li>
-        <li class="leaf menu-mlid-845 active"><a href="http://mayor.baltimorecity.gov" title="">Office of the Mayor</a></li>
-        <li class="last leaf menu-mlid-2357"><a href="http://www.baltimorecity.gov/connect" title="Connect with all city entities and programs on social media">Connect</a></li>
+        <li><a href="https://cityservices.baltimorecity.gov/paysys/" title="Pay your water, license and other bills online or in person">Online Payments</a></li>
+        <li><a href="http://www.baltimorecity.gov/answers" title="">How Do I?</a></li>
+        <li><a href="http://www.baltimorecity.gov/311-services" title="">311 Services</a></li>
+        <li><a href="http://www.baltimorecity.gov/government" title="">Government</a></li>
+        <li><a href="http://www.baltimorecity.gov/events" title="">Events</a></li>
+        <li class="active"><a href="http://mayor.baltimorecity.gov" title="">Office of the Mayor</a></li>
+        <li><a href="http://www.baltimorecity.gov/connect" title="Connect with all city entities and programs on social media">Connect</a></li>
       </ul>
     </div>
     '
@@ -150,14 +155,13 @@
   footerBaltimoreCity <- HTML('
     <div class="footer">
         <div class="footer-inner">
-          <h2 class="block-title" style="max-width:900px;margin:auto;">City of Baltimore</h2>
-          <p style="max-width:900px;margin:auto;"><em>City Hall - Room 250<br/>100 N. Holliday St, Baltimore, MD 21202<br/>City Operator: (410) 396-3100</em></p>
+          <h2 class="block-title" style="max-width:800px;margin:auto;padding: 0px 24px;">City of Baltimore</h2>
+          <p style="max-width:800px;margin:auto;padding: 0px 24px;"><em>City Hall - Room 250<br/>100 N. Holliday St, Baltimore, MD 21202<br/>City Operator: (410) 396-3100</em></p>
         </div>
       </div>
-      
       <div class="footer-bottom">
         <div class="footer-inner copyright">
-          <p style="max-width:900px;margin:auto;">Copyright ? 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
+          <p style="max-width:800px;margin:auto;padding: 0px 24px;">Copyright ? 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
         </div>
     </div>
   ')
