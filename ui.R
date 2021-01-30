@@ -35,6 +35,8 @@
       padding: 0px;
     }
     .tracker-container {
+      max-width: 940px;
+      margin: auto;
       padding-left: 24px;
       padding-right:24px;
     }
@@ -144,7 +146,7 @@
       tabPanel(h4(style="color:black;",i18n$t("Resources & Feedback")), 
                text4,links,
                # survey,hidden1,hidden2,
-               HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="1700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>')
+               HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="360px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>')
                #,downloader
                )
       ),
