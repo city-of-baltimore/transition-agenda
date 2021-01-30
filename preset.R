@@ -224,38 +224,24 @@
     
     # Create "about this initiative" page
     
-    aboutus <- div(fluidRow(
-                  column(6,
-                         h3("Baltimore,"),
-                         p("I ran for Mayor because Baltimore needs a new way forward. This election made it clear that 
-                           Baltimore residents do not want the status quo or a continuation of the failed policies of 
-                           the past. The work ahead will not be easy, particularly as we continue to navigate the 
-                           devastating public health and economic consequences of the COVID-19 pandemic, something that 
-                           layers on Baltimore's existing inequities and unrelenting violence epidemic."),
-                         p("To put our city on a new path, I know this administration will need to operate with greater 
-                           transparency, accountability and urgency than ever before."),
-                         p("I ran for Mayor promising to reform the structure and capabilities of Baltimore's government.
-                           So when I was elected, I instructed my transition committees to think big and to think 
-                           technical, to get into the weeds of how our government could improve while staying 
-                           laser-focused on what matters to Baltimore residents. Together, we built a long-term vision 
-                           for this administration, taking ideas from every part of this city and combining them with 
-                           the best practices other cities have used to grow equitably."),
-                         p("In my conversations with the transition team, I knew we needed to show progress, not just 
-                           tell people when we were done. We assembled a list of actions we could accomplish in 100 
-                           (very busy) days so residents could see Baltimore City government's transformation 
-                           immediately. This 100 Days of Action Tracker emerged from this sense of urgency and from 
-                           my belief that we're at our best when we're accountable to the people we serve."),
-                         p("Please use this tool to learn more, ask tough questions, and hold us to our promises. 
-                           Every week, my team will share updates making Baltimore a stronger, more equitable city, 
-                           so be sure to keep checking back in on our progress. Thank you for your engagement in our 
-                           work!"),
-                         p("In Service,"),
-                         img(src = "photos/signature.PNG",
-                             height = 176/6,width = 717/6),
-                         p("Brandon Scott"),
-                         p("Mayor of Baltimore City")),
-                  column(6, hr(style="border-color: white;"),
-                         img(src = "photos/mayor_brandon_scott.png",
-                              height = 413, width = 275),
-                         h5("Inaugural Photo of Mayor Brandon M. Scott",width = 275))
-                  ))
+    aboutus <- div(
+      div(style="float:right;margin-top:8px;margin-left:48px;margin-bottom:24px;",
+        img(src = "photos/mayor_brandon_scott.png"),
+        h5("Inaugural Photo of Mayor Brandon M. Scott", height = 150)
+      ),
+      h3("Baltimore,"),
+      p("Over the past few months, my team and I have been working hard to build a new foundation for our local government in Baltimore City.  This work will not be easy, particularly as we continue to navigate the devastating public health and economic consequences of the COVID-19 pandemic, something that layers on Baltimore’s existing inequities and unrelenting violence epidemic."),
+      p("In November, I convened more than 250 Baltimoreans to serve on my transition team. The youth, community leaders, educators, advocates, artists, entrepreneurs and residents who were involved in this process developed short-term and long-term recommendations to guide my administration over the next four years and beyond."),
+      p("Together, we built a vision for a new way forward for Baltimore, taking ideas from every corner of this city and combining them with best practices other places have used to transform and grow equitably."),
+      p("In my conversations with my transition team, I knew we needed to show progress over time, not just tell people what we accomplished when it was done. My team and I assembled a list of actions we could accomplish over the next 100 days so residents could see transformation in their City government immediately. "),
+      p("This 100 Days of Action Tracker emerged from this sense of urgency and from my belief that we’re at our best when we set high goals and are accountable to the people we serve. To put our city on a new path, this administration will need to operate with greater urgency, transparency, accountability, and commitment to equity than ever before."),
+      p("Please use this tool to learn more, ask tough questions, and hold us to our promises. Each week, my team will share updates, so be sure to check in on our progress. Thank you for your engagement in this work."),
+      br(),
+      p("In service,"),
+      img(src = "photos/signature.PNG",
+         style="margin-left:-8px;",
+         height = 176/4, width = 717/4),
+      tags$b(p("Brandon Scott")),
+      p("Mayor of Baltimore City"),
+      hr(style="border-color: white;")
+    )

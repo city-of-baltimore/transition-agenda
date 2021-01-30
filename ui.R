@@ -103,7 +103,6 @@
     # Header for page
   
     div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
-         
       h1(strong(title), 
         style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"
       )
@@ -115,7 +114,11 @@
   
   # Second level content
     # Welcome comment from Mayor Scott
-    div(style='padding:0px;',text1),
+    div(style='display:flex;flex-direction:row;margin-bottom:12px;margin-top:18px;',
+      img(src = "photos/mayor_brandon_scott.png",
+        style="margin-left: 2px; margin-top: 4px; margin-right:36px;",
+        height = 220),
+      text1),
     # Overview progress and day trackers
     div(style='padding:0px;max-width:900px;',
       div(p(style="max-width:900px;font-weight:600;", timelineText)),
