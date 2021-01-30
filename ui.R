@@ -117,9 +117,7 @@
   # Second level content
     
     # Welcome comment from Mayor Scott
-    div(column(6,style='padding:0px;',text1)
-       # ,column(6,lang, align = 'right')
-       ),
+    div(style='padding:0px;',text1),
     # Overview progress and day trackers
     div(style='padding:0px;max-width:680px;',
       div(p(style="max-width:680px;font-weight:600;", timelineText)),
