@@ -83,9 +83,9 @@
     }
     
     # Add text for Brandon Scott's welcome
-    title <- "Mayor Scott's First 100 Days"
-    text1 <- div(HTML("<p>As part of his transition process, Mayor Scott assembled a team of advocates, community leaders, and specialists, which developed immediate and long-term strategies for Baltimore's equitable growth. Mayor Scott built this into a coordinated first-term strategy, starting with the first hundred days.
-    Follow updates across each of these actions and track their completion using this tracker.</p>"))
+    title <- "Mayor Brandon M. Scott: 100 Days of Action Tracker"
+    text1 <- div(HTML("<p>In November, Mayor Brandon M. Scott convened more than 250 Baltimoreans to serve on his Mayoral transition team. The youth, community leaders, educators, advocates, artists, entrepreneurs and residents involved in this process developed short-term and long-term recommendations to guide the administration over the next four years and beyond. 
+      </p><p>The Mayor and his executive team reviewed these plans and built a coordinated strategy for his first term, starting with the 100 Days of Action. Follow updates across each of these actions and track their completion with the tracker below.</p>"))
     text2 <- div(HTML("<p class=\"tab-header\">You can follow Mayor Scott's early achievements here! To learn about Mayor Scott's transition committees and priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this webpage</a>.</p>"))
     text3 <- div(HTML("<p class=\"tab-header\">This table displays progress updates, which are submitted weekly.</p>"))

@@ -114,13 +114,13 @@
   
   # Second level content
     # Welcome comment from Mayor Scott
-    div(style='display:flex;flex-direction:row;margin-bottom:12px;margin-top:18px;',
+    div(style='margin-bottom:12px;margin-top:18px;',
       img(src = "photos/mayor_brandon_scott.png",
-        style="margin-left: 2px; margin-top: 4px; margin-right:36px;",
-        height = 220),
+        style="margin-left: 2px; margin-top: 4px; margin-right:24px;margin-bottom:8px;float:left;",
+        height = 230),
       text1),
     # Overview progress and day trackers
-    div(style='padding:0px;max-width:900px;',
+    div(style='padding:0px;max-width:900px;margin-top:24px;',
       div(p(style="max-width:900px;font-weight:600;", timelineText)),
       div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", 
           plotOutput("plotTimeline", width="100%", height="72px")),
