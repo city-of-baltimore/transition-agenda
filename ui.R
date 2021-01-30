@@ -12,67 +12,72 @@
   
   # Basic Layout
       
-    ui <- function(req){
-      fluidPage(
-      shinyjs::useShinyjs(),
-   #   shiny.i18n::usei18n(i18n),
-    #  tags$div(
-    #    style='float: right;',
-    #    selectInput(
-    #      inputId='selected_language',
-    #      label=i18n$t('Change language'),
-    #      choices = i18n$get_languages(),
-    #      selected = i18n$get_key_translation()
-    #    )),
-      
-      #style
-      tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
-      tags$style(paste0("* {font-family: 'Roboto', sans-serif; padding: 0px; margin: 0px;
-                    }
-                  h1 {font-size: 42px;}
-                  p {
-                    font-size: 18px; 
-                    line-height:1.3em;
-                    color:black;
-                    max-width:680px;
-                  }
-                  .tab-header {margin-top:1em; margin-bottom: 1em;}
-                  table.dataTable tr.selected td, table.dataTable td.selected, table.dataTable tr.selected {background-color: white !important;}
-                  table thead.selected td {background-color: white !important;}
-                  table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {background-color: white !important;}
-                  .tabbable {
-                    margin-top: 24px;
-                  }
-                  .tabbable h4 {
-                    font-size: 22px;
-                  }
-                  ul.nav-tabs {
-                    border-bottom: 1px solid ",bc_gold,";
-                  }
-                  .nav-tabs li a {
-                    padding: 0px 12px 0px 12px;
-                  }
-                  .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
-                    border: 1px solid ",bc_gold,";
-                    border-bottom: 1px solid white;
-                  }
-                  table.dataTable thead th {
-                    padding: 8px 10px !important;
-                  }
-                  #DataTables_Table_0_filter {
-                    float: right;
-                  }
-                  #DataTables_Table_0_filter input {
-                    border: 1px solid #ccc;
-                    border-radius: 4px;
-                  }
-                  .fab, .fa {
-                   color: black;
-                  }
-                   .priorities-hierarchy-2 div {
-                   margin-right: 6px;
-                  }
-                 ")),
+  ui <- function(req){
+    fluidPage(
+    shinyjs::useShinyjs(),
+ #   shiny.i18n::usei18n(i18n),
+  #  tags$div(
+  #    style='float: right;',
+  #    selectInput(
+  #      inputId='selected_language',
+  #      label=i18n$t('Change language'),
+  #      choices = i18n$get_languages(),
+  #      selected = i18n$get_key_translation()
+  #    )),
+    
+  #style
+  tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
+  tags$style(paste0("
+              * {
+                font-family: 'Roboto', sans-serif; padding: 0px; margin: 0px;
+              }
+              .col-sm-12 {
+                padding: 0px;
+              }
+              h1 {font-size: 42px;}
+              p {
+                font-size: 18px; 
+                line-height:1.3em;
+                color:black;
+                max-width:680px;
+              }
+              .tab-header {margin-top:1em; margin-bottom: 1em;}
+              table.dataTable tr.selected td, table.dataTable td.selected, table.dataTable tr.selected {background-color: white !important;}
+              table thead.selected td {background-color: white !important;}
+              table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {background-color: white !important;}
+              .tabbable {
+                margin-top: 24px;
+              }
+              .tabbable h4 {
+                font-size: 22px;
+              }
+              ul.nav-tabs {
+                border-bottom: 1px solid ",bc_gold,";
+              }
+              .nav-tabs li a {
+                padding: 0px 12px 0px 12px;
+              }
+              .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
+                border: 1px solid ",bc_gold,";
+                border-bottom: 1px solid white;
+              }
+              table.dataTable thead th {
+                padding: 8px 10px !important;
+              }
+              #DataTables_Table_0_filter {
+                float: right;
+              }
+              #DataTables_Table_0_filter input {
+                border: 1px solid #ccc;
+                border-radius: 4px;
+              }
+              .fab, .fa {
+               color: black;
+              }
+               .priorities-hierarchy-2 div {
+               margin-right: 6px;
+              }
+             ")),
 
   #-------------------------------
    
