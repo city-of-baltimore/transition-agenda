@@ -5,6 +5,6 @@ account: baltopi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3420792
-bundleId: 4160961
+bundleId: 4160972
 url: https://baltopi.shinyapps.io/transition-agenda/
-when: 1612021098.57873
+when: 1612021528.60325

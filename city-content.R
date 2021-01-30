@@ -26,7 +26,7 @@
     ul.menu {
       height: 57px;
       line-height: 57px;
-      padding: 0
+      padding: 0;
     }
     
     ul.menu li {
@@ -125,17 +125,16 @@
     
     <div class="top-nav-bar">
       <ul class="menu">
-        
-    <li class="home"><a href="http://www.baltimorecity.gov">Home</a></li>
-    
-    <li class="first leaf menu-mlid-1228"><a href="https://cityservices.baltimorecity.gov/paysys/" title="Pay your water, license and other bills online or in person">Online Payments</a></li>
-    <li class="leaf menu-mlid-1229"><a href="http://www.baltimorecity.gov/answers" title="">How Do I?</a></li>
-    <li class="leaf menu-mlid-1230"><a href="http://www.baltimorecity.gov/311-services" title="">311 Services</a></li>
-    <li class="leaf menu-mlid-1231"><a href="http://www.baltimorecity.gov/government" title="">Government</a></li>
-    <li class="leaf menu-mlid-1232"><a href="http://www.baltimorecity.gov/events" title="">Events</a></li>
-    <li class="leaf menu-mlid-845 active"><a href="http://mayor.baltimorecity.gov" title="">Office of the Mayor</a></li>
-    <li class="last leaf menu-mlid-2357"><a href="http://www.baltimorecity.gov/connect" title="Connect with all city entities and programs on social media">Connect</a></li>
-    </ul></div>
+        <li class="home"><a href="http://www.baltimorecity.gov">Home</a></li>
+        <li class="first leaf menu-mlid-1228"><a href="https://cityservices.baltimorecity.gov/paysys/" title="Pay your water, license and other bills online or in person">Online Payments</a></li>
+        <li class="leaf menu-mlid-1229"><a href="http://www.baltimorecity.gov/answers" title="">How Do I?</a></li>
+        <li class="leaf menu-mlid-1230"><a href="http://www.baltimorecity.gov/311-services" title="">311 Services</a></li>
+        <li class="leaf menu-mlid-1231"><a href="http://www.baltimorecity.gov/government" title="">Government</a></li>
+        <li class="leaf menu-mlid-1232"><a href="http://www.baltimorecity.gov/events" title="">Events</a></li>
+        <li class="leaf menu-mlid-845 active"><a href="http://mayor.baltimorecity.gov" title="">Office of the Mayor</a></li>
+        <li class="last leaf menu-mlid-2357"><a href="http://www.baltimorecity.gov/connect" title="Connect with all city entities and programs on social media">Connect</a></li>
+      </ul>
+    </div>
     '
   )
   
