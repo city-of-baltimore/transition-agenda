@@ -65,6 +65,11 @@
       background-color: rgb(36, 40, 44);
     }
     
+    # .footer-content {
+    #   max-width: 900px;
+    #   margin
+    # }
+    
     .footer-bottom {
       background-color: #1A1C20;
       font-size: 10px;
@@ -144,16 +149,16 @@
   
   footerBaltimoreCity <- HTML('
     <div class="footer">
-      <div class="footer-inner">
-        <h2 class="block-title">City of Baltimore</h2>
-        <p><em>City Hall - Room 250<br/>100 N. Holliday St, Baltimore, MD 21202<br/>City Operator: (410) 396-3100</em></p>
+        <div class="footer-inner">
+          <h2 class="block-title" style="max-width:900px;margin:auto;">City of Baltimore</h2>
+          <p style="max-width:900px;margin:auto;"><em>City Hall - Room 250<br/>100 N. Holliday St, Baltimore, MD 21202<br/>City Operator: (410) 396-3100</em></p>
+        </div>
       </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <div class="footer-inner copyright">
-        <p>Copyright © 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
-      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-inner copyright">
+          <p style="max-width:900px;margin:auto;">Copyright ? 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
+        </div>
     </div>
   ')
   
