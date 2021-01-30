@@ -175,6 +175,8 @@
 
   #-------------------------------
 
+  # Add Baltimore City footer
+
   footerBaltimoreCity
     
   #-------------------------------
