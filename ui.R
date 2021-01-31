@@ -121,11 +121,11 @@
         height = 235),
       text1),
     # Overview progress and day trackers 
-    div(style='padding:0px;max-width:900px;margin-top:24px;' ,
-      div(p(style="max-width:900px;font-weight:600;", timelineText)),
+    div(style='padding:1px;max-width:900px;margin-top:24px;' ,
+      div(p(style="max-width:900px;font-weight:600;", timelineText, " ")),
       div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", 
           plotOutput("plotTimeline", width="100%", height="72px")),
-      div(p(style="max-width:900px;font-weight:600;", progressText)),
+      div(p(style="max-width:900px;font-weight:600;", progressText, " ")),
       div(style='margin-left:-4px;margin-right:-4px;', class="small-tracker", 
           plotOutput("plotProgress", width="100%", height="72px"))
     ),

@@ -17,7 +17,69 @@
     observeEvent(input$selected_language, {
       update_lang(session, input$selected_language)
     })
-      
+   
+    #-----------------------------------
+    
+    #Tracker Outputs
+    
+    #Load the progress tracker output
+    output$plotProgress <- renderPlot({
+      tbPriorities %>%
+        ggplot(aes(fill = Progress, x = Count, y = "")) +
+        geom_bar(position = position_fill(reverse = TRUE),
+                 stat = "identity",
+                 width = 1) +
+        coord_flip() +
+        theme(legend.position = "bottom",
+              legend.justification = "right",
+              plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
+              legend.margin=margin(c(0,0,-4,0)),
+              legend.title=element_text(size=16), 
+              legend.text=element_text(size=16),
+              panel.spacing = margin(c(0,0,0,0)),
+              panel.border = element_rect(colour = "black", fill=NA, size=0.5),
+              axis.title.x = element_blank(),
+              axis.title.y = element_blank(),
+              axis.ticks.x=element_blank(),
+              axis.ticks.y=element_blank(),
+              axis.text.x = element_blank(),
+              panel.background = element_blank()
+        ) +
+        scale_x_discrete(expand = c(0, 0)) +
+        scale_y_discrete(expand = c(0, 0)) +
+        scale_fill_manual(values=ggpalette1, drop = FALSE, name="Progress")
+    }, height = "auto")
+    
+    #load the timeline tracker output
+    output$plotTimeline <- renderPlot({
+      tbDays %>%
+        ggplot(aes(fill = Status, x = Total, y = "")) +
+        geom_bar(position = position_fill(reverse = TRUE),
+                 stat = "identity",
+                 width = 1) +
+        coord_flip() +
+        theme(legend.position = "bottom",
+              legend.justification = "right",
+              plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
+              legend.margin=margin(c(0,0,-4,0)),
+              legend.title=element_text(size=16), 
+              legend.text=element_text(size=16),
+              panel.border = element_rect(colour = "black", fill=NA, size=0.5),
+              panel.spacing = margin(c(0,0,0,0)),
+              axis.title.x = element_blank(),
+              axis.title.y = element_blank(),
+              axis.ticks.x=element_blank(),
+              axis.ticks.y=element_blank(),
+              axis.text.x = element_blank(),
+              panel.background = element_blank()
+        ) +
+        scale_x_discrete(expand = c(0, 0)) +
+        scale_y_discrete(expand = c(0, 0)) +
+        scale_fill_manual(values=ggpalette2, drop=FALSE, name = "Status")
+    }, height = "auto")
+    
+  
+       
   # Table with progress on all priority areas and actions
   
   output$tbPriorities = DT::renderDataTable({
@@ -127,66 +189,6 @@
   #   formatStyle(names(tbUpdates), target = 'row',
   #     backgroundColor = 'white', fontSize = '16px')})
   
-  #-----------------------------------
-  
-  #Tracker Outputs
-  
-  #Load the progress tracker output
-  output$plotProgress <- renderPlot({
-    tbPriorities %>%
-      ggplot(aes(fill = Progress, x = Count, y = "")) +
-      geom_bar(position = position_fill(reverse = TRUE),
-               stat = "identity",
-               width = 1) +
-      coord_flip() +
-      theme(legend.position = "bottom",
-            legend.justification = "right",
-            plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
-            legend.margin=margin(c(0,0,-4,0)),
-            legend.title=element_text(size=16), 
-            legend.text=element_text(size=16),
-            panel.spacing = margin(c(0,0,0,0)),
-            panel.border = element_rect(colour = "black", fill=NA, size=0.5),
-            axis.title.x = element_blank(),
-            axis.title.y = element_blank(),
-            axis.ticks.x=element_blank(),
-            axis.ticks.y=element_blank(),
-            axis.text.x = element_blank(),
-            panel.background = element_blank()
-      ) +
-      scale_x_discrete(expand = c(0, 0)) +
-      scale_y_discrete(expand = c(0, 0)) +
-      scale_fill_manual(values=ggpalette1, drop = FALSE, name="Progress")
-    }, height = "auto")
-  
-  #load the timeline tracker output
-  output$plotTimeline <- renderPlot({
-    tbDays %>%
-      ggplot(aes(fill = Status, x = Total, y = "")) +
-      geom_bar(position = position_fill(reverse = TRUE),
-               stat = "identity",
-               width = 1) +
-      coord_flip() +
-      theme(legend.position = "bottom",
-            legend.justification = "right",
-            plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
-            legend.margin=margin(c(0,0,-4,0)),
-            legend.title=element_text(size=16), 
-            legend.text=element_text(size=16),
-            panel.border = element_rect(colour = "black", fill=NA, size=0.5),
-            panel.spacing = margin(c(0,0,0,0)),
-            axis.title.x = element_blank(),
-            axis.title.y = element_blank(),
-            axis.ticks.x=element_blank(),
-            axis.ticks.y=element_blank(),
-            axis.text.x = element_blank(),
-            panel.background = element_blank()
-      ) +
-      scale_x_discrete(expand = c(0, 0)) +
-      scale_y_discrete(expand = c(0, 0)) +
-      scale_fill_manual(values=ggpalette2, drop=FALSE, name = "Status")
-  }, height = "auto")
+  #----------------------------
   
   }
-  
-  #----------------------------
