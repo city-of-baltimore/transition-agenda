@@ -137,11 +137,11 @@
    
     #create structure for translation buttons
    
-#    i18n <- Translator$new(translation_csvs_path='data/translations/',
-#                          translation_csv_config = NULL,
-#                          separator_csv = ",",
-#                          automatic = FALSE)
-#    i18n$set_translation_language('en')
+    i18n <- Translator$new(translation_csvs_path='data/translations/',
+                          translation_csv_config = NULL,
+                          separator_csv = ",",
+                          automatic = FALSE)
+    i18n$set_translation_language('en')
    
 #   en <- actionButton("english",HTML("<b>En</b>"),class = "btn-primary")
 #   es <- actionButton("english",HTML("<b>Sp</b>"),class = "btn-primary")
@@ -256,8 +256,10 @@
     
     aboutus <- {div(
       div(style="float:right;margin-top:8px;margin-left:48px;margin-bottom:24px;",
-        img(src = "photos/mayor_brandon_scott.png"),
-        h5("Inaugural Photo of Mayor Brandon M. Scott", height = 150)
+        img(src = "photos/citistat.jpg",
+            height = 4096*.1,
+            width = 3072*.1),
+        h5("Mayor Scott leading 12/18/20 PoliceStat meeting.", height = 150)
       ),
       h3("Baltimore,"),
       p("Over the past few months, my team and I have been working hard to build a new foundation for our local 
