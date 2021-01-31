@@ -137,11 +137,11 @@
    
     #create structure for translation buttons
    
-    i18n <- Translator$new(translation_csvs_path='data/translations/',
-                          translation_csv_config = NULL,
-                          separator_csv = ",",
-                          automatic = FALSE)
-    i18n$set_translation_language('en')
+#    i18n <- Translator$new(translation_csvs_path='data/translations/',
+#                          translation_csv_config = NULL,
+#                          separator_csv = ",",
+#                          automatic = FALSE)
+#    i18n$set_translation_language('en')
    
 #   en <- actionButton("english",HTML("<b>En</b>"),class = "btn-primary")
 #   es <- actionButton("english",HTML("<b>Sp</b>"),class = "btn-primary")
@@ -254,7 +254,7 @@
     
     # Create "about this initiative" page
     
-    aboutus <- div(
+    aboutus <- {div(
       div(style="float:right;margin-top:8px;margin-left:48px;margin-bottom:24px;",
         img(src = "photos/mayor_brandon_scott.png"),
         h5("Inaugural Photo of Mayor Brandon M. Scott", height = 150)
@@ -288,4 +288,4 @@
       tags$b(p("Brandon Scott")),
       p("Mayor of Baltimore City"),
       hr(style="border-color: white;")
-    )
+    )}

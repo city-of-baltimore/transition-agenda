@@ -5,7 +5,7 @@
   # Load packages (only matters for publishing on shiny.io)
   library(tidyverse)
   library(shinyjs)
-  library(shiny.i18n)
+#  library(shiny.i18n)
   library(DT)
 
   #-------------------------------
@@ -135,7 +135,7 @@
   # Third Level Content
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
-      tabPanel(h4(style="color:black;",i18n$t("Priorities & Progress")), 
+      tabPanel(h4(style="color:black;","Priorities & Progress"), 
                text2, 
                dataTableOutput("tbPriorities"), 
                downloadButton(style="border:none;padding-left:0px;margin-top:24px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
@@ -143,8 +143,8 @@
       #   text3
       #   # , div(dataTableOutput('tbUpdates'))
       # ),
-      tabPanel(h4(style="color:black;",i18n$t("Message from the Mayor")), aboutus ),
-      tabPanel(h4(style="color:black;",i18n$t("Resources & Feedback")), 
+      tabPanel(h4(style="color:black;","Message from the Mayor"), aboutus ),
+      tabPanel(h4(style="color:black;","Resources & Feedback"), 
         text4,links,
         HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="360px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>')
         )
