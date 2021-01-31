@@ -118,7 +118,7 @@
     div(style='margin-bottom:12px;margin-top:18px;',
       img(src = "photos/mayor_brandon_scott.png",
         style="margin-left: 2px; margin-top: 4px; margin-right:24px;margin-bottom:8px;float:left;" ,
-        height = 230),
+        height = 235),
       text1),
     # Overview progress and day trackers 
     div(style='padding:0px;max-width:900px;margin-top:24px;' ,
@@ -143,7 +143,7 @@
       #   text3
       #   # , div(dataTableOutput('tbUpdates'))
       # ),
-      tabPanel(h4(style="color:black;",i18n$t("Message from the Mayor")), aboutus),
+      tabPanel(h4(style="color:black;",i18n$t("Message from the Mayor")), aboutus ),
       tabPanel(h4(style="color:black;",i18n$t("Resources & Feedback")), 
         text4,links,
         HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="360px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>')
