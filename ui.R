@@ -5,7 +5,7 @@
   # Load packages (only matters for publishing on shiny.io)
   library(tidyverse)
   library(shinyjs)
-#  library(shiny.i18n)
+  library(shiny.i18n)
   library(DT)
 
   #-------------------------------
