@@ -56,7 +56,8 @@
       margin-top: 24px;
     }
     .tabbable h4 {
-      font-size: 22px;
+      font-size: 20px;
+      font-weight: 600;
     }
     ul.nav-tabs {
       border-bottom: 1px solid ",bc_gold,";
@@ -137,18 +138,16 @@
       tabPanel(h4(style="color:black;",i18n$t("Priorities & Progress")), 
                text2, 
                dataTableOutput("tbPriorities"), 
-               downloadButton(style="border:none;padding-left:0px;margin:auto;width:100%;margin-top:24px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
-#      tabPanel(h4(style="color:black;","Weekly Updates"), 
-#               text3, 
-#               div(column(8,dataTableOutput('tbUpdates')),
-#                   column(3,offset = 1,img(src = "photos/citistat.jpg",
-#                                height = 4096*.1, width = 3072*.1),
-#                          h5("Mayor Scott at his first PoliceStat meeting as Mayor. 12/22/2020",width = 3072*.09)))),
-      tabPanel(h4(style="color:black;",i18n$t("About this Initiative")), aboutus),
+               downloadButton(style="border:none;padding-left:0px;margin-top:24px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
+      # tabPanel(h4(style="color:black;","Weekly Updates"),
+      #   text3
+      #   # , div(dataTableOutput('tbUpdates'))
+      # ),
+      tabPanel(h4(style="color:black;",i18n$t("Message from the Mayor")), aboutus),
       tabPanel(h4(style="color:black;",i18n$t("Resources & Feedback")), 
-               text4,links,
-               HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="360px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>')
-               )
+        text4,links,
+        HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="360px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>')
+        )
       ),
   
   #--------------------------------------
