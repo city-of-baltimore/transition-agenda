@@ -4,8 +4,8 @@
   
   # Load packages (only matters for publishing on shiny.io)
   library(tidyverse)
-  library(DT)
   library(shinyjs)
+  library(DT)
     
   #----------------------------------------
 
@@ -84,35 +84,55 @@
     
     # Add text for Brandon Scott's welcome
     title <- "Mayor Brandon M. Scott: 100 Days of Action Tracker"
-    text1 <- div(HTML("<p>In November, Mayor Brandon M. Scott convened more than 250 Baltimoreans to serve on his Mayoral transition team. The youth, community leaders, educators, advocates, artists, entrepreneurs and residents involved in this process developed short-term and long-term recommendations to guide the administration over the next four years and beyond. 
-      </p><p>The Mayor and his executive team reviewed these plans and built a coordinated strategy for his first term, starting with the 100 Days of Action. Follow updates across each of these actions and track their completion with the tracker below.</p>"))
-    text2 <- div(HTML("<p class=\"tab-header\">Follow Mayor Scott's early achievements here! To learn about the Mayor’s transition process and priority areas, visit ",
+    text1 <- div(HTML("<p>In November, Mayor Brandon M. Scott convened more than 250 Baltimoreans to serve on his 
+    Mayoral transition team. The youth, community leaders, educators, advocates, artists, entrepreneurs and residents 
+    involved in this process developed short-term and long-term recommendations to guide the administration over the 
+    next four years and beyond. 
+      </p><p>The Mayor and his executive team reviewed these plans and built a coordinated strategy for his first 
+                      term, starting with the 100 Days of Action. Follow updates across each of these actions and 
+                      track their completion with the tracker below.</p>"))
+    text2 <- div(HTML("<p class=\"tab-header\">Follow Mayor Scott's early achievements here! To learn about the 
+                      Mayor's transition process and priority areas, visit ",
         "<a href='https://www.brandonsplan.com/transition-team'>this page</a>.</p>"))
     text3 <- div(HTML("
-      <p class=\"tab-header\">Every week, our team will share updates from across our government to keep you involved in our work making Baltimore a safer, healthier, and more equitable city. Be sure to check back in to stay updated on our achievements during these hundred days and beyond!</p>
-      <p>Since Mayor Scott took office on December 8th, 2020, we’ve been hard at work improving Baltimore government. Below are a few highlights of Mayor Scott’s achievements:</p>
+      <p class=\"tab-header\">Every week, our team will share updates from across our government to keep you 
+      involved in our work making Baltimore a safer, healthier, and more equitable city. Be sure to check back 
+      in to stay updated on our achievements during these hundred days and beyond!</p>
+      <p>Since Mayor Scott took office on December 8th, 2020, we've been hard at work improving Baltimore 
+      government. Below are a few highlights of Mayor Scott's achievements:</p>
       <ul style=\"margin-left:24px;\">
-        <li>Created and staffed the Mayor’s Office of Neighborhood Safety and Engagement</li>
+        <li>Created and staffed the Mayor's Office of Neighborhood Safety and Engagement</li>
         <li>Launched the first PoliceStat meeting to coordinate services and increase accountability</li>
-        <li>Hired Baltimore’s first Chief Equity Officer</li>
-        <li>Hired Baltimore’s first Chief Administrative Officer</li>
+        <li>Hired Baltimore's first Chief Equity Officer</li>
+        <li>Hired Baltimore's first Chief Administrative Officer</li>
       </ul>
-      <p>We have bold plans to reshape Baltimore’s government over the coming months. This work will involve unprecedented transparency, accountability, and urgency as we seek to build a Baltimore where every resident can thrive.</p>
+      <p>We have bold plans to reshape Baltimore's government over the coming months. This work will involve 
+      unprecedented transparency, accountability, and urgency as we seek to build a Baltimore where every 
+      resident can thrive.</p>
     "))
-    text4 <- div(HTML("<p class=\"tab-header\">Thank you for your interest and involvement as we work together to make Baltimore a safer, equitable and accountable city. Share your feedback and get involved below.</p>"))
+    text4 <- div(HTML("<p class=\"tab-header\">Thank you for your interest and involvement as we work 
+                      together to make Baltimore a safer, equitable and accountable city. Share your 
+                      feedback and get involved below.</p>"))
    
     # Add texts and links for the resources page
     link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>BaltimoreCity.gov Homepage</a></b>"
-                  ," - Stay informed about Baltimore City services and learn how to connect with your city leaders.</p>")
-    link2 <- HTML("<p><b><a href='https://www.balt311.baltimorecity.gov/citizen/servicetypes'>Submit a Service Request</a></b>"
+                  ," - Stay informed about Baltimore City services and learn how to connect with your 
+                  city leaders.</p>")
+    link2 <- HTML("<p><b><a href='https://www.balt311.baltimorecity.gov/citizen/servicetypes'>Submit a 
+                  Service Request</a></b>"
                   ," - Request any city service over the phone, on the 311 app, or online.</p>")
-    link3 <- HTML("<p><b><a href='https://www.mayor.baltimorecity.gov/help'>Get Assistance with a Constituent-Related Concern</a></b>"
+    link3 <- HTML("<p><b><a href='https://www.mayor.baltimorecity.gov/help'>Get Assistance with a 
+                  Constituent-Related Concern</a></b>"
                   ," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
     link4 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com'>Baltimore City Council</a></b>"
-                 ," - Learn more about the City Council, connect with your local representatives, and find upcoming meetings.</p>")
-    link5 <- HTML("<p><b><a href='https://www.msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore City State Delegation</a></b>"
-                  ," - Connect with Baltimore City's State delegation and follow along with the legislative process.</p>")
-    link6 <- HTML("<p><b><a href='https://www.planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn about your Community Association</a></b>"
+                 ," - Learn more about the City Council, connect with your local representatives, and 
+                 find upcoming meetings.</p>")
+    link5 <- HTML("<p><b><a href='https://www.msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore 
+                  City State Delegation</a></b>"
+                  ," - Connect with Baltimore City's State delegation and follow along with the legislative 
+                  process.</p>")
+    link6 <- HTML("<p><b><a href='https://www.planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn 
+                  about your Community Association</a></b>"
                  ," - Find out more about your community associations in your area and get involved.</p>")
    
     #create structure for translation buttons
@@ -240,12 +260,26 @@
         h5("Inaugural Photo of Mayor Brandon M. Scott", height = 150)
       ),
       h3("Baltimore,"),
-      p("Over the past few months, my team and I have been working hard to build a new foundation for our local government in Baltimore City.  This work will not be easy, particularly as we continue to navigate the devastating public health and economic consequences of the COVID-19 pandemic, something that layers on Baltimore’s existing inequities and unrelenting violence epidemic."),
-      p("In November, I convened more than 250 Baltimoreans to serve on my transition team. The youth, community leaders, educators, advocates, artists, entrepreneurs and residents who were involved in this process developed short-term and long-term recommendations to guide my administration over the next four years and beyond."),
-      p("Together, we built a vision for a new way forward for Baltimore, taking ideas from every corner of this city and combining them with best practices other places have used to transform and grow equitably."),
-      p("In my conversations with my transition team, I knew we needed to show progress over time, not just tell people what we accomplished when it was done. My team and I assembled a list of actions we could accomplish over the next 100 days so residents could see transformation in their City government immediately. "),
-      p("This 100 Days of Action Tracker emerged from this sense of urgency and from my belief that we’re at our best when we set high goals and are accountable to the people we serve. To put our city on a new path, this administration will need to operate with greater urgency, transparency, accountability, and commitment to equity than ever before."),
-      p("Please use this tool to learn more, ask tough questions, and hold us to our promises. Each week, my team will share updates, so be sure to check in on our progress. Thank you for your engagement in this work."),
+      p("Over the past few months, my team and I have been working hard to build a new foundation for our local 
+        government in Baltimore City.  This work will not be easy, particularly as we continue to navigate the 
+        devastating public health and economic consequences of the COVID-19 pandemic, something that layers on 
+        Baltimore's existing inequities and unrelenting violence epidemic."),
+      p("In November, I convened more than 250 Baltimoreans to serve on my transition team. The youth, community 
+        leaders, educators, advocates, artists, entrepreneurs and residents who were involved in this process 
+        developed short-term and long-term recommendations to guide my administration over the next four years 
+        and beyond."),
+      p("Together, we built a vision for a new way forward for Baltimore, taking ideas from every corner of this 
+        city and combining them with best practices other places have used to transform and grow equitably."),
+      p("In my conversations with my transition team, I knew we needed to show progress over time, not just tell 
+        people what we accomplished when it was done. My team and I assembled a list of actions we could 
+        accomplish over the next 100 days so residents could see transformation in their City government 
+        immediately. "),
+      p("This 100 Days of Action Tracker emerged from this sense of urgency and from my belief that we're 
+        at our best when we set high goals and are accountable to the people we serve. To put our city on 
+        a new path, this administration will need to operate with greater urgency, transparency, accountability, 
+        and commitment to equity than ever before."),
+      p("Please use this tool to learn more, ask tough questions, and hold us to our promises. Each week, my team 
+        will share updates, so be sure to check in on our progress. Thank you for your engagement in this work."),
       br(),
       p("In service,"),
       img(src = "photos/signature.PNG",

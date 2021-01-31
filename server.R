@@ -4,9 +4,9 @@
   
   # Load packages (only matters for publishing on shiny.io)
   library(tidyverse)
-  library(shinyjs)
   library(DT)
-
+  library(shinyjs)
+  
   #-----------------------------------
   
   # Basic Structure
