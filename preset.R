@@ -159,7 +159,7 @@
     # the tbDays dataframe as the first day of the 100 Days of Action. If the 
     # first day is changed, the source data should be filtered to exclude days 
     # preceding the first day.
-    timelineText <- paste0("The 100 Days of Action began on 12/8/20. Today is Day ",
+    timelineText <- paste0("Mayor Scott took office on 12/8/20. Today is Day ",
                            ifelse(which(tbDays$Date == Sys.Date())<=100, 
                                   which(tbDays$Date == Sys.Date()),
                                   paste0("It ended on ", 
