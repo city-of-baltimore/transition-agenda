@@ -14,9 +14,13 @@
   server <- function(input, output, session){
   #------------------------------------
       load(".RData")
-#    observeEvent(input$selected_language, {
-#      update_lang(session, input$selected_language)
-#    })
+    
+    observeEvent(input$selected_language, {
+      # This print is just for demonstration
+      print(paste("Language change!", input$selected_language))
+      # Here is where we update language in session
+      shiny.i18n::update_lang(session, input$selected_language)
+    })
    
     #-----------------------------------
     
@@ -78,8 +82,6 @@
         scale_fill_manual(values=ggpalette2, drop=FALSE, name = "Status")
     }, height = "auto")
     
-  
-       
   # Table with progress on all priority areas and actions
   
   output$tbPriorities = DT::renderDataTable({

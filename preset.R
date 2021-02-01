@@ -6,6 +6,7 @@
   library(tidyverse)
   library(shinyjs)
   library(DT)
+  library(shiny.i18n)
     
   #----------------------------------------
 
@@ -39,6 +40,7 @@
     contact_us <- gicon("envelope")
     download <- gicon("file-download")
     
+    #Create color palettes for trackers
     ggpalette1 <- cbind(
       c(bchd_blue,bc_gold,"whiteSmoke"),
       c("Complete","Not Yet Started","In Progress")
@@ -82,95 +84,11 @@
       return(tempData)
     }
     
-    # Add text for Brandon Scott's welcome
-    title <- "Mayor Brandon M. Scott: 100 Days of Action Tracker"
-    text1 <- div(HTML("<p>In November, Mayor Brandon M. Scott convened more than 250 Baltimoreans to serve on his 
-    Mayoral transition team. The youth, community leaders, educators, advocates, artists, entrepreneurs and residents 
-    involved in this process developed short-term and long-term recommendations to guide the administration over the 
-    next four years and beyond. 
-      </p><p>The Mayor and his executive team reviewed these plans and built a coordinated strategy for his first 
-                      term, starting with the 100 Days of Action. Follow updates across each of these actions and 
-                      track their completion with the tracker below.</p>"))
-    text2 <- div(HTML("<p class=\"tab-header\">Follow Mayor Scott's early achievements here! To learn about the 
-                      Mayor's transition process and priority areas, visit ",
-        "<a href='https://www.brandonsplan.com/transition-team'>this page</a>.</p>"))
-    text3 <- div(HTML("
-      <p class=\"tab-header\">Every week, our team will share updates from across our government to keep you 
-      involved in our work making Baltimore a safer, healthier, and more equitable city. Be sure to check back 
-      in to stay updated on our achievements during these hundred days and beyond!</p>
-      <p>Since Mayor Scott took office on December 8th, 2020, we've been hard at work improving Baltimore 
-      government. Below are a few highlights of Mayor Scott's achievements:</p>
-      <ul style=\"margin-left:24px;\">
-        <li>Created and staffed the Mayor's Office of Neighborhood Safety and Engagement</li>
-        <li>Launched the first PoliceStat meeting to coordinate services and increase accountability</li>
-        <li>Hired Baltimore's first Chief Equity Officer</li>
-        <li>Hired Baltimore's first Chief Administrative Officer</li>
-      </ul>
-      <p>We have bold plans to reshape Baltimore's government over the coming months. This work will involve 
-      unprecedented transparency, accountability, and urgency as we seek to build a Baltimore where every 
-      resident can thrive.</p>
-    "))
-    text4 <- div(HTML("<p class=\"tab-header\">Thank you for your interest and involvement as we work 
-                      together to make Baltimore a safer, equitable and accountable city. Share your 
-                      feedback and get involved below.</p>"))
-   
-    # Add texts and links for the resources page
-    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>BaltimoreCity.gov Homepage</a></b>"
-                  ," - Stay informed about Baltimore City services and learn how to connect with your 
-                  city leaders.</p>")
-    link2 <- HTML("<p><b><a href='https://www.balt311.baltimorecity.gov/citizen/servicetypes'>Submit a 
-                  Service Request</a></b>"
-                  ," - Request any city service over the phone, on the 311 app, or online.</p>")
-    link3 <- HTML("<p><b><a href='https://www.mayor.baltimorecity.gov/help'>Get Assistance with a 
-                  Constituent-Related Concern</a></b>"
-                  ," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
-    link4 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com'>Baltimore City Council</a></b>"
-                 ," - Learn more about the City Council, connect with your local representatives, and 
-                 find upcoming meetings.</p>")
-    link5 <- HTML("<p><b><a href='https://www.msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore 
-                  City State Delegation</a></b>"
-                  ," - Connect with Baltimore City's State delegation and follow along with the legislative 
-                  process.</p>")
-    link6 <- HTML("<p><b><a href='https://www.planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn 
-                  about your Community Association</a></b>"
-                 ," - Find out more about your community associations in your area and get involved.</p>")
-   
     #create structure for translation buttons
    
-    i18n <- Translator$new(translation_csvs_path='data/translations/',
-                          translation_csv_config = NULL,
-                          separator_csv = ",",
-                          automatic = FALSE)
+    i18n <- Translator$new(translation_csvs_path = "data/translations/")
     i18n$set_translation_language('en')
-   
-#   en <- actionButton("english",HTML("<b>En</b>"),class = "btn-primary")
-#   es <- actionButton("english",HTML("<b>Sp</b>"),class = "btn-primary")
-#   fr <- actionButton("english",HTML("<b>Fr</b>"),class = "btn-primary")
-#   ko <- actionButton("english",HTML("<b>Ko</b>"),class = "btn-primary")
-#   ch <- actionButton("english",HTML("<b>Ch</b>"),class = "btn-primary")
-#   lang <- div(en,es,fr,ko,ch)
-   
-    #create structure for links
-    links <- div(
-      id = "links",
-        fluidRow(column(6,link1),
-                  column(6,link2),
-                 # column(2)
-                 ),
-        fluidRow(column(6,link3),
-                  column(6,link4),
-                 # column(2)
-                 ),
-        fluidRow(column(6,link5),
-                  column(6,link6),
-                 # column(2)
-                 ),
-      hr()
-    )
         
-    #size for header images
-    headerImgSize <- 50
-    
   #-----------------------------
 
   #Load and format data
@@ -240,7 +158,7 @@
     # Text for timeline vis title. Note this text will treat the first day in 
     # the tbDays dataframe as the first day of the 100 Days of Action. If the 
     # first day is changed, the source data should be filtered to exclude days 
-    # preceeding the first day.
+    # preceding the first day.
     timelineText <- paste0("The 100 Days of Action began on 12/8/20. Today is Day ",
                            ifelse(which(tbDays$Date == Sys.Date())<=100, 
                                   which(tbDays$Date == Sys.Date()),
@@ -252,6 +170,79 @@
     
   #--------------------------------
     
+    #Document Text
+    
+    # Add text for Brandon Scott's welcome
+    title <- "Mayor Brandon M. Scott: 100 Days of Action Tracker"
+    text1 <- div(HTML("<p>In November, Mayor Brandon M. Scott convened more than 250 Baltimoreans to serve on his 
+    Mayoral transition team. The youth, community leaders, educators, advocates, artists, entrepreneurs and residents 
+    involved in this process developed short-term and long-term recommendations to guide the administration over the 
+    next four years and beyond. 
+      </p><p>The Mayor and his executive team reviewed these plans and built a coordinated strategy for his first 
+                      term, starting with the 100 Days of Action. Follow updates across each of these actions and 
+                      track their completion with the tracker below.</p>"))
+    text2 <- div(HTML("<p class=\"tab-header\">Follow Mayor Scott's early achievements here! To learn about the 
+                      Mayor's transition process and priority areas, visit ",
+                      "<a href='https://www.brandonsplan.com/transition-team'>this page</a>.</p>"))
+    text3 <- div(HTML("
+      <p class=\"tab-header\">Every week, our team will share updates from across our government to keep you 
+      involved in our work making Baltimore a safer, healthier, and more equitable city. Be sure to check back 
+      in to stay updated on our achievements during these hundred days and beyond!</p>
+      <p>Since Mayor Scott took office on December 8th, 2020, we've been hard at work improving Baltimore 
+      government. Below are a few highlights of Mayor Scott's achievements:</p>
+      <ul style=\"margin-left:24px;\">
+        <li>Created and staffed the Mayor's Office of Neighborhood Safety and Engagement</li>
+        <li>Launched the first PoliceStat meeting to coordinate services and increase accountability</li>
+        <li>Hired Baltimore's first Chief Equity Officer</li>
+        <li>Hired Baltimore's first Chief Administrative Officer</li>
+      </ul>
+      <p>We have bold plans to reshape Baltimore's government over the coming months. This work will involve 
+      unprecedented transparency, accountability, and urgency as we seek to build a Baltimore where every 
+      resident can thrive.</p>
+    "))
+    text4 <- div(HTML("<p class=\"tab-header\">Thank you for your interest and involvement as we work 
+                      together to make Baltimore a safer, equitable and accountable city. Share your 
+                      feedback and get involved below.</p>"))
+    
+    # Add texts and links for the resources page
+    link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>BaltimoreCity.gov Homepage</a></b>"
+                  ," - Stay informed about Baltimore City services and learn how to connect with your 
+                  city leaders.</p>")
+    link2 <- HTML("<p><b><a href='https://www.balt311.baltimorecity.gov/citizen/servicetypes'>Submit a 
+                  Service Request</a></b>"
+                  ," - Request any city service over the phone, on the 311 app, or online.</p>")
+    link3 <- HTML("<p><b><a href='https://www.mayor.baltimorecity.gov/help'>Get Assistance with a 
+                  Constituent-Related Concern</a></b>"
+                  ," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
+    link4 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com'>Baltimore City Council</a></b>"
+                  ," - Learn more about the City Council, connect with your local representatives, and 
+                 find upcoming meetings.</p>")
+    link5 <- HTML("<p><b><a href='https://www.msa.maryland.gov/msa/mdmanual/07leg/html/gacobcit.html'>Baltimore 
+                  City State Delegation</a></b>"
+                  ," - Connect with Baltimore City's State delegation and follow along with the legislative 
+                  process.</p>")
+    link6 <- HTML("<p><b><a href='https://www.planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn 
+                  about your Community Association</a></b>"
+                  ," - Find out more about your community associations in your area and get involved.</p>")
+    
+    #create structure for links
+    links <- div(
+      id = "links",
+      fluidRow(column(6,link1),
+               column(6,link2),
+               # column(2)
+      ),
+      fluidRow(column(6,link3),
+               column(6,link4),
+               # column(2)
+      ),
+      fluidRow(column(6,link5),
+               column(6,link6),
+               # column(2)
+      ),
+      hr()
+    )
+    
     # Create "about this initiative" page
     
     aboutus <- {div(
@@ -259,7 +250,7 @@
         img(src = "photos/citistat.jpg",
             height = 4096*.1,
             width = 3072*.1),
-        h5("Mayor Scott leading 12/18/20 PoliceStat meeting.", height = 150)
+        h5("Mayor Scott leading 12/22/20 PoliceStat meeting.", height = 150)
       ),
       h3("Baltimore,"),
       p("Over the past few months, my team and I have been working hard to build a new foundation for our local 
