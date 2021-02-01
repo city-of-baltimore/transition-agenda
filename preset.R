@@ -3,9 +3,18 @@
   #---------------------------------------
   
   # Load packages (only matters for publishing on shiny.io)
+  library(pacman)
+  library(ggplot2)
+  library(gfonts)
+  library(formattable)
+  library(shiny)
   library(tidyverse)
+  library(lubridate)
   library(shinyjs)
+  library(readxl)
+  library(rsconnect)
   library(DT)
+  library(htmltools)
   library(shiny.i18n)
     
   #----------------------------------------
