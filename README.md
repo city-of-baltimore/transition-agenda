@@ -19,3 +19,7 @@ For page translation, we used the shiny.i18n package. First, we used Google Shee
 ### Publishing
 
 We used shinyapps.io to host the web app. However, we think the Shiny Server open source option is a good approach for those with the ability to host and maintain their own Shiny Server. As part of the publishing approval process, we made an R Markdown document to produce a word document comms staff could use to review and edit text.
+
+### Have Questions?
+
+Feel free to reach out! We're always happy to help other local governments and are big fans of data and transparency.
