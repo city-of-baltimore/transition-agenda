@@ -161,7 +161,7 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-inner copyright">
-          <p style="max-width:800px;margin:auto;padding: 0px 24px;">Copyright ? 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
+          <p style="max-width:800px;margin:auto;padding: 0px 24px;">Copyright 2014 City of Baltimore &amp; Brandon M. Scott, Mayor.<br>All Rights Reserved.</p>
         </div>
     </div>
   ')
