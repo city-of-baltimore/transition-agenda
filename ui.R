@@ -15,15 +15,15 @@
   ui <- function(req){
     fluidPage(
     shinyjs::useShinyjs(),
-    #shiny.i18n::usei18n(i18n),
-    #tags$div(
-    #  style='float: right;',
-    #  selectInput(
-    #    inputId='selected_language',
-    #    label=i18n$t('Change language'),
-    #    choices = i18n$get_languages(),
-    #    selected = i18n$get_key_translation()
-    #  )),
+    shiny.i18n::usei18n(i18n),
+    tags$div(
+      style='float: right;',
+      selectInput(
+        inputId='selected_language',
+        label=i18n$t('Change language'),
+        choices = i18n$get_languages(),
+        selected = i18n$get_key_translation()
+      )),
     
   # Style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
