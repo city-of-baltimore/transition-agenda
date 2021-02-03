@@ -12,8 +12,6 @@ library(DT)
 library(htmltools)
 library(shiny.i18n)
 
-#setwd("C:/Users/brend/OneDrive/Documents/GitHub/transition-agenda")
-
 source('preset.R',local = T)
 source('city-content.R', local=T)
 source('ui.R',local = T)
