@@ -21,8 +21,15 @@
 #      # Here is where we update language in session
 #      shiny.i18n::update_lang(session, input$selected_language)
 #    })
-   
-    #-----------------------------------
+    
+  #------------------------------------
+  # Get client time
+
+  session$userData$time <- reactive({
+    as.Date(lubridate::mdy_hms(as.character(input$client_time)))
+  })
+
+  #-----------------------------------
     
     #Tracker Outputs
     
@@ -57,6 +64,9 @@
     #load the timeline tracker output
     output$plotTimeline <- renderPlot({
       tbDays %>%
+        mutate(Status = factor(sapply(.$Date,function(x) {ifelse(x > session$userData$time(), "Remaining", ifelse(x == session$userData$time(), "Current","Past"))}),
+                               levels=c("Past", "Current","Remaining")),
+               Total = 1) %>%
         ggplot(aes(fill = Status, x = Total, y = "")) +
         geom_bar(position = position_fill(reverse = TRUE),
                  stat = "identity",
@@ -92,8 +102,8 @@
         searching = F,
         pageLength = 10,
         columnDefs = list(
-          list(width = '300px', targets = c(2)),
-          list(width = '18px', targets = c(2, 4)),
+          list(width = '300px', targets = c(3)),
+          list(width = '18px', targets = c(1)),
           list(width = '172px', targets = c(4)),
           list(visible = FALSE, targets = c(0, 2, 4, 5)),
           list(orderable = FALSE, targets = "_all"),
@@ -117,8 +127,8 @@
             for (var i in d[5]){
               result += '<tr >';
               for (var j in d[5][i]) {
-                                if (j == 0) {
-                  result += '<td style=\"width:354px;\">' + d[5][i][j] + '</td>';
+                if (j == 0) {
+                  result += '<td style=\"width:300px;\">' + d[5][i][j] + '</td>';
                 } else if (j == 1) {
                   result += '<td style=\"width:120px;\">' + d[5][i][j] + '</td>';
                 } else {
