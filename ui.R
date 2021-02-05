@@ -24,6 +24,17 @@
     #     choices = i18n$get_languages(),
     #     selected = i18n$get_key_translation()
     #   )),
+
+  tags$script('
+    $(document).ready(function(){
+    var d = new Date();
+    var target = $("#client_time");
+    target.val(d.toLocaleString());
+    target.trigger("change");
+    });
+  '),
+  
+  HTML('<input type="text" id="client_time" name="client_time" style="display: none;"> '),
     
   # Style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),

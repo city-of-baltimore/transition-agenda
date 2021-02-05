@@ -21,8 +21,14 @@
 #      # Here is where we update language in session
 #      shiny.i18n::update_lang(session, input$selected_language)
 #    })
+    
+  #------------------------------------
+  # Get client time
+
+  session$userData$time <- reactive({as.Date(lubridate::mdy_hms(as.character(input$client_time)))})
+  output$local <- renderText({format(session$userData$time(), "%d/%m/%Y")})
    
-    #-----------------------------------
+  #-----------------------------------
     
     #Tracker Outputs
     
@@ -57,6 +63,9 @@
     #load the timeline tracker output
     output$plotTimeline <- renderPlot({
       tbDays %>%
+        mutate(Status = factor(sapply(.$Date,function(x) {ifelse(x > session$userData$time(), "Remaining", ifelse(x == session$userData$time(), "Current","Past"))}),
+                               levels=c("Past", "Current","Remaining")),
+               Total = 1) %>%
         ggplot(aes(fill = Status, x = Total, y = "")) +
         geom_bar(position = position_fill(reverse = TRUE),
                  stat = "identity",

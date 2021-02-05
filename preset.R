@@ -104,14 +104,9 @@
 
     #set up sheets
     pg1 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Actions")
-    pg2 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Days")
+    tbDays <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Days")
     pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees")
     pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Progress Updates")
-    
-    tbDays <- pg2 %>% 
-      mutate(Status = factor(sapply(.$Date,past), 
-                             levels=c("Past", "Current","Remaining")),
-             Total = 1)
     
     tbPriorities <- pg1 %>%
       mutate(Progress = factor(Progress, levels=c("Complete", "In Progress", "Not Yet Started"))) %>% 
