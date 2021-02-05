@@ -217,10 +217,10 @@
     link1 <- HTML("<p><b><a href='https://www.baltimorecity.gov/'>BaltimoreCity.gov Homepage</a></b>"
                   ," - Stay informed about Baltimore City services and learn how to connect with your 
                   city leaders.</p>")
-    link2 <- HTML("<p><b><a href='https://www.balt311.baltimorecity.gov/citizen/servicetypes'>Submit a 
+    link2 <- HTML("<p><b><a href='https://balt311.baltimorecity.gov/citizen/servicetypes'>Submit a 
                   Service Request</a></b>"
                   ," - Request any city service over the phone, on the 311 app, or online.</p>")
-    link3 <- HTML("<p><b><a href='https://www.mayor.baltimorecity.gov/help'>Get Assistance with a 
+    link3 <- HTML("<p><b><a href='https://mayor.baltimorecity.gov/help'>Get Assistance with a 
                   Constituent-Related Concern</a></b>"
                   ," - Connect directly with the Mayor's Office and follow up on your service requests.</p>")
     link4 <- HTML("<p><b><a href='https://www.baltimorecitycouncil.com'>Baltimore City Council</a></b>"
@@ -230,7 +230,7 @@
                   City State Delegation</a></b>"
                   ," - Connect with Baltimore City's State delegation and follow along with the legislative 
                   process.</p>")
-    link6 <- HTML("<p><b><a href='https://www.planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn 
+    link6 <- HTML("<p><b><a href='https://planning.baltimorecity.gov/maps-data/online-community-association-directory'>Learn 
                   about your Community Association</a></b>"
                   ," - Find out more about your community associations in your area and get involved.</p>")
     
