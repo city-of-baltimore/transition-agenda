@@ -25,9 +25,10 @@
   #------------------------------------
   # Get client time
 
-  session$userData$time <- reactive({as.Date(lubridate::mdy_hms(as.character(input$client_time)))})
-  output$local <- renderText({format(session$userData$time(), "%d/%m/%Y")})
-   
+  session$userData$time <- reactive({
+    as.Date(lubridate::mdy_hms(as.character(input$client_time)))
+  })
+
   #-----------------------------------
     
     #Tracker Outputs
