@@ -23,14 +23,13 @@
 #    })
     
   #------------------------------------
-  # Get client time
+  # Get current time
 
-  session$userData$time <- reactive({
-    as.Date(lubridate::mdy_hms(as.character(input$client_time)))
-  })
-  
   output$currentTime <- renderText({
+    # Refresh every second
     invalidateLater(1000, session)
+    
+    # Output server time
     format(Sys.time())
   })
 
@@ -65,11 +64,34 @@
         scale_y_discrete(expand = c(0, 0)) +
         scale_fill_manual(values=ggpalette1, drop = FALSE, name="Progress")
     }, height = "auto")
+  
+    # Text for timeline vis description
+    output$timelineText <- renderText({
+
+      # Refresh every minute
+      invalidateLater(60000, session)
+      
+      # Return text explaining when the 100 Days of Action began, and if
+      # they are still happening, the current date and number. If they are
+      # no longer happening, return the date they ended.
+      ifelse(which(tbDays$Date == Sys.Date())<=100,
+        paste0("Mayor Scott took office on 12/8/20. Today is day ", 
+            which(tbDays$Date == Sys.Date()),
+            "."
+          ),
+        paste0("The 100 Days of Action began when Mayor Scott took office ",
+          "on 12/8/20. The last day was 3/17/21."
+        )
+      )
+    })
     
     #load the timeline tracker output
     output$plotTimeline <- renderPlot({
+      # Refresh every minute
+      invalidateLater(60000, session)
+      
       tbDays %>%
-        mutate(Status = factor(sapply(.$Date,function(x) {ifelse(x > session$userData$time(), "Remaining", ifelse(x == session$userData$time(), "Current","Past"))}),
+        mutate(Status = factor(sapply(.$Date,function(x) {ifelse(x > Sys.Date(), "Remaining", ifelse(x == Sys.Date(), "Current","Past"))}),
                                levels=c("Past", "Current","Remaining")),
                Total = 1) %>%
         ggplot(aes(fill = Status, x = Total, y = "")) +

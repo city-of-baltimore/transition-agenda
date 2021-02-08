@@ -24,18 +24,7 @@
     #     choices = i18n$get_languages(),
     #     selected = i18n$get_key_translation()
     #   )),
-
-  tags$script('
-    $(document).ready(function(){
-    var d = new Date();
-    var target = $("#client_time");
-    target.val(d.toLocaleString());
-    target.trigger("change");
-    });
-  '),
   
-  HTML('<input type="text" id="client_time" name="client_time" style="display: none;"> '),
-    
   # Style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
   tags$style(paste0("
@@ -117,8 +106,7 @@
     div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
       h1(strong(title), 
         style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"
-      ),
-      h4(textOutput("currentTime", container=span))
+      )
     ),
      
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 3px solid", bc_gold, ";")),
@@ -134,7 +122,7 @@
       text1),
     # Overview progress and day trackers 
     div(style='padding:1px;max-width:900px;margin-top:24px;' ,
-      div(p(style="max-width:900px;font-weight:600;", i18n$t(timelineText), " ")),
+      div(p(style="max-width:900px;font-weight:600;", i18n$t(textOutput("timelineText", container=span)), " ")),
       div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", 
           plotOutput("plotTimeline", width="100%", height="72px")),
       div(p(style="max-width:900px;font-weight:600;", i18n$t(progressText), " ")),
@@ -158,7 +146,8 @@
       tabPanel(h4(style="color:black;","Message from the Mayor"), aboutus ),
       tabPanel(h4(style="color:black;","Resources & Feedback"), 
         text4,links,
-        HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="360px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>')
+        HTML('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjKePIaoUjUeI1-2Q9vvINtFdFl9ZGivr19BP6M9Hd6kdyhg/viewform?embedded=true" width="100%" height="360px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>'),
+        p(textOutput("currentTime", container=span))
         )
       ),
   
