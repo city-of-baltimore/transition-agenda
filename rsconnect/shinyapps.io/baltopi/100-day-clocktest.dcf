@@ -1,0 +1,10 @@
+name: 100-day-clocktest
+title:
+username:
+account: baltopi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3600927
+bundleId: 4196286
+url: https://baltopi.shinyapps.io/100-day-clocktest/
+when: 1612797868.45779
