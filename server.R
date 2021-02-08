@@ -28,6 +28,11 @@
   session$userData$time <- reactive({
     as.Date(lubridate::mdy_hms(as.character(input$client_time)))
   })
+  
+  output$currentTime <- renderText({
+    invalidateLater(1000, session)
+    format(Sys.time())
+  })
 
   #-----------------------------------
     
