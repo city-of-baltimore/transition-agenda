@@ -24,18 +24,7 @@
     #     choices = i18n$get_languages(),
     #     selected = i18n$get_key_translation()
     #   )),
-
-  tags$script('
-    $(document).ready(function(){
-    var d = new Date();
-    var target = $("#client_time");
-    target.val(d.toLocaleString());
-    target.trigger("change");
-    });
-  '),
   
-  HTML('<input type="text" id="client_time" name="client_time" style="display: none;"> '),
-    
   # Style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
   tags$style(paste0("
@@ -133,7 +122,7 @@
       text1),
     # Overview progress and day trackers 
     div(style='padding:1px;max-width:900px;margin-top:24px;' ,
-      div(p(style="max-width:900px;font-weight:600;", i18n$t(timelineText), " ")),
+      div(p(style="max-width:900px;font-weight:600;", i18n$t(textOutput("timelineText", container=span)), " ")),
       div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", 
           plotOutput("plotTimeline", width="100%", height="72px")),
       div(p(style="max-width:900px;font-weight:600;", i18n$t(progressText), " ")),
