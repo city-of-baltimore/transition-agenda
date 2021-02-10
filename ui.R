@@ -84,7 +84,41 @@
     }
      .priorities-hierarchy-2 div {
      margin-right: 6px;
-    }"
+     }
+     
+    .goog-te-gadget {
+      font-family: Roboto!important;
+    }
+    .goog-te-gadget-simple  {
+      border: 0px solid white !important;
+      padding: 0px!important;
+      border-radius: 0px!important;
+      cursor: pointer;
+    }
+    .goog-te-menu-value span:nth-child(5) {
+      // display:none;
+      color: ",bc_gold,"!important;
+      font-size: 12px!important;
+    }
+    .goog-te-menu {
+      border: 1px solid ",bc_gold,";
+    }
+    .goog-te-menu-value span:nth-child(3) {
+      display:none;
+    }
+    .goog-te-menu-value span {
+      // float: right;
+      text-align:right;
+      font-size: 15px!important;
+      font-weight: 500!important;
+    }
+    .goog-te-menu-value {
+      margin: 0px;
+    }
+    .goog-te-gadget-icon {
+    display:none;
+    }
+    "
   )),
 
   #-------------------------------
@@ -106,11 +140,26 @@
     div(style="margin-top:0px;padding-top:0px;display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;",
       h1(strong(title), 
         style="font-size:42px;color:black;padding:0px;padding-right:16px;padding-bottom:14px;line-height:1.1;margin-bottom:-20px;"
+      ),
+      # Google Translate
+      HTML('
+        <div id="google_translate_element"></div>
+        <script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: \'en\', 
+              includedLanguages: \'ar,en,es,jv,ko,pa,pt,ru,zh-CN\', 
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 
+              \'google_translate_element\');
+          }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      '
       )
     ),
      
     hr(style=paste0("margin:16px 0px 12px 0px;padding:0px;border-top: 3px solid", bc_gold, ";")),
-  
+
   #-------------------------------
   
   # Second level content

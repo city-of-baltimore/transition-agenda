@@ -153,7 +153,7 @@
       select(Icon, everything())
     
     tbUpdates <- pg4 %>%
-      mutate(`Date of Update` = ymd(`Date of Update`))
+      mutate(`Date` = ymd(`Date`))
 
     #------------------------------------
     
