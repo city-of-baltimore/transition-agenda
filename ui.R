@@ -5,7 +5,6 @@
   # Load packages (only matters for publishing on shiny.io)
   library(tidyverse)
   library(shinyjs)
-  library(shiny.i18n)
   library(DT)
 
   #-------------------------------
@@ -15,16 +14,7 @@
   ui <- function(req){
     fluidPage(
     shinyjs::useShinyjs(),
-    # shiny.i18n::usei18n(i18n),
-    # tags$div(
-    #   style='float: right;',
-    #   selectInput(
-    #     inputId='selected_language',
-    #     label=i18n$t('Change language'),
-    #     choices = i18n$get_languages(),
-    #     selected = i18n$get_key_translation()
-    #   )),
-  
+
   # Style
   tags$link(rel = "stylesheet", type = "text/css", href = "css/roboto.css"),
   tags$style(paste0("
@@ -171,10 +161,10 @@
       text1),
     # Overview progress and day trackers 
     div(style='padding:1px;max-width:900px;margin-top:24px;' ,
-      div(p(style="max-width:900px;font-weight:600;", i18n$t(textOutput("timelineText", container=span)), " ")),
+      div(p(style="max-width:900px;font-weight:600;", textOutput("timelineText", container=span), " ")),
       div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", 
           plotOutput("plotTimeline", width="100%", height="72px")),
-      div(p(style="max-width:900px;font-weight:600;", i18n$t(progressText), " ")),
+      div(p(style="max-width:900px;font-weight:600;", progressText, " ")),
       div(style='margin-left:-4px;margin-right:-4px;', class="small-tracker", 
           plotOutput("plotProgress", width="100%", height="72px"))
     ),
@@ -184,7 +174,7 @@
   # Third Level Content
     # Tab setup for tracker "pages"
     tabsetPanel(type="tabs",
-      tabPanel(h4(style="color:black;",i18n$t("Priorities & Progress")), 
+      tabPanel(h4(style="color:black;","Priorities & Progress"), 
                text2, 
                dataTableOutput("tbPriorities"), 
                downloadButton(style="border:none;padding-left:0px;margin-top:24px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),

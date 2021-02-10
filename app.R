@@ -10,7 +10,6 @@ library(readxl)
 library(rsconnect)
 library(DT)
 library(htmltools)
-library(shiny.i18n)
 
 setwd("~/GitHub/transition-agenda")
 

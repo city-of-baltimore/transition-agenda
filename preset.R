@@ -15,8 +15,7 @@
   library(rsconnect)
   library(DT)
   library(htmltools)
-  library(shiny.i18n)
-    
+
   #----------------------------------------
 
   # Fonts, Colors, and Icons 
@@ -92,12 +91,7 @@
       tempData <- paste(unlist(paste0(sapply(sapply(sapply(data, "[[", 2), FUN=strsplit, "</div>"), "[[", 1), "</div>")), collapse='')
       return(tempData)
     }
-    
-    #create structure for translation buttons
-   
-    i18n <- Translator$new(translation_csvs_path = "data/translations/")
-    i18n$set_translation_language('en')
-        
+
   #-----------------------------
 
   #Load and format data
