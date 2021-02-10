@@ -11,7 +11,7 @@ For the survey function on the last page of the document, we used an embedded Go
 
 ### Translation
 
-For page translation, we used the shiny.i18n package. First, we used Google Sheets to host and edit text, using the googletranslate function to provide Spanish, French, Korean, and Mandarin translations for each aciton. Next, we used the translate-files.R sheet to produce csv documents that work well with shiny.i18n. Finally, we used the shiny.i18n package to provide alternative text for each language selection.
+We embedded translation functionality into the page by using Google Translate. See more information [here](https://www.w3schools.com/howto/howto_google_translate.asp).
 
 ### Publishing
 
