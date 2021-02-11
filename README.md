@@ -19,4 +19,4 @@ We used shinyapps.io to host the web app. However, we think the Shiny Server ope
 
 ### Have Questions?
 
-Feel free to reach out! We're always happy to help other local governments and are big fans of data and transparency.
+Feel free to reach out! We're always happy to help other local governments and are big fans of data and transparency. You can email Brendan at brendan.hellweg@baltimorecity.gov.
