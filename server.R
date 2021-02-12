@@ -40,12 +40,13 @@
                  stat = "identity",
                  width = 1) +
         coord_flip() +
-        theme(legend.position = "bottom",
-              legend.justification = "right",
+        theme(
+              legend.position = "none",
+              # legend.justification = "right",
               plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
-              legend.margin=margin(c(0,0,-4,0)),
-              legend.title=element_text(size=16), 
-              legend.text=element_text(size=16),
+              # legend.margin=margin(c(0,0,-4,0)),
+              # legend.title=element_text(size=16), 
+              # legend.text=element_text(size=16),
               panel.spacing = margin(c(0,0,0,0)),
               panel.border = element_rect(colour = "black", fill=NA, size=0.5),
               axis.title.x = element_blank(),
@@ -80,6 +81,14 @@
       )
     })
     
+    output$progressLegend <- renderUI({
+      div(class="legend", 
+          div(style="background:#199eb4"),                p("Complete"),
+          div(style=paste0("background:", bc_gold, ";")), p("In progress"),
+          div(style="background:whiteSmoke;"),            p("Not yet started")
+      )
+    })
+    
     #load the timeline tracker output
     output$plotTimeline <- renderPlot({
       # Refresh every minute
@@ -94,12 +103,8 @@
                  stat = "identity",
                  width = 1) +
         coord_flip() +
-        theme(legend.position = "bottom",
-              legend.justification = "right",
-              plot.title = element_text(size=18, face="bold", margin=margin(c(0,0,8,0))),
-              legend.margin=margin(c(0,0,-4,0)),
-              legend.title=element_text(size=16), 
-              legend.text=element_text(size=16),
+        theme(
+          legend.position = "none",
               panel.border = element_rect(colour = "black", fill=NA, size=0.5),
               panel.spacing = margin(c(0,0,0,0)),
               axis.title.x = element_blank(),
@@ -114,6 +119,16 @@
         scale_fill_manual(values=ggpalette2, drop=FALSE, name = "Status")
     }, height = "auto")
     
+  legendItemSpacing <- "padding-right:4x;"
+  
+  output$timelineLegend <- renderUI({
+    div(class="legend", 
+      div(style="background:DimGrey"),                p("Past"),
+      div(style=paste0("background:", bc_gold, ";")), p("Current"),
+      div(style="background:whiteSmoke;"),            p("Remaining")
+    )
+  })
+  
   # Table with progress on all priority areas and actions
   
   output$tbPriorities = DT::renderDataTable({

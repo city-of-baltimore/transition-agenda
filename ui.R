@@ -108,6 +108,26 @@
     .goog-te-gadget-icon {
     display:none;
     }
+    .legend {
+      margin-left: 1px;
+      display:flex;
+      flex-direction:row;
+      flex-wrap:nowrap;
+      justify-content:flex-start;
+      align-items:baseline;
+      align-content:flex-start;
+    }
+    .legend p {
+      font-size: 14px!important;
+      font-weight: 400;
+      color: dimGrey!important;
+      margin-right: 0.75em;
+    }
+    .legend div { 
+      margin-right: 0.35em;
+      width: 11px;
+      height: 11px;
+    }
     "
   )),
 
@@ -162,11 +182,13 @@
     # Overview progress and day trackers 
     div(style='padding:1px;max-width:900px;margin-top:24px;' ,
       div(p(style="max-width:900px;font-weight:600;", textOutput("timelineText", container=span), " ")),
-      div(style='margin-left:-4px;margin-right:-4px;margin-bottom:16px;', class="small-tracker", 
-          plotOutput("plotTimeline", width="100%", height="72px")),
+      div(style='margin-left:-4px;margin-right:-4px;margin-bottom:0px;', class="small-tracker", 
+        plotOutput("plotTimeline", width="100%", height="72px")),
+      htmlOutput("timelineLegend"),
       div(p(style="max-width:900px;font-weight:600;", progressText, " ")),
-      div(style='margin-left:-4px;margin-right:-4px;', class="small-tracker", 
-          plotOutput("plotProgress", width="100%", height="72px"))
+      div(style='margin-left:-4px;margin-right:-4px;margin-bottom:0px', class="small-tracker", 
+        plotOutput("plotProgress", width="100%", height="72px")),
+      htmlOutput("progressLegend")
     ),
     
   #--------------------------------------

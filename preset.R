@@ -146,7 +146,9 @@
         (`Priority Area` == "COVID-19 Recovery") ~ health,
         T ~ as.character(finance)
       ))) %>% 
-      mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar)) %>% 
+      mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar))
+    
+    tbCommittees <- tbCommittees %>% 
       select(-c(grep(pattern="_", x=colnames(tbCommittees)))) %>% 
       select(Icon, everything())
     
