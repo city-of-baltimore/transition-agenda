@@ -102,6 +102,7 @@
     pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees")
     pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Progress Updates")
     
+    #Priorities table listing all actions, categorized into committee and level of completion
     tbPriorities <- pg1 %>%
       mutate(Progress = factor(Progress, levels=c("Complete", "In Progress", "Not Yet Started"))) %>% 
       arrange(Committee, Progress) %>%
@@ -114,6 +115,8 @@
                            T ~ as.character(finance)
                                   )))
     
+    #This table then nests all actions into a table of the committees to make it possible later
+    #to have an expand/contract table button for each committee
     tbActionsNested <- tbPriorities %>% 
       mutate(ActionProgressParties = mapply(c, Action, 
                                             symbol(Progress),
@@ -123,12 +126,15 @@
       group_by(Committee) %>%
       summarise(ActionProgressParties = list(unique(ActionProgressParties))) 
     
-    
+    #Creating these calculations allows us to measure the number of actions by status, which lets us
+    #color the boxes according to status.
     actionsTotal <- nrow(tbPriorities)
     actionsComplete <- nrow(tbPriorities[ which(tbPriorities$Progress == "Complete"),])
     actionsInProgress <- nrow(tbPriorities[ which(tbPriorities$Progress == "In Progress"),])
     actionsRemaining <- actionsTotal - actionsComplete - actionsInProgress
     
+    #This then takes the nested table, adds formatting and icons, and arranges it so it's ready to
+    #be used to create the nested table with progress boxes.
     tbCommittees <- pg3 %>% 
       rename("Priority Area" = Name) %>% 
       left_join(tbActionsNested, by = c("Priority Area" = "Committee")) %>%
@@ -140,12 +146,11 @@
         (`Priority Area` == "COVID-19 Recovery") ~ health,
         T ~ as.character(finance)
       ))) %>% 
-      mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar))
-    
-    tbCommittees <- tbCommittees %>% 
+      mutate(Progress = lapply(ActionProgressParties, FUN=priorityAreaProgressBar)) %>% 
       select(-c(grep(pattern="_", x=colnames(tbCommittees)))) %>% 
       select(Icon, everything())
     
+    #We're not using this yet, but stay tuned
     tbUpdates <- pg4 %>%
       mutate(`Date` = ymd(`Date`))
 
