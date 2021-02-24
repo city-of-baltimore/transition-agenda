@@ -5,6 +5,9 @@ account: baltopi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3552985
-bundleId: 4247020
+bundleId: 4267549
 url: https://baltopi.shinyapps.io/100-day-agenda/
-when: 1613779806.84568
+when: 1614190816.94378
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: publish.R|translate-files.R

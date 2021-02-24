@@ -10,6 +10,7 @@ library(readxl)
 library(rsconnect)
 library(DT)
 library(htmltools)
+library(readtext)
 
 setwd("~/GitHub/transition-agenda")
 

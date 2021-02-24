@@ -156,10 +156,6 @@
     tbCommittees <- tbCommittees %>% 
       select(-c(grep(pattern="_", x=colnames(tbCommittees)))) %>% 
       select(Icon, everything())
-    
-    #We're not using this yet, but stay tuned
-    tbUpdates <- pg4 %>%
-      mutate(`Date` = ymd(`Date`))
 
     #------------------------------------
     
