@@ -222,6 +222,12 @@
   
   # Updates table outputs
   
+  output$updateContent <- renderUI({
+    div(class="Updates", 
+        HTML(toString(updateText))
+    )
+  })
+  
   # output$tbUpdates <- DT::renderDataTable({DT::datatable(tbUpdates, 
   #                                     options=list(
   #                                       pageLength=10,

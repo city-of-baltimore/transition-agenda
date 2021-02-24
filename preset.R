@@ -15,6 +15,7 @@
   library(rsconnect)
   library(DT)
   library(htmltools)
+  library(readtext)
 
   #----------------------------------------
 
@@ -101,6 +102,10 @@
     tbDays <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Days")
     pg3 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Committees")
     pg4 <- read_excel("data/100 Day Tracker Data.xlsx", sheet = "Progress Updates")
+    
+    # Read in text update files from updates folder
+    # Used https://wordtohtml.net/
+    updateText <- readChar("updates/2021-02-24-update.txt",nchars=1e6)
     
     #Priorities table listing all actions, categorized into committee and level of completion
     tbPriorities <- pg1 %>%

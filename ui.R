@@ -46,7 +46,7 @@
       margin-top: 24px;
     }
     .tabbable h4 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
     }
     ul.nav-tabs {
@@ -158,7 +158,7 @@
           function googleTranslateElementInit() {
             new google.translate.TranslateElement({
               pageLanguage: \'en\', 
-              includedLanguages: \'ar,en,es,jv,ko,pa,pt,ru,zh-CN\', 
+              includedLanguages: \'en,es,fr,jv,ko,pa,pt,ru,zh-CN,ar\', 
               layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 
               \'google_translate_element\');
           }
@@ -183,11 +183,11 @@
     div(style='padding:1px;max-width:900px;margin-top:24px;' ,
       div(p(style="max-width:900px;font-weight:600;", textOutput("timelineText", container=span), " ")),
       div(style='margin-left:-4px;margin-right:-4px;margin-bottom:0px;', class="small-tracker", 
-        plotOutput("plotTimeline", width="100%", height="72px")),
+        plotOutput("plotTimeline", width="100%", height="48px")),
       htmlOutput("timelineLegend"),
       div(p(style="max-width:900px;font-weight:600;", progressText, " ")),
       div(style='margin-left:-4px;margin-right:-4px;margin-bottom:0px', class="small-tracker", 
-        plotOutput("plotProgress", width="100%", height="72px")),
+        plotOutput("plotProgress", width="100%", height="48px")),
       htmlOutput("progressLegend")
     ),
     
@@ -200,10 +200,9 @@
                text2, 
                dataTableOutput("tbPriorities"), 
                downloadButton(style="border:none;padding-left:0px;margin-top:24px;","downloadActions", HTML("<p>Download this data (csv)</p>"))),
-      # tabPanel(h4(style="color:black;","Weekly Updates"),
-      #   text3
-      #   # , div(dataTableOutput('tbUpdates'))
-      # ),
+      tabPanel(h4(style="color:black;","Updates"),
+        HTML(updateText)
+      ),
       tabPanel(h4(style="color:black;","Message from the Mayor"), aboutus ),
       tabPanel(h4(style="color:black;","Resources & Feedback"), 
         text4,links,
