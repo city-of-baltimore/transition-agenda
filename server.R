@@ -227,23 +227,6 @@
         HTML(toString(updateText))
     )
   })
-  
-  # output$tbUpdates <- DT::renderDataTable({DT::datatable(tbUpdates, 
-  #                                     options=list(
-  #                                       pageLength=10,
-  #                                       searching = T,
-  #                                       initComplete = JS("function(settings, json) 
-  #                                                         {$(this.api().table().container()).css({'font-size' : '18px'});",
-  #                                                         "}"),
-  #                                       columnDefs = list(
-  #                                         list(visible = FALSE, targets = c(0)),
-  #                                         list(orderable = FALSE, targets = c(0, 1, 3)),
-  #                                         list(className = 'dt-center', targets = c(2))
-  #                                       )),
-  #                                     escape = F) %>% 
-  #   formatStyle(names(tbUpdates), target = 'row',
-  #     backgroundColor = 'white', fontSize = '16px')})
-  
-  #----------------------------
+
   
   }
