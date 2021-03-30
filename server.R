@@ -70,13 +70,13 @@
       # Return text explaining when the 100 Days of Action began, and if
       # they are still happening, the current date and number. If they are
       # no longer happening, return the date they ended.
-      ifelse(which(tbDays$Date == Sys.Date())<=100,
+      ifelse(which(tbDays$Date == Sys.Date())<=101,
         paste0("Mayor Scott took office on 12/8/20. Today is day ", 
-            which(tbDays$Date == Sys.Date()),
+            which(tbDays$Date == Sys.Date()-1),
             "."
           ),
         paste0("The 100 Days of Action began when Mayor Scott took office ",
-          "on 12/8/20. The last day was 3/17/21."
+          "on 12/8/20. The last day was 3/18/21."
         )
       )
     })
@@ -95,6 +95,7 @@
       invalidateLater(60000, session)
       
       tbDays %>%
+        filter(`Mayoral First 100 Days Number` < 101) %>%
         mutate(Status = factor(sapply(.$Date,function(x) {ifelse(x > Sys.Date(), "Remaining", ifelse(x == Sys.Date(), "Current","Past"))}),
                                levels=c("Past", "Current","Remaining")),
                Total = 1) %>%
